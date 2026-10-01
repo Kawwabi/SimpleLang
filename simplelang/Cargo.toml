@@ -1,0 +1,20 @@
+[package]
+name = "simplelang"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+readme = "README.md"
+publish = false
+description = "Per-player language selection and a translation service for Pumpkin plugins"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pumpkin-plugin-api = "0.2.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tracing = "0.1"
+
+[profile.release]
+lto = true

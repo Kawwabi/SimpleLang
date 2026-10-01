@@ -1,0 +1,19 @@
+[package]
+name = "simplelang-example"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+readme = "README.md"
+publish = false
+description = "Example of using SimpleLang as an optional dependency"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pumpkin-plugin-api = "0.2.0"
+serde_json = "1"
+tracing = "0.1"
+
+[profile.release]
+lto = true

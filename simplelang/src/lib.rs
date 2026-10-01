@@ -1,0 +1,76 @@
+mod bridge;
+mod host;
+mod ipc;
+mod lang;
+mod state;
+mod storage;
+
+use pumpkin_plugin_api::{Context, Plugin, PluginMetadata};
+use std::path::PathBuf;
+use tracing::{info, warn};
+
+struct SimpleLang;
+
+impl Plugin for SimpleLang {
+    fn new() -> Self {
+        SimpleLang
+    }
+
+    fn metadata(&self) -> PluginMetadata {
+        PluginMetadata {
+            // This name is also the id other plugins send IPC messages to.
+            name: "simplelang".into(),
+            version: env!("CARGO_PKG_VERSION").into(),
+            authors: vec!["SimpleLang".into()],
+            description: "Per-player language selection with English fallback".into(),
+            dependencies: vec![],
+            // Needed to read/write the plugin's private data folder.
+            permissions: vec!["fs.read.data".into(), "fs.write.data".into()],
+        }
+    }
+
+    fn on_load(&self, context: Context) -> pumpkin_plugin_api::Result<()> {
+        let dir = PathBuf::from(context.get_data_folder());
+
+        storage::seed_defaults(&dir);
+
+        {
+            let mut st = state::write();
+            st.dir = dir.clone();
+
+            // 1) bundled defaults: lowest priority, guarantees every built-in key exists
+            for (code, json) in storage::BUNDLED {
+                match storage::parse_entries(json) {
+                    Ok(entries) => st.store.register_raw(code, entries),
+                    Err(e) => warn!("bundled {code}.json is invalid: {e}"),
+                }
+            }
+            // 2) admin-editable files: these win
+            st.store.set_files(storage::load_files(&dir));
+            st.store.set_aliases(storage::load_aliases(&dir));
+            // 3) saved player choices
+            st.store.set_prefs(storage::load_prefs(&dir));
+        }
+
+        // [F] Server handle for the send/broadcast bridge.
+        state::set_server(context.get_server());
+
+        host::register(&context)?;
+
+        info!(
+            "SimpleLang ready: {} language(s) loaded",
+            state::read().store.available().len()
+        );
+        Ok(())
+    }
+
+    fn handle_ipc_message(
+        &self,
+        sender: String,
+        message: Vec<u8>,
+    ) -> Result<Vec<u8>, String> {
+        ipc::handle(&sender, &message)
+    }
+}
+
+pumpkin_plugin_api::register_plugin!(SimpleLang);

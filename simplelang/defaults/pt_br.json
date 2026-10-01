@@ -1,0 +1,13 @@
+{
+  "simplelang.lang.name": "Português (Brasil)",
+  "simplelang.current.auto": "Seu idioma: {0} (detectado nas configurações do seu jogo).",
+  "simplelang.current.set": "Seu idioma: {0}.",
+  "simplelang.available": "Idiomas disponíveis: {0}",
+  "simplelang.usage": "Use /lang <idioma> (ex.: english, portugues, pt_br) para mudar, ou /lang auto para seguir as configurações do seu jogo.",
+  "simplelang.set.ok": "Idioma definido para {0}.",
+  "simplelang.set.unknown": "Idioma desconhecido \"{0}\". Disponíveis: {1}",
+  "simplelang.set.players_only": "Apenas jogadores podem escolher um idioma.",
+  "simplelang.auto.ok": "Seu idioma agora segue as configurações do seu jogo ({0}).",
+  "simplelang.reload.ok": "{0} arquivo(s) de idioma recarregado(s).",
+  "simplelang.reload.denied": "Você não tem permissão para recarregar os idiomas."
+}

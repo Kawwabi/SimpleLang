@@ -1,0 +1,13 @@
+{
+  "simplelang.lang.name": "Deutsch",
+  "simplelang.current.auto": "Deine Sprache: {0} (aus deinen Spieleinstellungen erkannt).",
+  "simplelang.current.set": "Deine Sprache: {0}.",
+  "simplelang.available": "Verfügbare Sprachen: {0}",
+  "simplelang.usage": "Mit /lang <Sprache> (z. B. deutsch, english, pt_br) änderst du sie, mit /lang auto folgt sie deinen Spieleinstellungen.",
+  "simplelang.set.ok": "Sprache auf {0} gestellt.",
+  "simplelang.set.unknown": "Unbekannte Sprache \"{0}\". Verfügbar: {1}",
+  "simplelang.set.players_only": "Nur Spieler können eine Sprache wählen.",
+  "simplelang.auto.ok": "Deine Sprache folgt jetzt deinen Spieleinstellungen ({0}).",
+  "simplelang.reload.ok": "{0} Sprachdatei(en) neu geladen.",
+  "simplelang.reload.denied": "Du hast keine Berechtigung, Sprachen neu zu laden."
+}

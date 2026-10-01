@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  # Pure-logic unit tests and language-file checks. Fast, and independent of
+  # the Pumpkin API, so a failure here is a real bug in SimpleLang itself.
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Unit tests (translation logic)
+        working-directory: simplelang
+        run: |
+          rustc --edition 2024 --test src/lang.rs -o /tmp/lang_tests
+          /tmp/lang_tests
+
+      - name: Check language files
+        run: python3 .github/scripts/check_lang_files.py
+
+  # Builds both plugins for real, as WebAssembly. If a new Pumpkin API release
+  # changes something, this is the job that goes red.
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        crate: [simplelang, simplelang-example]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip2
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: ${{ matrix.crate }}
+
+      - name: Build
+        working-directory: ${{ matrix.crate }}
+        run: cargo build --release
+
+      - name: Upload .wasm
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.crate }}-wasm
+          path: ${{ matrix.crate }}/target/wasm32-wasip2/release/*.wasm
+          if-no-files-found: error
