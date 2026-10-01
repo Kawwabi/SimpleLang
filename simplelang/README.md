@@ -66,8 +66,9 @@ Talk to it over IPC; the plugin id is `"simplelang"`.
 **Prefer making it optional.** Don't list `simplelang` in your `PluginMetadata::dependencies`
 (that makes it mandatory). Instead, keep a built-in English text for each message and fall back
 to it when the IPC call fails because SimpleLang isn't installed. Because there's then no load-order
-guarantee, register your strings lazily (retry until it succeeds). `simplelang-example` is a complete,
-heavily commented plugin doing exactly this.
+guarantee, register your strings lazily (retry until it succeeds). **Read the example plugin first:**
+[`simplelang-example/src/lib.rs`](../simplelang-example/src/lib.rs) is a complete, heavily
+commented plugin doing exactly this.
 
 Note: `ipc::send_ipc_message` returns a nested `Result<Result<Vec<u8>, String>, ()>`: the outer error means the call never reached the plugin, the inner one is the plugin's own reply.
 
@@ -123,6 +124,7 @@ let req = json!({ "op": "broadcast", "key": "myplugin.restart", "args": ["5"], "
 
 `send` replies `{"ok":false,"error":"player not online"}` if the name isn't online; `broadcast` replies `{"ok":true,"delivered":N}`.
 Messages are plain text for now (no JSON/tellraw components).
+`args` must be JSON strings (`["5"]`, not `[5]`), or the request is rejected.
 
 Other ops: `get_lang` (which language would this player see), `languages` (list codes). You can also pass `"lang": "de_de"` to `translate` to force a language.
 `register` for the reserved `simplelang` namespace is rejected.

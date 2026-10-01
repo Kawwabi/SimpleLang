@@ -31,8 +31,111 @@ SimpleLang deliver messages per player, over Pumpkin's plugin IPC.
 
 ## Installing (server owners)
 
-Put `simplelang.wasm` in your server's `plugins/` folder and restart. On first start it
-creates `plugins/simplelang/` with editable language files.
+Download `simplelang.wasm` from the [latest release](https://github.com/Kawwabi/SimpleLang/releases/latest),
+put it in your server's `plugins/` folder and restart. On first start it creates
+`plugins/simplelang/` with editable language files.
+
+Each release also includes `simplelang_example.wasm` (only needed if you want to try the
+example plugin) and `SHA256SUMS.txt` to verify your downloads.
+
+## For plugin developers
+
+Any plugin can use SimpleLang. There's no crate to depend on: you send it small JSON
+messages over Pumpkin's plugin IPC, and it translates and delivers your messages in each
+player's language.
+
+**Make it optional.** The recommended pattern keeps your plugin working whether or not the
+server owner installed SimpleLang, so they can decide whether they want extra languages:
+
+1. **Don't** list `simplelang` in `PluginMetadata::dependencies` (that would make it mandatory).
+2. **Do** keep a built-in English text for every message in your code.
+3. **Do** register your strings with SimpleLang, under a namespace of your own.
+4. **Do** ask SimpleLang to send the message (or to translate it for you).
+5. If the call fails because SimpleLang isn't installed, send your English text yourself.
+
+Add `serde_json = "1"` to your `Cargo.toml`, then:
+
+```rust
+use pumpkin_plugin_api::ipc;
+use serde_json::{Value, json};
+
+/// One helper for every call. Returns None if SimpleLang isn't installed
+/// or rejected the request.
+fn simplelang(request: Value) -> Option<Value> {
+    let bytes = serde_json::to_vec(&request).ok()?;
+    let reply = ipc::send_ipc_message("simplelang", &bytes)
+        .ok()?  // outer Result: did the call reach a plugin at all?
+        .ok()?; // inner Result: did SimpleLang accept it?
+    let reply: Value = serde_json::from_slice(&reply).ok()?;
+    (reply["ok"] == true).then_some(reply)
+}
+
+// 1) Register your strings: in on_load, and again before you first need them
+//    (see "Load order" below). Keys become "<namespace>.<key>".
+simplelang(json!({
+    "op": "register", "namespace": "myplugin", "lang": "en_us",
+    "entries": { "welcome": "Welcome, {0}!" }
+}));
+simplelang(json!({
+    "op": "register", "namespace": "myplugin", "lang": "pt_br",
+    "entries": { "welcome": "Bem-vindo, {0}!" }
+}));
+
+// 2) Send it to a player, in their language. Fall back to English if SimpleLang is absent.
+let name = player.get_name();
+let delivered = simplelang(json!({
+    "op": "send", "to": name, "key": "myplugin.welcome", "args": [name], "channel": "chat"
+}))
+.is_some();
+if !delivered {
+    player.send_system_message(TextComponent::text(&format!("Welcome, {name}!")), false);
+}
+```
+
+**A complete, heavily commented plugin doing exactly this is in
+[`simplelang-example/src/lib.rs`](simplelang-example/src/lib.rs).** Read its header comment
+first; it's the best starting point.
+
+### Operations
+
+Every request is a JSON object with an `"op"`; every reply has `"ok": true|false`.
+
+| `op` | Fields (`?` = optional) | Reply |
+|---|---|---|
+| `register` | `namespace`, `lang`, `entries` (`{ key: text }`) | `{ok, registered}` |
+| `send` | `to` (exact player name), `key`, `args`?, `channel`?, `subtitle_key`? | `{ok: true}`, or `{ok: false, error: "player not online"}` |
+| `broadcast` | `key`, `args`?, `channel`?, `subtitle_key`? | `{ok, delivered}`: everyone online, each in their own language |
+| `translate` | `key`, `args`?, and `player`? / `client_locale`? / `lang`? | `{ok, text, lang}`: the translated string, to deliver yourself |
+| `get_lang` | `player`?, `client_locale`? | `{ok, lang}` |
+| `languages` | none | `{ok, languages}` |
+
+`channel` is `"chat"` (default), `"actionbar"` or `"title"`. For a title, `subtitle_key` adds
+the second line.
+
+For `translate` and `get_lang`, identify the player with `format!("{:?}", player.get_id())`
+(as `player`) and `format!("{:?}", player.get_locale())` (as `client_locale`). Or skip the
+player and pass `"lang": "de_de"` to force a language.
+
+### Things to know
+
+- **Args must be strings.** `"args": ["5"]` works; `"args": [5]` is rejected. Use `{0}`, `{1}`, ...
+  in your texts.
+- **Namespaces** are lowercase letters, digits, `_` and `-`. Use something unique to your
+  plugin; `simplelang` is reserved. Registered keys are always `<namespace>.<key>`.
+- **Fallback is per key:** a player's language, then the same language family
+  (`de_at` → `de_de`), then English, then the key itself. A missing translation shows English,
+  not a blank.
+- **Load order:** without a declared dependency, SimpleLang may load after your plugin, so
+  registering in `on_load` can fail even though it's installed. Retry before each use until it
+  succeeds once. The example plugin does this.
+- **Admins can override you:** a `lang/*.json` file on disk beats registered strings, so a
+  server owner can reword your messages by adding `"myplugin.welcome": "..."` to their file.
+- **Plain text only** for now: no JSON/tellraw components.
+- **Nested `Result`:** `ipc::send_ipc_message` returns `Result<Result<Vec<u8>, String>, ()>`.
+  The outer error means the call never reached the plugin (not installed); the inner one is
+  the plugin's own reply.
+
+More detail, including the IPC protocol reference, is in [`simplelang/README.md`](simplelang/README.md).
 
 ## Building
 

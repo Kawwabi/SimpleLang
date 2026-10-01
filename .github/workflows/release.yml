@@ -1,0 +1,73 @@
+name: Release
+
+# Publishes a GitHub Release with the built .wasm files whenever you push a
+# version tag. To release:
+#
+#   1. Bump `version` in simplelang/Cargo.toml and simplelang-example/Cargo.toml
+#   2. git commit -am "Release 0.2.0" && git push
+#   3. git tag v0.2.0 && git push origin v0.2.0
+#
+# The tag must match the Cargo.toml versions (v0.2.0 <-> version = "0.2.0"),
+# otherwise the workflow stops before publishing anything.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write # needed to create the release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tag matches Cargo.toml versions
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          for crate in simplelang simplelang-example; do
+            CRATE_VERSION=$(grep -m1 '^version' "$crate/Cargo.toml" | sed 's/.*"\(.*\)".*/\1/')
+            if [ "$CRATE_VERSION" != "$TAG_VERSION" ]; then
+              echo "::error::Tag is $GITHUB_REF_NAME but $crate/Cargo.toml says version $CRATE_VERSION"
+              exit 1
+            fi
+          done
+          echo "Tag $GITHUB_REF_NAME matches both crates"
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip2
+
+      # Same checks as CI, so a broken tag never produces a release.
+      - name: Unit tests
+        working-directory: simplelang
+        run: |
+          rustc --edition 2024 --test src/lang.rs -o /tmp/lang_tests
+          /tmp/lang_tests
+
+      - name: Check language files
+        run: python3 .github/scripts/check_lang_files.py
+
+      - name: Build simplelang
+        working-directory: simplelang
+        run: cargo build --release
+
+      - name: Build simplelang-example
+        working-directory: simplelang-example
+        run: cargo build --release
+
+      - name: Collect files
+        run: |
+          mkdir dist
+          cp simplelang/target/wasm32-wasip2/release/simplelang.wasm dist/
+          cp simplelang-example/target/wasm32-wasip2/release/simplelang_example.wasm dist/
+          cd dist && sha256sum *.wasm > SHA256SUMS.txt && cat SHA256SUMS.txt
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+          fail_on_unmatched_files: true
