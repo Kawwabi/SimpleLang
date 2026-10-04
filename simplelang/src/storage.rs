@@ -284,3 +284,55 @@ pub fn save_prefs(base: &Path, prefs: &HashMap<String, String>) -> Result<(), St
     let json = serde_json::to_string_pretty(prefs).map_err(|e| e.to_string())?;
     fs::write(prefs_path(base), json).map_err(|e| e.to_string())
 }
+
+// ---- config.json ---------------------------------------------------------
+
+/// Written on first start so admins can find the setting. `_help` is ignored by the loader.
+const DEFAULT_CONFIG: &str = r#"{
+  "_help": "default_language is what players see until they pick one with /lang. Use \"auto\" to follow each player's game language, or a language such as \"pt_br\" or \"portuguese\" to give everyone that one. Run /lang reload after editing.",
+  "default_language": "auto"
+}
+"#;
+
+#[derive(serde::Deserialize)]
+pub struct Config {
+    #[serde(default = "auto_string")]
+    pub default_language: String,
+}
+
+fn auto_string() -> String {
+    "auto".to_string()
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self {
+            default_language: auto_string(),
+        }
+    }
+}
+
+fn config_path(base: &Path) -> PathBuf {
+    base.join("config.json")
+}
+
+/// Create config.json with the defaults if it doesn't exist. Never overwrites.
+pub fn seed_config(base: &Path) {
+    let path = config_path(base);
+    if !path.exists() {
+        if let Err(e) = fs::write(&path, DEFAULT_CONFIG) {
+            warn!("could not write {}: {e}", path.display());
+        }
+    }
+}
+
+/// Read config.json. A missing or broken file means the defaults ("auto"), with a warning.
+pub fn load_config(base: &Path) -> Config {
+    match fs::read_to_string(config_path(base)) {
+        Ok(text) => serde_json::from_str(&text).unwrap_or_else(|e| {
+            warn!("config.json is invalid, using defaults: {e}");
+            Config::default()
+        }),
+        Err(_) => Config::default(), // first run
+    }
+}

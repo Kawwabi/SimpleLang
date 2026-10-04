@@ -6,6 +6,20 @@ use std::collections::{BTreeSet, HashMap};
 
 pub const DEFAULT_LANG: &str = "en_us";
 
+/// Stored as a player's choice by `/lang auto`: "follow my game's language".
+pub const AUTO: &str = "auto";
+
+/// Why a player sees the language they see.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LangSource {
+    /// They picked one with `/lang <language>`.
+    Chosen,
+    /// They (or the server) follow the game's language setting.
+    Auto,
+    /// They haven't chosen, and the server has a default language configured.
+    ServerDefault,
+}
+
 /// language code -> (key -> text)
 pub type Table = HashMap<String, HashMap<String, String>>;
 
@@ -138,12 +152,14 @@ pub struct CatalogueEntry {
 }
 
 pub struct Store {
-    /// Loaded from `<data>/lang/*.json`. Admins edit these; they win.
+    /// Loaded from `<data>/translations/*.json`. Admins edit these; they win.
     files: Table,
     /// Bundled defaults and strings registered by other plugins over IPC.
     registered: Table,
-    /// player id -> chosen language
+    /// player id -> chosen language, or `AUTO`
     prefs: HashMap<String, String>,
+    /// `default_language` from config.json. `None` means "auto": follow each player's game language.
+    server_default: Option<String>,
     /// Admin-defined nicknames from `aliases.json` (keys are folded).
     aliases: HashMap<String, String>,
     /// Every Minecraft language, in priority order. Lets players pick a language
@@ -160,6 +176,7 @@ impl Store {
             files: Table::new(),
             registered: Table::new(),
             prefs: HashMap::new(),
+            server_default: None,
             aliases: HashMap::new(),
             catalogue: Vec::new(),
             catalogue_aliases: HashMap::new(),
@@ -235,16 +252,41 @@ impl Store {
         &self.prefs
     }
 
-    pub fn pref(&self, player_id: &str) -> Option<&String> {
-        self.prefs.get(player_id)
-    }
-
     pub fn set_pref(&mut self, player_id: &str, lang: &str) {
         self.prefs.insert(player_id.to_string(), normalize(lang));
     }
 
-    pub fn clear_pref(&mut self, player_id: &str) {
-        self.prefs.remove(player_id);
+    /// The server-wide default, if one is configured.
+    pub fn server_default(&self) -> Option<&str> {
+        self.server_default.as_deref()
+    }
+
+    /// Apply `default_language` from config.json: `"auto"` (or empty) means follow each
+    /// player's game language; anything else is resolved like `/lang <language>`
+    /// (`pt_br`, `portuguese`, ...). On an unknown value the previous setting is kept.
+    pub fn set_server_default(&mut self, value: &str) -> Result<(), String> {
+        let v = value.trim();
+        if v.is_empty() || v.eq_ignore_ascii_case(AUTO) {
+            self.server_default = None;
+            return Ok(());
+        }
+        match self.resolve_code(v) {
+            Some(code) => {
+                self.server_default = Some(code);
+                Ok(())
+            }
+            None => Err(format!("unknown language '{v}'")),
+        }
+    }
+
+    /// Where this player's language comes from.
+    pub fn source(&self, player_id: Option<&str>) -> LangSource {
+        match player_id.and_then(|id| self.prefs.get(id)) {
+            Some(p) if p.as_str() == AUTO => LangSource::Auto,
+            Some(_) => LangSource::Chosen,
+            None if self.server_default.is_some() => LangSource::ServerDefault,
+            None => LangSource::Auto,
+        }
     }
 
     // ---- languages -----------------------------------------------------
@@ -374,12 +416,21 @@ impl Store {
     }
 
     /// Which language should this player see?
-    /// explicit choice > client setting > server default.
+    /// their `/lang` choice > the server's default language (if configured) > their
+    /// game's language > English. `/lang auto` skips the server default.
     pub fn resolve_lang(&self, player_id: Option<&str>, client_locale: Option<&str>) -> String {
-        if let Some(id) = player_id {
-            if let Some(chosen) = self.prefs.get(id) {
-                return chosen.clone();
+        match self.source(player_id) {
+            LangSource::Chosen => {
+                if let Some(chosen) = player_id.and_then(|id| self.prefs.get(id)) {
+                    return chosen.clone();
+                }
             }
+            LangSource::ServerDefault => {
+                if let Some(default) = &self.server_default {
+                    return default.clone();
+                }
+            }
+            LangSource::Auto => {}
         }
         if let Some(loc) = client_locale {
             let n = normalize(loc);
@@ -515,9 +566,47 @@ mod tests {
         let mut s = store();
         s.set_pref("p1", "de-DE");
         assert_eq!(s.resolve_lang(Some("p1"), Some("en_us")), "de_de");
-        s.clear_pref("p1");
+        s.set_pref("p1", AUTO);
         assert_eq!(s.resolve_lang(Some("p1"), Some("fr_fr")), "fr_fr");
         assert_eq!(s.resolve_lang(None, None), "en_us");
+    }
+
+    #[test]
+    fn server_default_applies_until_a_player_chooses() {
+        let mut s = store_with_names(); // installed: en_us, de_de, pt_br
+        s.set_catalogue(catalogue());
+        s.set_server_default("portuguese").unwrap();
+        assert_eq!(s.server_default(), Some("pt_br"));
+        // no choice yet: the server default beats the client's language
+        assert_eq!(s.resolve_lang(Some("p1"), Some("de_de")), "pt_br");
+        assert_eq!(s.source(Some("p1")), LangSource::ServerDefault);
+        // console / no player id behaves the same
+        assert_eq!(s.resolve_lang(None, Some("de_de")), "pt_br");
+        // an explicit choice wins
+        s.set_pref("p1", "de_de");
+        assert_eq!(s.resolve_lang(Some("p1"), Some("fr_fr")), "de_de");
+        assert_eq!(s.source(Some("p1")), LangSource::Chosen);
+        // `/lang auto` means "follow my game's language", even with a server default
+        s.set_pref("p1", AUTO);
+        assert_eq!(s.resolve_lang(Some("p1"), Some("fr_fr")), "fr_fr");
+        assert_eq!(s.source(Some("p1")), LangSource::Auto);
+        assert_eq!(s.resolve_lang(Some("p1"), None), "en_us");
+    }
+
+    #[test]
+    fn server_default_auto_and_bad_values() {
+        let mut s = store_with_names();
+        assert_eq!(s.source(Some("p")), LangSource::Auto);
+        assert_eq!(s.resolve_lang(Some("p"), Some("de_de")), "de_de");
+        s.set_server_default("pt_br").unwrap();
+        // a typo is rejected and the previous setting stays
+        assert!(s.set_server_default("elvish").is_err());
+        assert_eq!(s.server_default(), Some("pt_br"));
+        s.set_server_default(" AUTO ").unwrap();
+        assert_eq!(s.server_default(), None);
+        s.set_server_default("pt_br").unwrap();
+        s.set_server_default("").unwrap();
+        assert_eq!(s.server_default(), None);
     }
 
     fn store_with_names() -> Store {

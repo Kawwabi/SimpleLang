@@ -16,7 +16,7 @@
 //!   [E] TextComponent::text(..).color_named(NamedColor::Green) chaining
 //!   [D] format!("{:?}", sender.get_locale()) -> language code
 
-use crate::lang::normalize_debug_locale;
+use crate::lang::{AUTO, LangSource, normalize_debug_locale};
 use crate::{state, storage};
 use pumpkin_plugin_api::{
     Context, Player, Server,
@@ -109,13 +109,14 @@ impl CommandHandler for Show {
     ) -> Result<i32, CommandError> {
         let id = sender_id(&sender);
         let locale = client_locale(&sender);
-        let (lang, is_auto) = {
+        let (lang, source) = {
             let st = state::read();
             let lang = st.store.resolve_lang(id.as_deref(), Some(&locale));
-            let is_auto = id.as_deref().map_or(true, |i| st.store.pref(i).is_none());
-            (lang, is_auto)
+            (lang, st.store.source(id.as_deref()))
         };
-        let key = if is_auto {
+        // "(detected from your game settings)" is only true when we really followed them;
+        // for a chosen language or the server's default, just state the language.
+        let key = if source == LangSource::Auto {
             "simplelang.current.auto"
         } else {
             "simplelang.current.set"
@@ -197,7 +198,7 @@ impl CommandHandler for SetLang {
     }
 }
 
-/// `/lang auto` - go back to following the client's language setting.
+/// `/lang auto` - follow the game's language setting (even if the server has a default).
 struct Auto;
 impl CommandHandler for Auto {
     fn handle(
@@ -211,7 +212,7 @@ impl CommandHandler for Auto {
         };
         let (dir, prefs) = {
             let mut st = state::write();
-            st.store.clear_pref(&player_key(&player));
+            st.store.set_pref(&player_key(&player), AUTO);
             (st.dir.clone(), st.store.prefs().clone())
         };
         if let Err(e) = storage::save_prefs(&dir, &prefs) {
@@ -237,10 +238,15 @@ impl CommandHandler for Reload {
         let dir = state::read().dir.clone();
         let files = storage::load_files(&dir);
         let count = files.len();
-        {
+        let config = storage::load_config(&dir);
+        let default_result = {
             let mut st = state::write();
             st.store.set_files(files);
             st.store.set_aliases(storage::load_aliases(&dir));
+            st.store.set_server_default(&config.default_language)
+        };
+        if let Err(e) = default_result {
+            warn!("config.json: default_language: {e}; keeping the previous setting");
         }
         say(&sender, "simplelang.reload.ok", &[count.to_string()]);
         Ok(1)

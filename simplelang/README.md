@@ -18,7 +18,8 @@ On first start it creates `plugins/simplelang/` (the plugin's data folder) conta
 | `translations/*.json` | The language files, one per language, copied here on first start so you can read and edit them. Edit one, or add `fr_fr.json`, then `/lang reload`. |
 | `seeded.json` | Bookkeeping: lets a plugin update refresh translation files you never touched, without ever overwriting ones you edited. |
 | `aliases.json` | Optional. You create it to add custom `/lang` names (see below). |
-| `players.json` | Each player's explicit choice. Written automatically. |
+| `config.json` | Server settings. Right now just `default_language` (see [Server configuration](#server-configuration)). Created on first start. |
+| `players.json` | Each player's explicit choice, including `"auto"` for "follow my game's language". Written automatically. |
 
 Language files are flat `{ "key": "text" }` objects. Placeholders are `{0}`, `{1}`, ...
 
@@ -31,10 +32,30 @@ Language files are flat `{ "key": "text" }` objects. Placeholders are `{0}`, `{1
 | `/lang` | Show your language, with a clickable hint that lists every language |
 | `/lang list` | Every language that has translations (the hint runs this when clicked) |
 | `/lang <language>` | Choose a language by code (`pt_br`, `pt-BR`) **or by name** (`english`, `portugues`, `deutsch`, `brasil`, `pt`) |
-| `/lang auto` | Follow the game's language setting again |
+| `/lang auto` | Follow the game's language setting, even if the server has a different default |
 | `/lang reload` | Re-read `translations/*.json` (permission `simplelang:reload`, console always allowed) |
 
-Which language a player sees: **their `/lang` choice → their game's language setting → English.**
+Which language a player sees: **their `/lang` choice → the server's default language (if you set one) → their game's language setting → English.**
+
+## Server configuration
+
+`plugins/simplelang/config.json` is created on first start:
+
+```json
+{
+  "default_language": "auto"
+}
+```
+
+| `default_language` | Effect |
+|---|---|
+| `"auto"` (default) | Players who haven't chosen see their **game's language**, or English if it isn't translated |
+| a language, such as `"pt_br"` or `"portuguese"` | Players who haven't chosen see **that language**, whatever their game is set to |
+
+A fixed default is a starting point, not a lock. Players can still pick another language with `/lang <language>`,
+or `/lang auto` to follow their own game's language. Edit the file, then run `/lang reload` (no restart).
+The value is a code or any name `/lang` accepts, and an unknown one is logged and ignored.
+It also applies to plugins that ask SimpleLang for a player's language (`get_lang`, `translate`, `send`, `broadcast`).
 
 ## Every Minecraft language
 

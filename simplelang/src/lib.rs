@@ -34,6 +34,7 @@ impl Plugin for SimpleLang {
         let dir = PathBuf::from(context.get_data_folder());
 
         storage::seed_defaults(&dir);
+        storage::seed_config(&dir);
 
         {
             let mut st = state::write();
@@ -56,6 +57,21 @@ impl Plugin for SimpleLang {
             st.store.set_aliases(storage::load_aliases(&dir));
             // 3) saved player choices
             st.store.set_prefs(storage::load_prefs(&dir));
+        }
+
+        // 4) config.json: the server-wide default language. Applied after the languages
+        // are loaded so names like "portuguese" can be resolved. Logged outside the lock.
+        let default_result = {
+            let config = storage::load_config(&dir);
+            state::write().store.set_server_default(&config.default_language)
+        };
+        if let Err(e) = default_result {
+            warn!("config.json: default_language: {e}; following each player's game language instead");
+        }
+        let current_default = state::read().store.server_default().map(str::to_string);
+        match current_default {
+            Some(code) => info!("default language for players who haven't chosen: {code}"),
+            None => info!("default language: follows each player's game language (\"auto\")"),
         }
 
         // [F] Server handle for the send/broadcast bridge.
