@@ -289,15 +289,47 @@ pub fn save_prefs(base: &Path, prefs: &HashMap<String, String>) -> Result<(), St
 
 /// Written on first start so admins can find the setting. `_help` is ignored by the loader.
 const DEFAULT_CONFIG: &str = r#"{
-  "_help": "default_language is what players see until they pick one with /lang. Use \"auto\" to follow each player's game language, or a language such as \"pt_br\" or \"portuguese\" to give everyone that one. Run /lang reload after editing.",
-  "default_language": "auto"
+  "_help": "default_language: what players see until they pick one with /lang. \"auto\" follows each player's game language; or give a language such as \"pt_br\" or \"portuguese\". supported_languages: \"all\", or a list such as [\"en_us\", \"pt_br\", \"es_es\"] to limit the languages players can choose. Run /lang reload after editing.",
+  "default_language": "auto",
+  "supported_languages": "all"
 }
 "#;
+
+/// `"all"`, a single language, or a list of them.
+#[derive(serde::Deserialize)]
+#[serde(untagged)]
+pub enum SupportedSetting {
+    One(String),
+    Many(Vec<String>),
+}
 
 #[derive(serde::Deserialize)]
 pub struct Config {
     #[serde(default = "auto_string")]
     pub default_language: String,
+    #[serde(default = "all_languages")]
+    pub supported_languages: SupportedSetting,
+}
+
+fn all_languages() -> SupportedSetting {
+    SupportedSetting::One("all".to_string())
+}
+
+impl Config {
+    /// The languages the owner restricted the server to, or `None` for "all".
+    pub fn supported(&self) -> Option<Vec<String>> {
+        match &self.supported_languages {
+            SupportedSetting::One(s) => {
+                let s = s.trim();
+                if s.is_empty() || s.eq_ignore_ascii_case("all") {
+                    None
+                } else {
+                    Some(vec![s.to_string()])
+                }
+            }
+            SupportedSetting::Many(list) => Some(list.clone()),
+        }
+    }
 }
 
 fn auto_string() -> String {
@@ -308,6 +340,7 @@ impl Default for Config {
     fn default() -> Self {
         Self {
             default_language: auto_string(),
+            supported_languages: all_languages(),
         }
     }
 }
@@ -335,4 +368,30 @@ pub fn load_config(base: &Path) -> Config {
         }),
         Err(_) => Config::default(), // first run
     }
+}
+
+/// Apply config.json to the store. Returns problems worth logging; the caller logs them
+/// after releasing the state lock.
+pub fn apply_config(store: &mut crate::lang::Store, config: &Config) -> Vec<String> {
+    let mut problems = Vec::new();
+
+    let requested = config.supported();
+    let unknown = store.set_supported(requested.as_deref());
+    if !unknown.is_empty() {
+        problems.push(format!(
+            "supported_languages: ignoring unknown language(s): {}",
+            unknown.join(", ")
+        ));
+    }
+    if requested.is_some() && !store.is_restricted() {
+        problems.push(
+            "supported_languages: no valid language in the list, so all languages stay available"
+                .to_string(),
+        );
+    }
+
+    if let Err(e) = store.set_server_default(&config.default_language) {
+        problems.push(format!("default_language: {e}; keeping the previous setting"));
+    }
+    problems
 }

@@ -61,17 +61,24 @@ impl Plugin for SimpleLang {
 
         // 4) config.json: the server-wide default language. Applied after the languages
         // are loaded so names like "portuguese" can be resolved. Logged outside the lock.
-        let default_result = {
+        let problems = {
             let config = storage::load_config(&dir);
-            state::write().store.set_server_default(&config.default_language)
+            let mut st = state::write();
+            storage::apply_config(&mut st.store, &config)
         };
-        if let Err(e) = default_result {
-            warn!("config.json: default_language: {e}; following each player's game language instead");
+        for problem in &problems {
+            warn!("config.json: {problem}");
         }
-        let current_default = state::read().store.server_default().map(str::to_string);
+        let (current_default, restricted) = {
+            let st = state::read();
+            (st.store.server_default().map(str::to_string), st.store.is_restricted())
+        };
         match current_default {
             Some(code) => info!("default language for players who haven't chosen: {code}"),
             None => info!("default language: follows each player's game language (\"auto\")"),
+        }
+        if restricted {
+            info!("supported languages are limited by config.json (see /lang list)");
         }
 
         // [F] Server handle for the send/broadcast bridge.

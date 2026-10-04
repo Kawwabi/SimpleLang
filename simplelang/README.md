@@ -18,7 +18,7 @@ On first start it creates `plugins/simplelang/` (the plugin's data folder) conta
 | `translations/*.json` | The language files, one per language, copied here on first start so you can read and edit them. Edit one, or add `fr_fr.json`, then `/lang reload`. |
 | `seeded.json` | Bookkeeping: lets a plugin update refresh translation files you never touched, without ever overwriting ones you edited. |
 | `aliases.json` | Optional. You create it to add custom `/lang` names (see below). |
-| `config.json` | Server settings. Right now just `default_language` (see [Server configuration](#server-configuration)). Created on first start. |
+| `config.json` | Server settings: `default_language` and `supported_languages` (see [Server configuration](#server-configuration)). Created on first start. |
 | `players.json` | Each player's explicit choice, including `"auto"` for "follow my game's language". Written automatically. |
 
 Language files are flat `{ "key": "text" }` objects. Placeholders are `{0}`, `{1}`, ...
@@ -43,9 +43,14 @@ Which language a player sees: **their `/lang` choice → the server's default la
 
 ```json
 {
-  "default_language": "auto"
+  "default_language": "auto",
+  "supported_languages": "all"
 }
 ```
+
+(The real file also has a `_help` entry that explains the options; it's ignored.)
+
+### `default_language`
 
 | `default_language` | Effect |
 |---|---|
@@ -57,10 +62,37 @@ or `/lang auto` to follow their own game's language. Edit the file, then run `/l
 The value is a code or any name `/lang` accepts, and an unknown one is logged and ignored.
 It also applies to plugins that ask SimpleLang for a player's language (`get_lang`, `translate`, `send`, `broadcast`).
 
+### `supported_languages`
+
+By default players can choose from every language. Not every server maintains translations for all
+of them, so you can limit the choice to the languages you actually support:
+
+```json
+"supported_languages": ["en_us", "pt_br", "es_es"]
+```
+
+Entries are codes or any name `/lang` accepts (`"portuguese"`). With a list set:
+
+- `/lang` shows your list right away (instead of the "every Minecraft language" hint), and `/lang list` lists exactly these.
+- `/lang <language>` only accepts them. A regional variant is mapped to the closest supported language
+  (`es_mx` becomes `es_es`, `pt_pt` becomes `pt_br`); anything else gets the "unknown language" message.
+- A player's game language that isn't supported is mapped the same way. If nothing fits, they get the server's
+  `default_language`, else English if it's supported, else the first language in your list.
+- So `get_lang` (and `translate`, `send`, `broadcast`) always gives plugins **one of your supported languages**.
+- `default_language` always counts as supported, even if it isn't in the list.
+- Listed languages don't need a SimpleLang translation: any Minecraft language works, with the usual English
+  fallback for missing messages.
+- A choice a player made earlier for a language you've since removed is ignored, not deleted, so it works
+  again if you add the language back.
+- An entry that isn't a language is logged and skipped. A list with no valid entry is treated as `"all"`, so a
+  typo can never lock everyone out.
+
+Edit the file, then `/lang reload`.
+
 ## Every Minecraft language
 
-Players can select **any Minecraft language** with `/lang`, by code or by name, even when
-nobody has translated SimpleLang into it: `/lang tlh_aa`, `/lang francais`, `/lang spanish-mexico`.
+Unless the server owner limits them with [`supported_languages`](#supported_languages), players can select
+**any Minecraft language** with `/lang`, by code or by name, even when nobody has translated SimpleLang into it: `/lang tlh_aa`, `/lang francais`, `/lang spanish-mexico`.
 129 languages are built in (see `defaults/minecraft_languages.json`).
 
 There are two different things here:

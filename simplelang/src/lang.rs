@@ -160,6 +160,9 @@ pub struct Store {
     prefs: HashMap<String, String>,
     /// `default_language` from config.json. `None` means "auto": follow each player's game language.
     server_default: Option<String>,
+    /// `supported_languages` from config.json. `None` means every language is allowed;
+    /// `Some` is the exact set players may choose (plus the server default).
+    supported: Option<BTreeSet<String>>,
     /// Admin-defined nicknames from `aliases.json` (keys are folded).
     aliases: HashMap<String, String>,
     /// Every Minecraft language, in priority order. Lets players pick a language
@@ -177,6 +180,7 @@ impl Store {
             registered: Table::new(),
             prefs: HashMap::new(),
             server_default: None,
+            supported: None,
             aliases: HashMap::new(),
             catalogue: Vec::new(),
             catalogue_aliases: HashMap::new(),
@@ -279,13 +283,124 @@ impl Store {
         }
     }
 
+    /// This player's stored choice, unless it names a language the server doesn't support
+    /// (any more). The entry stays in players.json, so it works again if the language returns.
+    fn active_pref(&self, player_id: Option<&str>) -> Option<&str> {
+        let pref = player_id.and_then(|id| self.prefs.get(id))?;
+        if pref.as_str() == AUTO || self.is_supported(pref) {
+            Some(pref.as_str())
+        } else {
+            None
+        }
+    }
+
     /// Where this player's language comes from.
     pub fn source(&self, player_id: Option<&str>) -> LangSource {
-        match player_id.and_then(|id| self.prefs.get(id)) {
-            Some(p) if p.as_str() == AUTO => LangSource::Auto,
+        match self.active_pref(player_id) {
+            Some(p) if p == AUTO => LangSource::Auto,
             Some(_) => LangSource::Chosen,
             None if self.server_default.is_some() => LangSource::ServerDefault,
             None => LangSource::Auto,
+        }
+    }
+
+    // ---- supported languages -------------------------------------------
+
+    /// Apply `supported_languages` from config.json: `None` allows every language, `Some`
+    /// limits players to those (codes or names, like `/lang` accepts). Entries that aren't
+    /// recognised are skipped and returned so the caller can warn. A list with no valid entry
+    /// would lock everyone out, so it counts as "all".
+    pub fn set_supported(&mut self, requested: Option<&[String]>) -> Vec<String> {
+        let Some(list) = requested else {
+            self.supported = None;
+            return Vec::new();
+        };
+        let mut set = BTreeSet::new();
+        let mut unknown = Vec::new();
+        for item in list {
+            match self.resolve_code(item) {
+                Some(code) => {
+                    set.insert(code);
+                }
+                None => unknown.push(item.clone()),
+            }
+        }
+        self.supported = if set.is_empty() { None } else { Some(set) };
+        unknown
+    }
+
+    /// Is the language list limited by the server owner?
+    pub fn is_restricted(&self) -> bool {
+        self.supported.is_some()
+    }
+
+    /// The configured set plus the server default (which is always allowed), or `None` if
+    /// every language is allowed.
+    fn effective_supported(&self) -> Option<BTreeSet<String>> {
+        let mut set = self.supported.clone()?;
+        if let Some(default) = &self.server_default {
+            set.insert(default.clone());
+        }
+        Some(set)
+    }
+
+    /// May players on this server use this language?
+    pub fn is_supported(&self, code: &str) -> bool {
+        match &self.supported {
+            None => true,
+            Some(set) => {
+                let c = normalize(code);
+                set.contains(&c) || self.server_default.as_deref() == Some(c.as_str())
+            }
+        }
+    }
+
+    /// The supported language that serves `code`: itself, else the main language of its family
+    /// (`es_mx` -> `es_es`), else any supported sibling (`pt_pt` -> `pt_br`). `None` if the
+    /// server supports nothing in that family. With no restriction it's always the code itself.
+    pub fn map_to_supported(&self, code: &str) -> Option<String> {
+        let c = normalize(code);
+        let Some(set) = self.effective_supported() else {
+            return Some(c);
+        };
+        if set.contains(&c) {
+            return Some(c);
+        }
+        let base = c.split('_').next().unwrap_or("");
+        if base.is_empty() {
+            return None;
+        }
+        let same = format!("{base}_{base}");
+        if set.contains(&same) {
+            return Some(same);
+        }
+        let prefix = format!("{base}_");
+        set.into_iter().find(|s| s.starts_with(&prefix))
+    }
+
+    /// What `/lang list` shows: the supported languages if the owner limited them,
+    /// otherwise every language that has translations.
+    pub fn listed(&self) -> Vec<String> {
+        match self.effective_supported() {
+            Some(set) => set.into_iter().collect(),
+            None => self.available(),
+        }
+    }
+
+    /// Used when nothing else decides. Unrestricted: English. Restricted: the server default,
+    /// else English if it's supported, else the first supported language.
+    fn fallback_lang(&self) -> String {
+        match self.effective_supported() {
+            None => self.default_lang.clone(),
+            Some(set) => {
+                if let Some(default) = &self.server_default {
+                    return default.clone();
+                }
+                if set.contains(&self.default_lang) {
+                    return self.default_lang.clone();
+                }
+                set.into_iter().next().unwrap_or_else(|| self.default_lang.clone())
+            }
         }
     }
 
@@ -304,7 +419,7 @@ impl Store {
 
     /// `["de_de (Deutsch)", "en_us (English)"]`
     pub fn describe(&self) -> Vec<String> {
-        self.available()
+        self.listed()
             .into_iter()
             .map(|code| self.label(&code))
             .collect()
@@ -417,12 +532,13 @@ impl Store {
 
     /// Which language should this player see?
     /// their `/lang` choice > the server's default language (if configured) > their
-    /// game's language > English. `/lang auto` skips the server default.
+    /// game's language > English. `/lang auto` skips the server default. If the server limits
+    /// its supported languages, the result is always one of them.
     pub fn resolve_lang(&self, player_id: Option<&str>, client_locale: Option<&str>) -> String {
         match self.source(player_id) {
             LangSource::Chosen => {
-                if let Some(chosen) = player_id.and_then(|id| self.prefs.get(id)) {
-                    return chosen.clone();
+                if let Some(chosen) = self.active_pref(player_id) {
+                    return chosen.to_string();
                 }
             }
             LangSource::ServerDefault => {
@@ -435,10 +551,13 @@ impl Store {
         if let Some(loc) = client_locale {
             let n = normalize(loc);
             if !n.is_empty() {
-                return n;
+                // The game's language, or the closest supported one if the server limits them.
+                if let Some(mapped) = self.map_to_supported(&n) {
+                    return mapped;
+                }
             }
         }
-        self.default_lang.clone()
+        self.fallback_lang()
     }
 
     /// The order in which languages are tried for `lang`:
@@ -744,5 +863,104 @@ mod tests {
         assert_eq!(s.label("fr_fr"), "fr_fr (French)");
         assert_eq!(s.label("xx_yy"), "xx_yy");
         assert_eq!(s.label("pt_br"), "pt_br (Português (Brasil))");
+    }
+
+    fn strings(items: &[&str]) -> Vec<String> {
+        items.iter().map(|s| s.to_string()).collect()
+    }
+
+    #[test]
+    fn supported_list_limits_what_can_be_listed_and_chosen() {
+        let mut s = store_with_names(); // installed: en_us, de_de, pt_br
+        s.set_catalogue(catalogue());
+        assert!(!s.is_restricted());
+        assert!(s.is_supported("de_de") && s.is_supported("tlh_aa"));
+
+        let unknown = s.set_supported(Some(&strings(&["pt_br", "english"])));
+        assert!(unknown.is_empty());
+        assert!(s.is_restricted());
+        assert_eq!(s.listed(), strings(&["en_us", "pt_br"]));
+        assert!(s.is_supported("PT-BR"));
+        assert!(!s.is_supported("de_de"));
+        assert_eq!(s.describe().len(), 2);
+
+        // "all" again
+        s.set_supported(None);
+        assert!(!s.is_restricted());
+        assert!(s.listed().contains(&"de_de".to_string()));
+    }
+
+    #[test]
+    fn supported_languages_may_be_untranslated_minecraft_languages() {
+        let mut s = store_with_names();
+        s.set_catalogue(catalogue());
+        s.set_supported(Some(&strings(&["klingon", "pt_br"])));
+        assert_eq!(s.listed(), strings(&["pt_br", "tlh_aa"]));
+    }
+
+    #[test]
+    fn unknown_and_empty_supported_entries() {
+        let mut s = store_with_names();
+        // a bad entry is skipped and reported; the good one still restricts
+        let unknown = s.set_supported(Some(&strings(&["elvish", "pt_br"])));
+        assert_eq!(unknown, strings(&["elvish"]));
+        assert_eq!(s.listed(), strings(&["pt_br"]));
+        // nothing valid, or an empty list: never lock everyone out
+        let unknown = s.set_supported(Some(&strings(&["elvish"])));
+        assert_eq!(unknown, strings(&["elvish"]));
+        assert!(!s.is_restricted());
+        s.set_supported(Some(&[]));
+        assert!(!s.is_restricted());
+    }
+
+    #[test]
+    fn languages_map_to_the_closest_supported_one() {
+        let mut s = store_with_names();
+        // unrestricted: always itself
+        assert_eq!(s.map_to_supported("fr_fr").as_deref(), Some("fr_fr"));
+        s.set_supported(Some(&strings(&["en_us", "pt_br"])));
+        assert_eq!(s.map_to_supported("pt_br").as_deref(), Some("pt_br"));
+        assert_eq!(s.map_to_supported("pt_pt").as_deref(), Some("pt_br")); // sibling
+        assert_eq!(s.map_to_supported("en_gb").as_deref(), Some("en_us")); // family
+        assert_eq!(s.map_to_supported("fr_fr"), None); // nothing in that family
+        assert_eq!(s.map_to_supported(""), None);
+    }
+
+    #[test]
+    fn restricted_servers_always_resolve_to_a_supported_language() {
+        let mut s = store_with_names(); // en_us, de_de, pt_br
+        s.set_supported(Some(&strings(&["en_us", "pt_br"])));
+        // game language is supported, a sibling of a supported one, or neither
+        assert_eq!(s.resolve_lang(Some("p"), Some("pt_br")), "pt_br");
+        assert_eq!(s.resolve_lang(Some("p"), Some("pt_pt")), "pt_br");
+        assert_eq!(s.resolve_lang(Some("p"), Some("fr_fr")), "en_us"); // English is supported
+        assert_eq!(s.resolve_lang(None, None), "en_us");
+        // a choice made earlier for a language that was since removed is ignored, not deleted
+        s.set_pref("p", "de_de");
+        assert_eq!(s.source(Some("p")), LangSource::Auto);
+        assert_eq!(s.resolve_lang(Some("p"), Some("pt_br")), "pt_br");
+        assert_eq!(s.prefs().get("p").map(String::as_str), Some("de_de"));
+        s.set_supported(None);
+        assert_eq!(s.resolve_lang(Some("p"), Some("pt_br")), "de_de"); // works again
+        // /lang <supported language> sticks
+        s.set_supported(Some(&strings(&["en_us", "pt_br"])));
+        s.set_pref("p", "pt_br");
+        assert_eq!(s.resolve_lang(Some("p"), Some("en_us")), "pt_br");
+    }
+
+    #[test]
+    fn restricted_fallback_without_english_and_the_server_default() {
+        let mut s = store_with_names();
+        // English not supported: fall back to the first supported language
+        s.set_supported(Some(&strings(&["pt_br", "de_de"])));
+        assert_eq!(s.resolve_lang(Some("p"), Some("fr_fr")), "de_de");
+        // the server default is always supported, even when it isn't in the list
+        s.set_server_default("en_us").unwrap();
+        assert!(s.is_supported("en_us"));
+        assert_eq!(s.listed(), strings(&["de_de", "en_us", "pt_br"]));
+        assert_eq!(s.resolve_lang(Some("p"), Some("fr_fr")), "en_us"); // default first
+        assert_eq!(s.resolve_lang(Some("p"), Some("pt_br")), "en_us"); // not chosen: default applies
+        s.set_pref("p", AUTO);
+        assert_eq!(s.resolve_lang(Some("p"), Some("pt_br")), "pt_br");
     }
 }

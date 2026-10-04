@@ -109,10 +109,12 @@ impl CommandHandler for Show {
     ) -> Result<i32, CommandError> {
         let id = sender_id(&sender);
         let locale = client_locale(&sender);
-        let (lang, source) = {
+        let (lang, source, restricted_list) = {
             let st = state::read();
             let lang = st.store.resolve_lang(id.as_deref(), Some(&locale));
-            (lang, st.store.source(id.as_deref()))
+            // A curated list is short enough to show right here.
+            let list = st.store.is_restricted().then(|| st.store.describe().join(", "));
+            (lang, st.store.source(id.as_deref()), list)
         };
         // "(detected from your game settings)" is only true when we really followed them;
         // for a chosen language or the server's default, just state the language.
@@ -122,14 +124,18 @@ impl CommandHandler for Show {
             "simplelang.current.set"
         };
         say(&sender, key, &[lang]);
-        // Don't dump 100+ languages into chat: point at `/lang list` instead.
-        say_click(&sender, "simplelang.available.hint", &[], "/lang list");
+        match restricted_list {
+            Some(list) => say(&sender, "simplelang.available", &[list]),
+            // Otherwise don't dump 100+ languages into chat: point at `/lang list` instead.
+            None => say_click(&sender, "simplelang.available.hint", &[], "/lang list"),
+        }
         say(&sender, "simplelang.usage", &[]);
         Ok(1)
     }
 }
 
-/// `/lang list` - every language SimpleLang has translations for.
+/// `/lang list` - the languages players can choose: every translated language, or the
+/// server's own supported list if the owner set one.
 struct List;
 impl CommandHandler for List {
     fn handle(
@@ -164,7 +170,12 @@ impl CommandHandler for SetLang {
 
         let outcome = {
             let mut st = state::write();
-            match st.store.resolve_code(&raw) {
+            // What they typed -> a language code -> one this server supports (if it limits them).
+            let resolved = st
+                .store
+                .resolve_code(&raw)
+                .and_then(|code| st.store.map_to_supported(&code));
+            match resolved {
                 Some(code) => {
                     st.store.set_pref(&id, &code);
                     let label = st.store.label(&code);
@@ -210,15 +221,19 @@ impl CommandHandler for Auto {
         let Some(player) = sender.as_player() else {
             return Err(fail(&sender, "simplelang.set.players_only", &[]));
         };
-        let (dir, prefs) = {
+        let key = player_key(&player);
+        let locale = client_locale(&sender);
+        let (dir, prefs, effective) = {
             let mut st = state::write();
-            st.store.set_pref(&player_key(&player), AUTO);
-            (st.dir.clone(), st.store.prefs().clone())
+            st.store.set_pref(&key, AUTO);
+            // The language they'll actually see (their game's, or the closest supported one).
+            let effective = st.store.resolve_lang(Some(&key), Some(&locale));
+            (st.dir.clone(), st.store.prefs().clone(), effective)
         };
         if let Err(e) = storage::save_prefs(&dir, &prefs) {
             warn!("could not save players.json: {e}");
         }
-        say(&sender, "simplelang.auto.ok", &[client_locale(&sender)]);
+        say(&sender, "simplelang.auto.ok", &[effective]);
         Ok(1)
     }
 }
@@ -239,14 +254,14 @@ impl CommandHandler for Reload {
         let files = storage::load_files(&dir);
         let count = files.len();
         let config = storage::load_config(&dir);
-        let default_result = {
+        let problems = {
             let mut st = state::write();
             st.store.set_files(files);
             st.store.set_aliases(storage::load_aliases(&dir));
-            st.store.set_server_default(&config.default_language)
+            storage::apply_config(&mut st.store, &config)
         };
-        if let Err(e) = default_result {
-            warn!("config.json: default_language: {e}; keeping the previous setting");
+        for problem in &problems {
+            warn!("config.json: {problem}");
         }
         say(&sender, "simplelang.reload.ok", &[count.to_string()]);
         Ok(1)

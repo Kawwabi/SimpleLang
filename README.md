@@ -17,6 +17,8 @@ SimpleLang deliver messages per player, over Pumpkin's plugin IPC.
   `/lang auto` follows the player's game language setting.
 - **Server default language**: set `default_language` in `config.json` (for example `"pt_br"`) and
   everyone who hasn't chosen sees that, instead of following their game's language.
+- **Supported languages**: not every server translates everything. List the languages you support in
+  `supported_languages` and players can only choose those; plugins then always get one of them.
 - Falls back **per message** to English, so partial translations still work.
 - **Every Minecraft language is selectable**, by code or name (`/lang tlh_aa`, `/lang francais`),
   even if nobody has translated SimpleLang into it yet. Those players see English wherever

@@ -118,7 +118,7 @@ pub fn handle(sender: &str, message: &[u8]) -> Result<Vec<u8>, String> {
         }
 
         Request::Languages => {
-            json!({ "ok": true, "languages": state::read().store.available() })
+            json!({ "ok": true, "languages": state::read().store.listed() })
         }
 
         Request::Send {
