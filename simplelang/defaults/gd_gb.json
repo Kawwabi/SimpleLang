@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Gàidhlig",
+  "simplelang.current.auto": "Do chàis: {0} (lorga bho do sheataichean gèam).",
+  "simplelang.current.set": "Do chàis: {0}.",
+  "simplelang.available": "Cànanan ri fhaighinn: {0}",
+  "simplelang.available.hint": "Tha SimpleLang a' taiceachadh gach cànan Minecraft. Briog an seo no cleachd /lang list gus an a h-uile fhaicinn.",
+  "simplelang.usage": "Cleachd /lang <cànan> (m.e. english, portugues, pt_br) gus a dh'atharrachadh, no /lang auto gus do sheataichean gèam a leantainn.",
+  "simplelang.set.ok": "Chaidh a' chànan a shuidheachadh air {0}.",
+  "simplelang.set.untranslated": "Chan eil earraidhean aig SimpleLang airson {0} fhathast, agus mar sin chleachdar Beurla far a bheil teachd a dhìth.",
+  "simplelang.set.unknown": "Cànan neo-aithnichte \"{0}\". Briog an seo no cleachd /lang list gus a h-uile cànan taiceil fhaicinn.",
+  "simplelang.set.players_only": "Chan urrainn do chluicheadairean a-mhàin cànan a thaghadh.",
+  "simplelang.auto.ok": "Tha do chàis a leantainn do sheataichean gèam an-dràsta ({0}).",
+  "simplelang.reload.ok": "Ath-luchdaich {0} faidhle cànan.",
+  "simplelang.reload.denied": "Chan eil cead agad cànanan ath-luchdachadh."
+}

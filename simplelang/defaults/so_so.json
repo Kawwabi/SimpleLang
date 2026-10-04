@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Soomaaliga",
+  "simplelang.current.auto": "Luqaddaada: {0} (la ogaaday desdeerada ciyaarahaaga).",
+  "simplelang.current.set": "Luqaddaada: {0}.",
+  "simplelang.available": "Luqado la heli karo: {0}",
+  "simplelang.available.hint": "SimpleLang wuxuu taageerayaa dhammaan luqadaha Minecraft. Hoose sawir ama isticmaal /lang list si aad u aragto dhammaantood.",
+  "simplelang.usage": "Isticmaal /lang <luqad> (tusaale: english, portugues, pt_br) si aad u beddesho, ama /lang auto si aad u raacdo desdeerada ciyaarahaaga.",
+  "simplelang.set.ok": "Luqadda waa lagu bilaabay {0}.",
+  "simplelang.set.untranslated": "SimpleLang weli ma helin turjumaad u {0},, sidaas darteed Ingiriisi ayaa la isticmaalaa meel kasta oo maw qoran aan jirin.",
+  "simplelang.set.unknown": "Luqad la garanayn \"{0}\". Hoose sawir ama isticmaal /lang list si aad u aragto dhammaan luqadaha la taageerayo.",
+  "simplelang.set.players_only": "Keliya ciyaartooyda ayaa la tartami karaa luqad.",
+  "simplelang.auto.ok": "Luqaddaada waa ku raacdaya desdeerada ciyaarahaaga ({0}).",
+  "simplelang.reload.ok": "{0} luqad document(s) dib u soo rogay.",
+  "simplelang.reload.denied": "Adigu ma leh ogolaansho si luqado dib loogu soo rogo."
+}

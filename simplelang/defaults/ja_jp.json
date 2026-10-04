@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "日本語",
+  "simplelang.current.auto": "あなたの言語: {0}（ゲームの設定から検出しました）。",
+  "simplelang.current.set": "あなたの言語: {0}。",
+  "simplelang.available": "利用可能な言語: {0}",
+  "simplelang.available.hint": "SimpleLang はすべての Minecraft の言語をサポートしています。ここでクリックするか、/lang list を使用してすべてを見てください。",
+  "simplelang.usage": "/lang <言語>（例: english, portugues, pt_br）で変更するか、/lang auto でゲームの設定に従います。",
+  "simplelang.set.ok": "言語を {0} に設定しました。",
+  "simplelang.set.untranslated": "SimpleLang には {0} の翻訳がまだありません。そのため、メッセージがない場合は英語が使われます。",
+  "simplelang.set.unknown": "不明な言語「{0}」。ここでクリックするか、/lang list を使用してサポートされているすべての言語を見てください。",
+  "simplelang.set.players_only": "言語を選択できるのはプレイヤーだけです。",
+  "simplelang.auto.ok": "あなたの言語は、ゲームの設定（{0}）に従います。",
+  "simplelang.reload.ok": "{0} 個の言語ファイルを再読み込みしました。",
+  "simplelang.reload.denied": "言語を再読み込みする権限がありません。"
+}

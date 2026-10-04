@@ -15,22 +15,46 @@ On first start it creates `plugins/simplelang/` (the plugin's data folder) conta
 
 | File | Purpose |
 |---|---|
-| `lang/en_us.json`, `lang/de_de.json`, `lang/pt_br.json` | Editable language files, copied here on first start (never overwritten). Add `fr_fr.json`, ... and `/lang reload`. |
+| `translations/*.json` | The language files, one per language, copied here on first start so you can read and edit them. Edit one, or add `fr_fr.json`, then `/lang reload`. |
+| `seeded.json` | Bookkeeping: lets a plugin update refresh translation files you never touched, without ever overwriting ones you edited. |
 | `aliases.json` | Optional. You create it to add custom `/lang` names (see below). |
 | `players.json` | Each player's explicit choice. Written automatically. |
 
 Language files are flat `{ "key": "text" }` objects. Placeholders are `{0}`, `{1}`, ...
 
+**Upgrading from 0.1?** The `lang/` folder is renamed to `translations/` automatically on first start, keeping your edits.
+
 ## `/lang`
 
 | Command | Effect |
 |---|---|
-| `/lang` | Show your language and the available ones |
+| `/lang` | Show your language, with a clickable hint that lists every language |
+| `/lang list` | Every language that has translations (the hint runs this when clicked) |
 | `/lang <language>` | Choose a language by code (`pt_br`, `pt-BR`) **or by name** (`english`, `portugues`, `deutsch`, `brasil`, `pt`) |
 | `/lang auto` | Follow the game's language setting again |
-| `/lang reload` | Re-read `lang/*.json` (permission `simplelang:reload`, console always allowed) |
+| `/lang reload` | Re-read `translations/*.json` (permission `simplelang:reload`, console always allowed) |
 
 Which language a player sees: **their `/lang` choice → their game's language setting → English.**
+
+## Every Minecraft language
+
+Players can select **any Minecraft language** with `/lang`, by code or by name, even when
+nobody has translated SimpleLang into it: `/lang tlh_aa`, `/lang francais`, `/lang spanish-mexico`.
+129 languages are built in (see `defaults/minecraft_languages.json`).
+
+There are two different things here:
+
+| | What it means | Where it shows |
+|---|---|---|
+| **Translated** | At least one string exists (a `translations/*.json` file, or a plugin registered strings) | Listed by `/lang list` and by the `languages` IPC op |
+| **Selectable** | It's in Minecraft's language list | Accepted by `/lang <name>`, returned by `get_lang` |
+
+A player who picks a language that's selectable but not translated gets a short notice, and
+sees English wherever a message is missing. That's the normal per-message fallback, so nothing
+breaks. As soon as someone adds `translations/fr_fr.json` (or a plugin registers French strings), those
+players start seeing it, with no change on their side.
+
+Installed languages always win over the built-in list, so it never overrides a real translation.
 
 ## Language aliases
 
@@ -40,6 +64,8 @@ Which language a player sees: **their `/lang` choice → their game's language s
 2. an alias: a small built-in list plus your own `aliases.json` in the data folder
 3. the language's own display name, taken from its `simplelang.lang.name` string (so a new `fr_fr.json` with `"simplelang.lang.name": "Français"` makes `/lang francais` work automatically)
 4. a bare prefix (`pt`, `de`)
+5. Minecraft's language list: the code, the English name (`french`, `spanish-mexico`) or the
+   native name (`français`, `čeština`), and bare prefixes (`fr`)
 
 Custom aliases, `plugins/simplelang/aliases.json`, then `/lang reload`:
 
@@ -47,7 +73,10 @@ Custom aliases, `plugins/simplelang/aliases.json`, then `/lang reload`:
 { "tupi": "pt_br", "deu": "de_de" }
 ```
 
-An alias pointing at a language that isn't installed is ignored. If two languages share a first word (say "Português (Brasil)" and "Português (Portugal)"), the alphabetically first wins for the short form; the full code always works.
+An alias pointing at a language that isn't installed is ignored. If two languages share a first word (say "Português (Brasil)" and "Português (Portugal)"), the alphabetically first wins for the short form; the full code always works. In the built-in list,
+the entry listed first wins instead, and the primary variant of each family is listed first
+(`spanish` → `es_es`, `chinese` → `zh_cn`, `portuguese` → `pt_br`). A few short names are inherently
+ambiguous, such as `bahasa` (Indonesian or Malay); the full name or code always works.
 
 ## Fallback rules
 
@@ -57,7 +86,7 @@ For a player using `de_at`, each key is looked up in this order, first hit wins:
 
 This is per **key**, so a half-finished translation still works: missing lines show in English.
 
-Priority between sources inside one language: `lang/*.json` on disk beats strings registered by plugins, which beat the bundled defaults. That lets an admin override any plugin's wording.
+Priority between sources inside one language: `translations/*.json` on disk beats strings registered by plugins, which beat the bundled defaults. That lets an admin override any plugin's wording.
 
 ## For other plugin authors
 
@@ -83,7 +112,7 @@ pub fn register_strings() {
         "entries": { "welcome": "Welcome, {0}!" }
     });
     let _ = ipc::send_ipc_message("simplelang", &serde_json::to_vec(&req).unwrap());
-    // repeat with "lang": "de_de", ... or just ship lang/*.json entries on disk
+    // repeat with "lang": "de_de", ... or just ship translations/*.json entries on disk
 }
 
 /// Translate for a specific player.

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Tagalog",
+  "simplelang.current.auto": "Ang iyong wika: {0} (nakita mula sa iyong setting ng laro).",
+  "simplelang.current.set": "Ang iyong wika: {0}.",
+  "simplelang.available": "Mga available na wika: {0}",
+  "simplelang.available.hint": "Sinusuportahan ng SimpleLang ang bawat wika ng Minecraft. I-click dito o gamitin ang /lang list para makita lahat.",
+  "simplelang.usage": "Gamitin ang /lang <wika> (hal. english, portugues, pt_br) para baguhin, o /lang auto upang sundin ang iyong setting ng laro.",
+  "simplelang.set.ok": "Itinatag ang wika sa {0}.",
+  "simplelang.set.untranslated": "Hindi pa may traduksyon ang SimpleLang para sa {0},, kaya ginagamit ang Ingles kung wala pang mensahe.",
+  "simplelang.set.unknown": "Hindi kilalang wika \"{0}\". I-click dito o gamitin ang /lang list para makita ang lahat ng sinusuportahan.",
+  "simplelang.set.players_only": "Ang mga player lang ang makapili ng wika.",
+  "simplelang.auto.ok": "Nasa iyong setting ng laro na ang iyong wika ({0}).",
+  "simplelang.reload.ok": "Nilagdaan ang {0} file(s) ng wika.",
+  "simplelang.reload.denied": "Hindi mo maaaring i-reload ang mga wika dahil wala kang permission."
+}

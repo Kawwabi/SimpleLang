@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Sächsisch",
+  "simplelang.current.auto": "Din Sprook: {0} (ut de Spill-Einstellungen erkannt).",
+  "simplelang.current.set": "Din Sprook: {0}.",
+  "simplelang.available": "Verfügbar Sprooken: {0}",
+  "simplelang.available.hint": "SimpleLong unterstützt alle Minecraft-Sprooken. Klick hie oder bruch /lang list, um se alle to sehn.",
+  "simplelang.usage": "Bruch /lang <Sprook> (z. B. english, portugues, pt_br), um se to ändern, oder /lang auto, um de Spill-Einstellungen o tái ng.",
+  "simplelang.set.ok": "Sprook is gesettet op {0}.",
+  "simplelang.set.untranslated": "SimpleLong hett noch keen Übersetzung för {0},, dorum wodd Englisch bruucht, wör een Tönsel nich lüüt.",
+  "simplelang.set.unknown": "Unbekannt Sprook „{0}\". Klick hie oder bruch /lang list, um alle understützt Sprooken to sehn.",
+  "simplelang.set.players_only": "Allenn Spillers können een Sprook uskören.",
+  "simplelang.auto.ok": "Din Sprook folgt nu de Spill-Einstellungen ({0}).",
+  "simplelang.reload.ok": "{0} Sprook-Datei(en) weer laadt.",
+  "simplelang.reload.denied": "Du hesch nich de Rechter, Sprooken weer to laad."
+}

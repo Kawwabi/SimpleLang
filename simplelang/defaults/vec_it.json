@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Vèneto",
+  "simplelang.current.auto": "Vossa lengua: {0} (deta dai vostri parametri dal giocho).",
+  "simplelang.current.set": "Vossa lengua: {0}.",
+  "simplelang.available": "Lengue disponìbile: {0}",
+  "simplelang.available.hint": "SimpleLong el ghè da coadognà tute le lengue de Minecraft. Fà chito quì o desprega /lang list par vèderle tute.",
+  "simplelang.usage": "Desprega /lang <lengua> (p. e. english, portugues, pt_br) par cambiarla, o /lang auto par seguir i vostri parametri dal giocho.",
+  "simplelang.set.ok": "Lengua dada su {0}.",
+  "simplelang.set.untranslated": "SimpleLong el ghè anca no tradusioni par {0},, donca l'inglese el ven despergà dove manca un messàzzo.",
+  "simplelang.set.unknown": "Lengua no cognossuda \"{0}\". Fà chito quì o desprega /lang list par vèder tute le lengue ghignade.",
+  "simplelang.set.players_only": "Ti i giocator i pò vèder na lengua.",
+  "simplelang.auto.ok": "Vossa lengua la ghe ghè i vostri parametri dal giocho ({0}).",
+  "simplelang.reload.ok": "Cargade de gnove {0} file de lengua.",
+  "simplelang.reload.denied": "Voi no ghè le permission par tornar a caregà le lengue."
+}

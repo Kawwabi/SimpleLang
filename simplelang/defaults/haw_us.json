@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ʻŌlelo Hawaiʻi",
+  "simplelang.current.auto": "Kou ʻōlelo: {0} (hōʻike ʻia mai kou hōʻano pāʻani).",
+  "simplelang.current.set": "Kou ʻōlelo: {0}.",
+  "simplelang.available": "Nā ʻōlelo hiki: {0}",
+  "simplelang.available.hint": "Hiki ʻo SimpleLang ke hoʻokahi i nā ʻōlelo Minecraft a pau. Pā ma aneʻi a makee /lang list e nānā ai i nā ʻōlelo a pau.",
+  "simplelang.usage": "Makee /lang <ʻōlelo> (pēlā me english, portugues, pt_br) e hoʻololi ai, a i ʻole /lang auto e likeʻai i kou hōʻano pāʻani.",
+  "simplelang.set.ok": "Ua hiki ka ʻōlelo i {0}.",
+  "simplelang.set.untranslated": "ʻAʻohe nā hanai mai ka ʻōlelo Pelekania ʻo SimpleLang no {0} i kēia manawa, no lailo hāʻawi ʻia ka Pelekania i nā wahi e hōʻino nei nā loulou.",
+  "simplelang.set.unknown": "ʻOlelo ʻike ʻole \"{0}\". Pā ma aneʻi a makee /lang list e nānā ai i nā ʻōlelo e hōʻike nei.",
+  "simplelang.set.players_only": "Nā pāʻani wale nō e hiki ai ke koho ʻōlelo.",
+  "simplelang.auto.ok": "E likeʻai nei kou ʻōlelo i kou hōʻano pāʻani ({0}).",
+  "simplelang.reload.ok": "Ua lilo hou ʻia {0} papa (āʻike) ʻōlelo.",
+  "simplelang.reload.denied": "ʻAʻohe hāʻawina e hoʻi hou ai i nā ʻōlelo."
+}

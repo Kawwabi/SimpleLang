@@ -12,6 +12,7 @@
 //!   [A] ArgumentType::String(StringType::SingleWord)   (shape of the enum)
 //!   [B] PermissionDefault::Deny                        (variant name)
 //!   [C] format!("{:?}", player.get_id()) as a stable id (uuid type is opaque)
+//!   [H] TextComponent::click_event_run_command(&str) (the click-event method name)
 //!   [E] TextComponent::text(..).color_named(NamedColor::Green) chaining
 //!   [D] format!("{:?}", sender.get_locale()) -> language code
 
@@ -44,6 +45,15 @@ fn error(s: &str) -> TextComponent {
     TextComponent::text(s).color_named(NamedColor::Red)
 }
 
+/// [H] Make a message clickable: clicking it runs `command` (e.g. "/lang list").
+/// UNVERIFIED API CALL: the method name is a guess. If the compiler says there's no
+/// such method, look at the `click*` methods on `TextComponent` in the API docs (or
+/// the compiler's "similar name" hint) and fix just this line. Every message that
+/// uses this also tells players the plain command, so it still works if clicking doesn't.
+fn clickable(tc: TextComponent, command: &str) -> TextComponent {
+    tc.click_run_command(command)
+}
+
 /// [C] Stable per-player key used in players.json and over IPC.
 pub fn player_key(player: &Player) -> String {
     format!("{:?}", player.get_id())
@@ -72,13 +82,23 @@ fn say(sender: &CommandSender, key: &str, args: &[String]) {
     sender.send_message(info(&msg));
 }
 
+fn say_click(sender: &CommandSender, key: &str, args: &[String], command: &str) {
+    let msg = tr(sender, key, args);
+    sender.send_message(clickable(info(&msg), command));
+}
+
 fn fail(sender: &CommandSender, key: &str, args: &[String]) -> CommandError {
     CommandError::CommandFailed(error(&tr(sender, key, args)))
 }
 
+fn fail_click(sender: &CommandSender, key: &str, args: &[String], command: &str) -> CommandError {
+    let msg = tr(sender, key, args);
+    CommandError::CommandFailed(clickable(error(&msg), command))
+}
+
 // ---- /lang ---------------------------------------------------------------
 
-/// `/lang` - show the current language and what's available.
+/// `/lang` - show the current language and how to change it.
 struct Show;
 impl CommandHandler for Show {
     fn handle(
@@ -89,11 +109,11 @@ impl CommandHandler for Show {
     ) -> Result<i32, CommandError> {
         let id = sender_id(&sender);
         let locale = client_locale(&sender);
-        let (lang, is_auto, available) = {
+        let (lang, is_auto) = {
             let st = state::read();
             let lang = st.store.resolve_lang(id.as_deref(), Some(&locale));
             let is_auto = id.as_deref().map_or(true, |i| st.store.pref(i).is_none());
-            (lang, is_auto, st.store.describe().join(", "))
+            (lang, is_auto)
         };
         let key = if is_auto {
             "simplelang.current.auto"
@@ -101,8 +121,24 @@ impl CommandHandler for Show {
             "simplelang.current.set"
         };
         say(&sender, key, &[lang]);
-        say(&sender, "simplelang.available", &[available]);
+        // Don't dump 100+ languages into chat: point at `/lang list` instead.
+        say_click(&sender, "simplelang.available.hint", &[], "/lang list");
         say(&sender, "simplelang.usage", &[]);
+        Ok(1)
+    }
+}
+
+/// `/lang list` - every language SimpleLang has translations for.
+struct List;
+impl CommandHandler for List {
+    fn handle(
+        &self,
+        sender: CommandSender,
+        _server: Server,
+        _args: ConsumedArgs,
+    ) -> Result<i32, CommandError> {
+        let available = state::read().store.describe().join(", ");
+        say(&sender, "simplelang.available", &[available]);
         Ok(1)
     }
 }
@@ -131,21 +167,32 @@ impl CommandHandler for SetLang {
                 Some(code) => {
                     st.store.set_pref(&id, &code);
                     let label = st.store.label(&code);
-                    Ok((st.dir.clone(), st.store.prefs().clone(), label))
+                    // Selectable (Minecraft lists it) but no strings yet?
+                    let untranslated = !st.store.is_translated(&code);
+                    Ok((st.dir.clone(), st.store.prefs().clone(), label, untranslated))
                 }
-                None => Err(st.store.describe().join(", ")),
+                None => Err(()),
             }
         };
 
         match outcome {
-            Ok((dir, prefs, label)) => {
+            Ok((dir, prefs, label, untranslated)) => {
                 if let Err(e) = storage::save_prefs(&dir, &prefs) {
                     warn!("could not save players.json: {e}");
                 }
-                say(&sender, "simplelang.set.ok", &[label]);
+                say(&sender, "simplelang.set.ok", &[label.clone()]);
+                if untranslated {
+                    say(&sender, "simplelang.set.untranslated", &[label]);
+                }
                 Ok(1)
             }
-            Err(available) => Err(fail(&sender, "simplelang.set.unknown", &[raw, available])),
+            // {1} is only used by language files from v0.1.0 ("Available: {1}"); new ones ignore it.
+            Err(()) => Err(fail_click(
+                &sender,
+                "simplelang.set.unknown",
+                &[raw, "/lang list".to_string()],
+                "/lang list",
+            )),
         }
     }
 }
@@ -220,6 +267,7 @@ pub fn register(context: &Context) -> pumpkin_plugin_api::Result<()> {
     let command = Command::new(&names, "Choose the language used for server messages")
         .execute(Show)
         .then(CommandNode::literal("auto").execute(Auto))
+        .then(CommandNode::literal("list").execute(List))
         .then(CommandNode::literal("reload").execute(Reload))
         .then(
             CommandNode::argument("language", &ArgumentType::String(StringType::SingleWord)) // [A]

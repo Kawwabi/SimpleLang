@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Dansk",
+  "simplelang.current.auto": "Dit sprog: {0} (fundet ud fra dine spilindstillinger).",
+  "simplelang.current.set": "Dit sprog: {0}.",
+  "simplelang.available": "Tilgængelige sprog: {0}",
+  "simplelang.available.hint": "SimpleLang understøtter alle Minecrafts sprog. Klik her eller brug /lang list for at se dem alle.",
+  "simplelang.usage": "Brug /lang <sprog> (fx english, portugues, pt_br) for at skifte, eller /lang auto for at følge dine spilindstillinger.",
+  "simplelang.set.ok": "Sprog sat til {0}.",
+  "simplelang.set.untranslated": "SimpleLang har endnu ingen oversættelser til {0}, så engelsk bruges, hvor en besked mangler.",
+  "simplelang.set.unknown": "Ukendt sprog “{0}”. Klik her eller brug /lang list for at se alle understøttede sprog.",
+  "simplelang.set.players_only": "Kun spillere kan vælge et sprog.",
+  "simplelang.auto.ok": "Dit sprog følger nu dine spilindstillinger ({0}).",
+  "simplelang.reload.ok": "Genindlæste {0} sprogfil(er).",
+  "simplelang.reload.denied": "Du har ikke tilladelse til at genindlæse sprog."
+}

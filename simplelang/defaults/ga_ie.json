@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Gaeilge",
+  "simplelang.current.auto": "Do theanga: {0} (aimithe ó do shocruithe cluiche).",
+  "simplelang.current.set": "Do theanga: {0}.",
+  "simplelang.available": "Teanganna inláimh: {0}",
+  "simplelang.available.hint": "Tacaíonn SimpleLang leis gach theanga Minecraft. Cliceáil anseo nó úsáid /lang list chun iad go léir a fheiceáil.",
+  "simplelang.usage": "Úsáid /lang <theanga> (m.sh. english, portugues, pt_br) chun í a athrú, nó /lang auto chun do shocruithe cluiche a leanúint.",
+  "simplelang.set.ok": "Socraítear an teanga ar {0}.",
+  "simplelang.set.untranslated": "Níl aistritheanna ag SimpleLang do {0} fós, mar sin úsáidtear Béarla nuair a bhíonn teach scéala in easnamh.",
+  "simplelang.set.unknown": "Teanga anaithnid \"{0}\". Cliceáil anseo nó úsáid /lang list chun gach teanga tacaíte a fheiceáil.",
+  "simplelang.set.players_only": "Ní féidir le cluichitheoirí amháin theanga a roghnú.",
+  "simplelang.auto.ok": "Leanann do theanga do shocruithe cluiche anois ({0}).",
+  "simplelang.reload.ok": "Athlódáladh {0} comhad teanga.",
+  "simplelang.reload.denied": "Níl cead agat teangacha a athlódáil."
+}

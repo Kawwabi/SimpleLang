@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "toki pona",
+  "simplelang.current.auto": "nasin toki ni li {0} (mi lukin e pona pi lipu pimeja)",
+  "simplelang.current.set": "nasin toki ni li {0}.",
+  "simplelang.available": "nasin toki li lon: {0}",
+  "simplelang.available.hint": "SimpleLang li awen e nasin toki ale pi lipu pimeja. sina ken lukin e nasin toki ale lon /lang list.",
+  "simplelang.usage": "o pana e /lang <nasin toki> (poka: english, portugues, pt_br) tawa nasin toki sin. anu o pana e /lang auto tawa pona pi lipu pimeja.",
+  "simplelang.set.ok": "nasin toki li lon {0}.",
+  "simplelang.set.untranslated": "SimpleLang li kute ala e nasin toki pi {0}. anpa ni, nasin toki insa li kama jo e utawa pi lipu.",
+  "simplelang.set.unknown": "nasin toki ilo ante \"{0}\". sina ken lukin e nasin toki ale lon /lang list.",
+  "simplelang.set.players_only": "jan pimeja la, ona li ken ante e nasin toki.",
+  "simplelang.auto.ok": "nasin toki ni li kama jo e pona pi lipu pimeja ({0}).",
+  "simplelang.reload.ok": "mi lukin sin e lipu nasin toki {0}.",
+  "simplelang.reload.denied": "sina kute ala e ante pi nasin toki."
+}

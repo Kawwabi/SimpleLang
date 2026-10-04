@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Македонски",
+  "simplelang.current.auto": "Вашиот јазик: {0} (откривен од поставките на вашата игра).",
+  "simplelang.current.set": "Вашиот јазик: {0}.",
+  "simplelang.available": "Достапни јазици: {0}",
+  "simplelang.available.hint": "SimpleLang ги поддржува сите Minecraft јазици. Кликнете тука или користете /lang list за да ги видите сите.",
+  "simplelang.usage": "Користете /lang <јазик> (напр. english, portugues, pt_br) за да го смените, или /lang auto за да ги следувате поставките на вашата игра.",
+  "simplelang.set.ok": "Јазикот е поставен на {0}.",
+  "simplelang.set.untranslated": "SimpleLang уште нема преводи за {0},, па таму каде што недостасува порака се користи англиски.",
+  "simplelang.set.unknown": "Непознат јазик „{0}\". Кликнете тука или користете /lang list за да ги видите сите поддржани јазици.",
+  "simplelang.set.players_only": "Само играчите можат да изберат јазик.",
+  "simplelang.auto.ok": "Вашиот јазик сега ги следи поставките на вашата игра ({0}).",
+  "simplelang.reload.ok": "Се вчитаа {0} јазични фајл(ови).",
+  "simplelang.reload.denied": "Не имате дозвола да вчитате јазици."
+}

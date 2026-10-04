@@ -1,6 +1,7 @@
 <p align="center">
   <img src="SimpleLang.png" width="256" height="256" alt="SimpleLang icon">
 </p>
+
 <h1 align="center">SimpleLang</h1>
 
 Per-player language support for [Pumpkin](https://pumpkinmc.org) Minecraft servers.
@@ -15,8 +16,11 @@ SimpleLang deliver messages per player, over Pumpkin's plugin IPC.
 - `/lang`: choose a language by code (`pt_br`) or by name (`english`, `portugues`, `deutsch`);
   `/lang auto` follows the player's game language setting.
 - Falls back **per message** to English, so partial translations still work.
+- **Every Minecraft language is selectable**, by code or name (`/lang tlh_aa`, `/lang francais`),
+  even if nobody has translated SimpleLang into it yet. Those players see English wherever
+  a translation is missing. (129 languages are built in.)
 - Language files are plain JSON you can edit and hot-reload with `/lang reload`.
-  English, German and Brazilian Portuguese are included.
+  Many languages are already translated (see [TRANSLATIONS.md](TRANSLATIONS.md)); more are welcome.
 - A send bridge: other plugins ask SimpleLang to deliver a message to one player or to
   everyone, each in their own language (chat, action bar or title).
 - **Optional for plugin authors**: plugins can use it when present and keep working
@@ -33,12 +37,18 @@ SimpleLang deliver messages per player, over Pumpkin's plugin IPC.
 
 Download `simplelang.wasm` from the [latest release](https://github.com/Kawwabi/SimpleLang/releases/latest),
 put it in your server's `plugins/` folder and restart. On first start it creates
-`plugins/simplelang/` with editable language files.
+`plugins/simplelang/` with the language files in a `translations/` folder.
 
 Each release also includes `simplelang_example.wasm` (only needed if you want to try the
 example plugin) and `SHA256SUMS.txt` to verify your downloads.
 
 ## For plugin developers
+
+> [!TIP]
+> **Start by reading the example plugin:
+> [`simplelang-example/src/lib.rs`](simplelang-example/src/lib.rs).**
+> It's a complete, heavily commented plugin that shows every step below working together,
+> including the fallback when SimpleLang isn't installed. Copy it as a starting point for your own.
 
 Any plugin can use SimpleLang. There's no crate to depend on: you send it small JSON
 messages over Pumpkin's plugin IPC, and it translates and delivers your messages in each
@@ -48,9 +58,9 @@ player's language.
 server owner installed SimpleLang, so they can decide whether they want extra languages:
 
 1. **Don't** list `simplelang` in `PluginMetadata::dependencies` (that would make it mandatory).
-2. **Do** keep a built-in English text for every message in your code.
-3. **Do** register your strings with SimpleLang, under a namespace of your own.
-4. **Do** ask SimpleLang to send the message (or to translate it for you).
+2. Keep a built-in English text for every message in your code.
+3. Register your strings with SimpleLang, under a namespace of your own.
+4. Ask SimpleLang to send the message (or to translate it for you).
 5. If the call fails because SimpleLang isn't installed, send your English text yourself.
 
 Add `serde_json = "1"` to your `Cargo.toml`, then:
@@ -92,9 +102,9 @@ if !delivered {
 }
 ```
 
-**A complete, heavily commented plugin doing exactly this is in
-[`simplelang-example/src/lib.rs`](simplelang-example/src/lib.rs).** Read its header comment
-first; it's the best starting point.
+The snippet above is the short version. For the full, working version with error handling and
+load-order retries, read [`simplelang-example/src/lib.rs`](simplelang-example/src/lib.rs); its
+header comment explains the pattern step by step.
 
 ### Operations
 
@@ -128,8 +138,13 @@ player and pass `"lang": "de_de"` to force a language.
 - **Load order:** without a declared dependency, SimpleLang may load after your plugin, so
   registering in `on_load` can fail even though it's installed. Retry before each use until it
   succeeds once. The example plugin does this.
-- **Admins can override you:** a `lang/*.json` file on disk beats registered strings, so a
+- **Admins can override you:** a `translations/*.json` file on disk beats registered strings, so a
   server owner can reword your messages by adding `"myplugin.welcome": "..."` to their file.
+- **Every Minecraft language is selectable** with `/lang`, whether or not it has any strings,
+  so `get_lang` can return a language you've never heard of (and one with no translations in
+  SimpleLang). Treat the result as the player's *preferred* language and run your own
+  fallback: exact code → same family → English. You don't need to register empty languages
+  to make yours selectable.
 - **Plain text only** for now: no JSON/tellraw components.
 - **Nested `Result`:** `ipc::send_ipc_message` returns `Result<Result<Vec<u8>, String>, ()>`.
   The outer error means the call never reached the plugin (not installed); the inner one is
@@ -159,9 +174,15 @@ isolated in `simplelang/src/host.rs` and `simplelang/src/bridge.rs`.
 
 ## Contributing translations
 
-Copy `simplelang/defaults/en_us.json` to a new file named after the language code
-(for example `fr_fr.json`), translate the values, and set `simplelang.lang.name` to the
-language's own name so `/lang francais` works automatically. Pull requests welcome.
+Translating SimpleLang's 13 short messages into your language is a great way to help, and
+no Rust is needed. **See [TRANSLATING.md](TRANSLATING.md)** for the steps, including a tool
+that checks your file and a workflow for translating with an LLM. [TRANSLATIONS.md](TRANSLATIONS.md)
+shows which languages are done and which are still needed. Pull requests welcome.
+
+Missing a Minecraft language, or spot a wrong name? The list lives in
+[`simplelang/defaults/minecraft_languages.json`](simplelang/defaults/minecraft_languages.json).
+Put the main variant of a language family first, since the first entry wins for short names
+like `spanish` or `chinese`.
 
 CI checks every language file against `en_us.json`: same keys, and the same `{0}`, `{1}`
 placeholders in each message. You can run the same check locally:

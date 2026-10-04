@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "文言",
+  "simplelang.current.auto": "汝之言為 {0}（自遊戲之設而察之）。",
+  "simplelang.current.set": "汝之言為 {0}。",
+  "simplelang.available": "可用之言：{0}",
+  "simplelang.available.hint": "SimpleLang 兼納 Minecraft 諸言。欲盡覽之，可指此處，或運 /lang list。",
+  "simplelang.usage": "欲更其言，用 /lang <言>（如 english, portugues, pt_br）；欲從汝之遊戲之設，則 /lang auto。",
+  "simplelang.set.ok": "言既設為 {0}。",
+  "simplelang.set.untranslated": "SimpleLang 猶未為 {0} 之譯，故文有所闕者，皆以英語代之。",
+  "simplelang.set.unknown": "未知之言「{0}」。欲覽所容之諸言，可指此處，或運 /lang list。",
+  "simplelang.set.players_only": "唯播放器得擇其言。",
+  "simplelang.auto.ok": "汝之言今從汝之遊戲之設（{0}）。",
+  "simplelang.reload.ok": "重載 {0} 言文之卷。",
+  "simplelang.reload.denied": "汝無重載諸言之權。"
+}

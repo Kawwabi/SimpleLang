@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Tiếng Việt",
+  "simplelang.current.auto": "Ngôn ngữ của bạn: {0} (được phát hiện từ cài đặt trò chơi của bạn).",
+  "simplelang.current.set": "Ngôn ngữ của bạn: {0}.",
+  "simplelang.available": "Các ngôn ngữ có sẵn: {0}",
+  "simplelang.available.hint": "SimpleLang hỗ trợ mọi ngôn ngữ Minecraft. Nhấp vào đây hoặc dùng /lang list để xem tất cả.",
+  "simplelang.usage": "Dùng /lang <ngôn ngữ> (vd. english, portugues, pt_br) để thay đổi, hoặc /lang auto để làm theo cài đặt trò chơi của bạn.",
+  "simplelang.set.ok": "Đã đặt ngôn ngữ thành {0}.",
+  "simplelang.set.untranslated": "SimpleLang chưa có bản dịch cho {0},, vì vậy tiếng Anh sẽ được sử dụng ở nơi nào thiếu thông báo.",
+  "simplelang.set.unknown": "Ngôn ngữ không xác định \"{0}\". Nhấp vào đây hoặc dùng /lang list để xem mọi ngôn ngữ được hỗ trợ.",
+  "simplelang.set.players_only": "Chỉ người chơi mới có thể chọn ngôn ngữ.",
+  "simplelang.auto.ok": "Ngôn ngữ của bạn giờ đây làm theo cài đặt trò chơi của bạn ({0}).",
+  "simplelang.reload.ok": "Đã tải lại {0} tệp ngôn ngữ.",
+  "simplelang.reload.denied": "Bạn không có quyền tải lại các ngôn ngữ."
+}

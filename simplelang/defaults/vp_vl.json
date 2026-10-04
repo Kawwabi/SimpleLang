@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Viossa",
+  "simplelang.current.auto": "Sin mneii {0} (sane laskmineks all se nast).",
+  "simplelang.current.set": "Sin mneii {0}.",
+  "simplelang.available": "Avatav mneii: {0}",
+  "simplelang.available.hint": "SimpleLong abavadav kõik Minecraft mneii. Käskli ant jukispis või mulgegi /lang list sen ahoi emmed.",
+  "simplelang.usage": "Mulgegi /lang <mneii> (mittarngas: english, portugues, pt_br) muunthaluseks, vikka /lang auto jukispilduse järgija.",
+  "simplelang.set.ok": "Mneii seadav {0}.",
+  "simplelang.set.untranslated": "SimpleLong ei ' ava päimuul jäsn {0},, minoates inglase käsitegu, so sõnum puudub.",
+  "simplelang.set.unknown": "Tundmatu mneii \"{0}\". Käskli ant jukispis või mulgegi /lang list, et kõik emmed mneii näha.",
+  "simplelang.set.players_only": "Vaid mneikäksed saavad valida mneii.",
+  "simplelang.auto.ok": "Sin mneii nüüd jukispis tänapäevasesse ({0}).",
+  "simplelang.reload.ok": "{0} mneii-fail(e) uuesti laadi.",
+  "simplelang.reload.denied": "Sul ei ' avatik luba uuesti laadimiseks."
+}

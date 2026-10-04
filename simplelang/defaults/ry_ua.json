@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Русиньскый",
+  "simplelang.current.auto": "Ваш язык: {0} (выявлен изын настройок иры).",
+  "simplelang.current.set": "Ваш язык: {0}.",
+  "simplelang.available": "Доступны языкы: {0}",
+  "simplelang.available.hint": "SimpleLong поддержує каждый язык Minecraft. Нагарайте тото або употребяйте /lang list, бар же бачыте векше.",
+  "simplelang.usage": "Употребяйте /lang <язык> (напр., english, portugues, pt_br), бар же го сменете, або /lang auto, бар же наслухуєте настройкы иры.",
+  "simplelang.set.ok": "Язык уладаный на {0}.",
+  "simplelang.set.untranslated": "SimpleLang ше не має переклады про {0},, тодідеде там, де не має повідомлєня, правиться полььску.",
+  "simplelang.set.unknown": "Невідомый язык «{0}». Нагарайте тото або употребяйте /lang list, бар же бачыте векшы поддерживуваны языкы.",
+  "simplelang.set.players_only": "Тылько игроки можуть обрать язык.",
+  "simplelang.auto.ok": "Ваш язык мать наслухує настройкы иры ({0}).",
+  "simplelang.reload.ok": "Знова зарене {0} файл(ы) языка.",
+  "simplelang.reload.denied": "Не маєте права знова зарити языкы."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Български",
+  "simplelang.current.auto": "Вашият език: {0} (разпознат от настройките на играта).",
+  "simplelang.current.set": "Вашият език: {0}.",
+  "simplelang.available": "Налични езици: {0}",
+  "simplelang.available.hint": "SimpleLang поддържа всички езици на Minecraft. Щракнете тук или използвайте /lang list, за да ги видите всички.",
+  "simplelang.usage": "Използвайте /lang <език> (напр. english, portugues, pt_br), за да го смените, или /lang auto, за да следва настройките на играта.",
+  "simplelang.set.ok": "Езикът е зададен на {0}.",
+  "simplelang.set.untranslated": "SimpleLang още няма преводи за {0}, затова там, където липсва съобщение, се използва английски.",
+  "simplelang.set.unknown": "Непознат език „{0}“. Щракнете тук или използвайте /lang list, за да видите всички поддържани езици.",
+  "simplelang.set.players_only": "Само играчите могат да избират език.",
+  "simplelang.auto.ok": "Езикът ви вече следва настройките на играта ({0}).",
+  "simplelang.reload.ok": "Презаредени езикови файлове: {0}.",
+  "simplelang.reload.denied": "Нямате право да презареждате езиците."
+}

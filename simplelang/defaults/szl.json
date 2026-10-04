@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Ślōnskŏ",
+  "simplelang.current.auto": "Twój język: {0} (wydane z ugustowań gry).",
+  "simplelang.current.set": "Twój język: {0}.",
+  "simplelang.available": "Dostympne języki: {0}",
+  "simplelang.available.hint": "SimpleLang popierowski jakość język Minecraft. Kliknij TUTAJ ołbo użij /lang list, żeby je vše widzieć.",
+  "simplelang.usage": "Użyj /lang <język> (npr. english, portugues, pt_br), żeby go zmienić, ołbo /lang auto, żeby za ugustowaniami gry iść.",
+  "simplelang.set.ok": "Język ustawił na {0}.",
+  "simplelang.set.untranslated": "SimpleLang ni majo jeszcze tłumaczeń na {0},, i tak może być używany angielski, gdzie co brakuje komunikatu.",
+  "simplelang.set.unknown": "Najeznajomy język „{0}\". Kliknij TUTAJ ołbo użij /lang list, żeby vse popierowske języki widzieć.",
+  "simplelang.set.players_only": "Samo gronicy mogą jech język wybrać.",
+  "simplelang.auto.ok": "Twój język teraz idze za ugustowaniami gry ({0}).",
+  "simplelang.reload.ok": "Przeładowano {0} plik(i) językowy.",
+  "simplelang.reload.denied": "Ni masz uprawnień, żeby przeładować języki."
+}

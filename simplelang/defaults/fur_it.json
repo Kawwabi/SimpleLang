@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Furlan",
+  "simplelang.current.auto": "La tô lenghe: {0} (ricognossude dai toorets dal gjûc).",
+  "simplelang.current.set": "La tô lenghe: {0}.",
+  "simplelang.available": "Lenghis disponibilis: {0}",
+  "simplelang.available.hint": "SimpleLang supuarte dutis lis lenghis di Minecraft. Fâs un clic cjussì o dopre /lang list par viodi lis tôdis.",
+  "simplelang.usage": "Dopre /lang <lenghe> (p. esp. english, portugues, pt_br) par cambiâle, o /lang auto par sigui lis toorets dal gjûc.",
+  "simplelang.set.ok": "Lenghe stabilide su {0}.",
+  "simplelang.set.untranslated": "SimpleLang no à ancjemò traduzions par {0}, par ciò si dopre inglês cuant che mancje un messaç.",
+  "simplelang.set.unknown": "Lenghe no cognossude \"{0}\". Fâs un clic cjussì o dopre /lang list par viodi dutis lis lenghis supuartadis.",
+  "simplelang.set.players_only": "Domand i gjocjadôrs a pues scuerzi une lenghe.",
+  "simplelang.auto.ok": "La tô lenghe cumò e siguis lis toorets dal gjûc ({0}).",
+  "simplelang.reload.ok": "Sona risâiât {0} file di lenghe.",
+  "simplelang.reload.denied": "No tu âs permision par risâiâ lis lenghis."
+}

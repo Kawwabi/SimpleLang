@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Pirate Speak",
+  "simplelang.current.auto": "Yer langwidge: {0} (spotfrut from yer gime settinks).",
+  "simplelang.current.set": "Yer langwidge: {0}.",
+  "simplelang.available": "Langwidges available, arr: {0}",
+  "simplelang.available.hint": "SimpleLang be coverin' every Minecraft langwidge, matey. Click yer keester here or use /lang list to spy 'em all.",
+  "simplelang.usage": "Use /lang <langwidge> (e.g. english, portugues, pt_br) to change it, or /lang auto to follow yer gime settinks.",
+  "simplelang.set.ok": "Langwidge set to {0}.",
+  "simplelang.set.untranslated": "SimpleLang got no translations fer {0} yet, so English be used wherever a message be missing.",
+  "simplelang.set.unknown": "Unknow langwidge \"{0}\". Click here or use /lang list to see every supported langwidge, arr.",
+  "simplelang.set.players_only": "Only players can choose a langwidge, matey.",
+  "simplelang.auto.ok": "Yer langwidge now follows yer gime settinks ({0}).",
+  "simplelang.reload.ok": "Reloaded {0} langwidge file(s), matey.",
+  "simplelang.reload.denied": "Ye be lackin' the permission to reload langwidges."
+}

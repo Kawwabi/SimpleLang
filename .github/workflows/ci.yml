@@ -23,6 +23,9 @@ jobs:
       - name: Check language files
         run: python3 .github/scripts/check_lang_files.py
 
+      - name: Check the bundled language list is up to date
+        run: python3 tools/translations.py sync --check
+
   # Builds both plugins for real, as WebAssembly. If a new Pumpkin API release
   # changes something, this is the job that goes red.
   build:

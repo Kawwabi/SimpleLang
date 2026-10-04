@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "简体中文",
+  "simplelang.current.auto": "你的语言：{0}（根据游戏设置检测）。",
+  "simplelang.current.set": "你的语言：{0}。",
+  "simplelang.available": "可用的语言：{0}",
+  "simplelang.available.hint": "SimpleLang 支持所有 Minecraft 语言。点击此处或使用 /lang list 查看全部。",
+  "simplelang.usage": "使用 /lang <语言>（例如 english、portugues、pt_br）进行更改，或使用 /lang auto 跟随你的游戏设置。",
+  "simplelang.set.ok": "语言已设置为 {0}。",
+  "simplelang.set.untranslated": "SimpleLang 还没有 {0} 的翻译，因此消息缺失的地方将使用英语。",
+  "simplelang.set.unknown": "未知语言「{0}」。点击此处或使用 /lang list 查看所有受支持的语言。",
+  "simplelang.set.players_only": "只有玩家可以选择语言。",
+  "simplelang.auto.ok": "你的语言现在跟随你的游戏设置（{0}）。",
+  "simplelang.reload.ok": "已重新加载 {0} 个语言文件。",
+  "simplelang.reload.denied": "你没有权限重新加载语言。"
+}

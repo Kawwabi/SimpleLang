@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Euskara",
+  "simplelang.current.auto": "Zure hizkuntza: {0} (jokoaren ezarpenetatik hautemana).",
+  "simplelang.current.set": "Zure hizkuntza: {0}.",
+  "simplelang.available": "Hizkuntza erabilgarriak: {0}",
+  "simplelang.available.hint": "SimpleLang-ek Minecrafteko hizkuntza guztiak onartzen ditu. Egin klik hemen edo erabili /lang list guztiak ikusteko.",
+  "simplelang.usage": "Erabili /lang <hizkuntza> (adib. english, portugues, pt_br) aldatzeko, edo /lang auto jokoaren ezarpenak jarraitzeko.",
+  "simplelang.set.ok": "Hizkuntza {0} gisa ezarri da.",
+  "simplelang.set.untranslated": "SimpleLang-ek ez du oraindik {0} hizkuntzarako itzulpenik, beraz ingelesa erabiltzen da mezu bat falta denean.",
+  "simplelang.set.unknown": "Hizkuntza ezezaguna: “{0}”. Egin klik hemen edo erabili /lang list onartutako hizkuntza guztiak ikusteko.",
+  "simplelang.set.players_only": "Jokalariek bakarrik aukera dezakete hizkuntza.",
+  "simplelang.auto.ok": "Zure hizkuntzak jokoaren ezarpenak jarraitzen ditu orain ({0}).",
+  "simplelang.reload.ok": "{0} hizkuntza-fitxategi birkargatu dira.",
+  "simplelang.reload.denied": "Ez duzu hizkuntzak birkargatzeko baimenik."
+}

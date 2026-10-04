@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Yorùbá",
+  "simplelang.current.auto": "Èdè rẹ: {0} (a ṣàwọn ohun-ini oriṣiṣe ni alaye).",
+  "simplelang.current.set": "Èdè rẹ: {0}.",
+  "simplelang.available": "Àwọn èdè tí ó wà: {0}",
+  "simplelang.available.hint": "SimpleLang dà ọlá pàtàkì sí gbogbo èdè Minecraft. Tẹ níhìn tàbí lo /lang list láti rí wọn gbogbo.",
+  "simplelang.usage": "Lo /lang <èdè> (bẹ́ẹ̀ ni english, portugues, pt_br) láti yí padà, tàbí /lang auto láti tẹ̀lé àwọn ohun-ini oriṣiṣe rẹ.",
+  "simplelang.set.ok": "A ṣàtúnṣe èdè sí {0}.",
+  "simplelang.set.untranslated": "SimpleLang kò tíì ní àtúnṣe fún {0},, nítorí náà a ń lo Gẹ̀ẹ́sì níbi tí ìwọ̀n bá sún.",
+  "simplelang.set.unknown": "Èdè tí a kò mọ \"{0}\". Tẹ níhìn tàbí lo /lang list láti rí gbogbo èdè tí a fi ń jẹ́rìí.",
+  "simplelang.set.players_only": "Ẹni tí ó ń tẹ̀lé nìkan ni ó le yan èdè.",
+  "simplelang.auto.ok": "Èdè rẹ ó ń tẹ̀lé àwọn ohun-ini oriṣiṣe rẹ bẹ́ẹ̀ ni ({0}).",
+  "simplelang.reload.ok": "A tún kó {0} èdè (sì) padà.",
+  "simplelang.reload.denied": "Kò sí àjọṣe láti tún kó àwọn èdè."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ລາວ",
+  "simplelang.current.auto": "ພາສາຂອງທ່ານ: {0} (ກວດຈັດຈາກການຕັ້ງຄ່າເກມຂອງທ່ານ).",
+  "simplelang.current.set": "ພາສາຂອງທ່ານ: {0}.",
+  "simplelang.available": "ພາສາທີ່ມີ: {0}",
+  "simplelang.available.hint": "SimpleLang ຢືນຢູ່ພາສາ Minecraft ທັງໝົດ. ກົດທີ່ນີ້ ຫຼື ໃຊ້ /lang list ເພື່ອເບິ່ງທັງໝົດ.",
+  "simplelang.usage": "ໃຊ້ /lang <ພາສາ> (ຕົວຢ່າງ: english, portugues, pt_br) ເພື່ອປ່ຽນ, ຫຼື /lang auto ເພື່ອຕິດຕາມການຕັ້ງຄ່າເກມຂອງທ່ານ.",
+  "simplelang.set.ok": "ຕັ້ງພາສາເປັນ {0}.",
+  "simplelang.set.untranslated": "SimpleLang ຍັງບໍ່ມີການແປພາສາສຳລັບ {0},, ດັ່ງນັ້ນຈຶ່ງໃຊ້ພາສາອັງກິດບ່ອນທີ່ຂາດຂໍ້ຄວາມ.",
+  "simplelang.set.unknown": "ພາສາບໍ່ຮູ້ຈັກ \"{0}\". ກົດທີ່ນີ້ ຫຼື ໃຊ້ /lang list ເພື່ອເບິ່ງພາສາທັງໝົດທີ່ຢືນຢູ່.",
+  "simplelang.set.players_only": "ແມ່ນພຽງແຕ່ຜູ້ຫຼິ້ນເທົ່ານັ້ນທີ່ເລືອກພາສາໄດ້.",
+  "simplelang.auto.ok": "ພາສາຂອງທ່ານດຽວນີ້ຕິດຕາມການຕັ້ງຄ່າເກມຂອງທ່ານ ({0}).",
+  "simplelang.reload.ok": "ໂຫຼດ {0} ໄຟລ໌ພາສາໃໝ່.",
+  "simplelang.reload.denied": "ທ່ານບໍ່ມີສິດໂຫຼດພາສາໃໝ່."
+}

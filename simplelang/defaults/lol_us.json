@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "LOLCAT",
+  "simplelang.current.auto": "ur langwage: {0} (detected from ur game settings) uwu",
+  "simplelang.current.set": "ur langwage: {0}.",
+  "simplelang.available": "available langwages: {0}",
+  "simplelang.available.hint": "SimpleLang supports evryone Minecraft langwage. click here or use /lang list to see dem all. owo",
+  "simplelang.usage": "use /lang <langwage> (e.g. english, portugues, pt_br) to change it, or /lang auto to follow ur game settings",
+  "simplelang.set.ok": "langwage set to {0}.",
+  "simplelang.set.untranslated": "SimpleLang has no translations for {0} yet, so engris is used wherever a message is missing. :3",
+  "simplelang.set.unknown": "unknow langwage \"{0}\". click here or use /lang list to see evryone supported langwage",
+  "simplelang.set.players_only": "onley pleyers can choose a langwage",
+  "simplelang.auto.ok": "ur langwage now folows ur game settings ({0})",
+  "simplelang.reload.ok": "reloaded {0} langwage file(s)",
+  "simplelang.reload.denied": "u dont have permission to reload langwages"
+}

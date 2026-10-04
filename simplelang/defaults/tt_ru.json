@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Татарча",
+  "simplelang.current.auto": "Сез телегез: {0} (уен көйләүләреннән табылды).",
+  "simplelang.current.set": "Сез телегез: {0}.",
+  "simplelang.available": "Кулланыла торган телләр: {0}",
+  "simplelang.available.hint": "SimpleLang Minecraft-ның барлык телләрен куәтләндерә. Барлыгын күрер өчен монда басыгыз яки /lang list кулланыгыз.",
+  "simplelang.usage": "Анны үзгәртү өчен /lang <тел> (мәсәлән, english, portugues, pt_br) яки уен көйләүләреңне тәкъдим итү өчен /lang auto кулланыгыз.",
+  "simplelang.set.ok": "Тел {0} итеп куелды.",
+  "simplelang.set.untranslated": "SimpleLang-та {0} өчен әле тәрҗемәләр юк, шуңа күрә хәбәр җитмәгән урыннарда инглиз теле кулланыла.",
+  "simplelang.set.unknown": "Билгесез тел \"{0}\". Куәтләндерелгән барлык телләрне күрү өчен монда басыгыз яки /lang list кулланыгыз.",
+  "simplelang.set.players_only": "Телне бары тик уенчылар гына сайлый ала.",
+  "simplelang.auto.ok": "Сез телегез хәзер уен көйләүләреңне тәкъдим итә ({0}).",
+  "simplelang.reload.ok": "{0} тел файлы(лары) яңадан йөкләнде.",
+  "simplelang.reload.denied": "Сездә телләрне яңадан йөкләү өчен рөхсәт юк."
+}

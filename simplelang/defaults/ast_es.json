@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Asturianu",
+  "simplelang.current.auto": "La to llingua: {0} (detchada de les to axustes de xuegu).",
+  "simplelang.current.set": "La to llingua: {0}.",
+  "simplelang.available": "Llingües disponibles: {0}",
+  "simplelang.available.hint": "SimpleLang soporta toles llingües de Minecraft. Calca equí o usa /lang list pa velles todes.",
+  "simplelang.usage": "Usa /lang <llingua> (p. es. english, portugues, pt_br) pa cambiala, o /lang auto pa siguir los to axustes de xuegu.",
+  "simplelang.set.ok": "Llingua establecida en {0}.",
+  "simplelang.set.untranslated": "SimpleLang entá nun tien traducciones pa {0}, polo que s'usa l'inglés cuando falta dalgún mensaxe.",
+  "simplelang.set.unknown": "Llingua desconocida «{0}». Calca equí o usa /lang list pa ver toles llingües soportaes.",
+  "simplelang.set.players_only": "Namái los xugadores pueden escoyer una llingua.",
+  "simplelang.auto.ok": "La to llingua agora sigue los to axustes de xuegu ({0}).",
+  "simplelang.reload.ok": "Se recargaron {0} ficheru(s) de llingua.",
+  "simplelang.reload.denied": "Nun tienes permisu pa recargar llingües."
+}

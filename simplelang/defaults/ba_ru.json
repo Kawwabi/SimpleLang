@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Башҡортса",
+  "simplelang.current.auto": "Һеҙҙең теле: {0} (ойын ҡулайламаларынан аныҡланды).",
+  "simplelang.current.set": "Һеҙҙең теле: {0}.",
+  "simplelang.available": "Рәүәк телдәр: {0}",
+  "simplelang.available.hint": "SimpleLang Minecraft-тың бөтә телдәрен ҡабул итә. Бөтәһен күрер өсөн был урынға басығыҙ яки /lang list ҡулланығыҙ.",
+  "simplelang.usage": "Үҙгәртеү өсөн /lang <тел> (мәҫәлән, english, portugues, pt_br) яки ҡулайламаларға бәйле өсөн /lang auto ҡулланығыҙ.",
+  "simplelang.set.ok": "Тел {0} итеп ҡуелды.",
+  "simplelang.set.untranslated": "SimpleLang-та {0} өсөн әле тәржемәләр юҡ, шуға күрә хәбәр җитмәгән ерҙә инглиз теле ҡулланыла.",
+  "simplelang.set.unknown": "Билдәһеҙ тел «{0}». Бөтә ҡабул ителгән телдәрҙе күрер өсөн был урынға басығыҙ яки /lang list ҡулланығыҙ.",
+  "simplelang.set.players_only": "Тел һайлауҙы тик уйынсы ғына эшләй ала.",
+  "simplelang.auto.ok": "Һеҙҙең теле хәҙер ойын ҡулайламаларына бәйле ({0}).",
+  "simplelang.reload.ok": "{0} тел файлы ҡайтанан уҡылды.",
+  "simplelang.reload.denied": "Һеҙҙең телдәрҙе ҡайтанан уҡыу өсөн рөхсәтегеҙ юҡ."
+}

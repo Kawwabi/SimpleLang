@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "tlhIngan Hol",
+  "simplelang.current.auto": "qoy' rangqI' {0} (mey 'u' wa' momatlh)",
+  "simplelang.current.set": "qoy' rangqI' {0}",
+  "simplelang.available": "rangqI'lhutlh tI' 'em: {0}",
+  "simplelang.available.hint": "SimpleLang QongSoQ rangqI'lo' yIyuv. qa' 'oH vIdujmey /lang list.",
+  "simplelang.usage": "qoy' meHDI' /lang <rangqI'> (qaSvanjIS: english, portugues, pt_br) 'I nIDaghjI', qa' 'e'' /lang auto 'I loS.",
+  "simplelang.set.ok": "rangqI' {0} 'I 'eghmo'",
+  "simplelang.set.untranslated": "SimpleLang {0} mayjatlhma' qab. ratlhpu' rangqI' 'e'' vIlegh wa' 'etlh",
+  "simplelang.set.unknown": "rangqI' na nqa' \"{0}\". qa' 'oH vIdujmey /lang list.",
+  "simplelang.set.players_only": "rangqI' 'ar bIngme' 'ar jIHu'",
+  "simplelang.auto.ok": "qoy' rangqI' wa' 'oH vIjatlh qoy' 'u' ({0})",
+  "simplelang.reload.ok": "qIngmoH {0} rangqI' wey'lh",
+  "simplelang.reload.denied": "qoy' 'ar ngeHlo' 'I 'oH"
+}

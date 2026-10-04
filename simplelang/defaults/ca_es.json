@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Català",
+  "simplelang.current.auto": "El teu idioma: {0} (detectat a partir de la configuració del joc).",
+  "simplelang.current.set": "El teu idioma: {0}.",
+  "simplelang.available": "Idiomes disponibles: {0}",
+  "simplelang.available.hint": "SimpleLang admet tots els idiomes de Minecraft. Fes clic aquí o fes servir /lang list per veure'ls tots.",
+  "simplelang.usage": "Fes servir /lang <idioma> (p. ex. english, portugues, pt_br) per canviar-lo, o /lang auto per seguir la configuració del joc.",
+  "simplelang.set.ok": "Idioma establert a {0}.",
+  "simplelang.set.untranslated": "SimpleLang encara no té traduccions per a {0}, així que s'usa l'anglès quan falta un missatge.",
+  "simplelang.set.unknown": "Idioma desconegut «{0}». Fes clic aquí o fes servir /lang list per veure tots els idiomes admesos.",
+  "simplelang.set.players_only": "Només els jugadors poden triar un idioma.",
+  "simplelang.auto.ok": "El teu idioma ara segueix la configuració del joc ({0}).",
+  "simplelang.reload.ok": "S'han tornat a carregar {0} fitxer(s) d'idioma.",
+  "simplelang.reload.denied": "No tens permís per tornar a carregar els idiomes."
+}

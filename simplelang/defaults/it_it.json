@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Italiano",
+  "simplelang.current.auto": "La tua lingua: {0} (rilevata dalle impostazioni del gioco).",
+  "simplelang.current.set": "La tua lingua: {0}.",
+  "simplelang.available": "Lingue disponibili: {0}",
+  "simplelang.available.hint": "SimpleLang supporta tutte le lingue di Minecraft. Clicca qui o usa /lang list per vederle tutte.",
+  "simplelang.usage": "Usa /lang <lingua> (es. english, portugues, pt_br) per cambiarla, oppure /lang auto per seguire le impostazioni del gioco.",
+  "simplelang.set.ok": "Lingua impostata su {0}.",
+  "simplelang.set.untranslated": "SimpleLang non ha ancora traduzioni per {0}, quindi si usa l'inglese dove manca un messaggio.",
+  "simplelang.set.unknown": "Lingua sconosciuta «{0}». Clicca qui o usa /lang list per vedere tutte le lingue supportate.",
+  "simplelang.set.players_only": "Solo i giocatori possono scegliere una lingua.",
+  "simplelang.auto.ok": "La tua lingua ora segue le impostazioni del gioco ({0}).",
+  "simplelang.reload.ok": "Ricaricati {0} file di lingua.",
+  "simplelang.reload.denied": "Non hai il permesso di ricaricare le lingue."
+}

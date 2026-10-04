@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Esperanto",
+  "simplelang.current.auto": "Via lingvo: {0} (detektita el viaj ludaj agordoj).",
+  "simplelang.current.set": "Via lingvo: {0}.",
+  "simplelang.available": "Uzeblaj lingvoj: {0}",
+  "simplelang.available.hint": "SimpleLang subtenas ĉiujn Minecraft-lingvojn. Klaku ĉi-aŭ uzu /lang list por vidi ilin ĉiujn.",
+  "simplelang.usage": "Uzu /lang <lingvo> (ekz. english, portugues, pt_br) por ŝanĝi ĝin, aŭ /lang auto por sekvi viajn ludajn agordojn.",
+  "simplelang.set.ok": "Lingvo metita al {0}.",
+  "simplelang.set.untranslated": "SimpleLang ankoraŭ ne havas tradukojn por {0}, do angle estas uzata kie mankas mesaĝo.",
+  "simplelang.set.unknown": "Ne-know lingvo \"{0}\". Klaku ĉi-aŭ uzu /lang list por vidi ĉiujn subtenatajn lingvojn.",
+  "simplelang.set.players_only": "Nur ludantoj povas elekti lingvon.",
+  "simplelang.auto.ok": "Via lingvo nun sekvas viajn ludajn agordojn ({0}).",
+  "simplelang.reload.ok": "Reŝarĝis {0} lingvodosierojn.",
+  "simplelang.reload.denied": "Vi ne havas permeson reŝarĝi lingvojn."
+}

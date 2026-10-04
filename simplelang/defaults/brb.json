@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Brabants",
+  "simplelang.current.auto": "Je taal: {0} (opgemak oet je sjpèel-instellinge).",
+  "simplelang.current.set": "Je taal: {0}.",
+  "simplelang.available": "Beschikbaar talen: {0}",
+  "simplelang.available.hint": "SimpleLang steunt al Minecraft-talen aan. Klikk hier of gebruk /lang list um ze alle te zien.",
+  "simplelang.usage": "Gebruk /lang <taal> (b.v. english, portugues, pt_br) um te veranderen, of /lang auto um op je sjpèel-instellinge te sjteh.",
+  "simplelang.set.ok": "Taal ingesteld op {0}.",
+  "simplelang.set.untranslated": "SimpleLang haot nog gein vertalinge veur {0}, dus Ingelsj weurd gebrök woor e boodsjap klos opkes.",
+  "simplelang.set.unknown": "Onbekend taal \"{0}\". Klikk hier of gebruk /lang list um alle ongersteunde talen te zien.",
+  "simplelang.set.players_only": "Alleen sjpèëlere kune ’n taal kieze.",
+  "simplelang.auto.ok": "Je taal sjteek nu op je sjpèel-instellinge ({0}).",
+  "simplelang.reload.ok": "{0} taalbestand(en) weer gelaeje.",
+  "simplelang.reload.denied": "Jij haats keni macht um talen weer te laoge."
+}

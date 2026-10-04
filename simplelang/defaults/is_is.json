@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Íslenska",
+  "simplelang.current.auto": "Tungumálið þitt: {0} (greint út frá leikjastillingum þínum).",
+  "simplelang.current.set": "Tungumálið þitt: {0}.",
+  "simplelang.available": "Tiltæk tungumál: {0}",
+  "simplelang.available.hint": "SimpleLang styður öll tungumál Minecraft. Smelltu hér eða notaðu /lang list til að sjá þau öll.",
+  "simplelang.usage": "Notaðu /lang <tungumál> (t.d. english, portugues, pt_br) til að breyta, eða /lang auto til að fylgja leikjastillingum þínum.",
+  "simplelang.set.ok": "Tungumál stillt á {0}.",
+  "simplelang.set.untranslated": "SimpleLang er ekki enn með þýðingar fyrir {0}, svo enska er notuð þar sem skilaboð vantar.",
+  "simplelang.set.unknown": "Óþekkt tungumál „{0}“. Smelltu hér eða notaðu /lang list til að sjá öll studd tungumál.",
+  "simplelang.set.players_only": "Aðeins leikmenn geta valið tungumál.",
+  "simplelang.auto.ok": "Tungumálið þitt fylgir nú leikjastillingum þínum ({0}).",
+  "simplelang.reload.ok": "Endurhlaðið {0} tungumálaskrár.",
+  "simplelang.reload.denied": "Þú hefur ekki heimild til að endurhlaða tungumál."
+}

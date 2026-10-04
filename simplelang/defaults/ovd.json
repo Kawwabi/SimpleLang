@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Övdalsk",
+  "simplelang.current.auto": "Din språk: {0} (olupoerad fran din spelinställninga).",
+  "simplelang.current.set": "Din språk: {0}.",
+  "simplelang.available": "Tillgängliga språk: {0}",
+  "simplelang.available.hint": "SimpleLang stöder alla Minecraft-språk. Klick här eller bruk /lang list för att sla dem alla.",
+  "simplelang.usage": "Bruk /lang <språk> (t.ex. english, portugues, pt_br) för att ändra det, eller /lang auto för att följa din spelinställninga.",
+  "simplelang.set.ok": "Språket är satt på {0}.",
+  "simplelang.set.untranslated": "SimpleLang har ikka ombörskaningar för {0}, än, sa engelska brukas dar ett meddelande saknas.",
+  "simplelang.set.unknown": "Okänd språk „{0}\". Klick här eller bruk /lang list för att sla alla stötta språk.",
+  "simplelang.set.players_only": "Bara spelare kan välja språk.",
+  "simplelang.auto.ok": "Din språk följer nu din spelinställninga ({0}).",
+  "simplelang.reload.ok": "Laddade om {0} språkfil(ar).",
+  "simplelang.reload.denied": "Du har icke rätt att ladda om språk."
+}

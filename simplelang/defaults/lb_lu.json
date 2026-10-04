@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Lëtzebuergesch",
+  "simplelang.current.auto": "Äre Sprooch: {0} (aus Äre Spill-Estellunge erkannt).",
+  "simplelang.current.set": "Äre Sprooch: {0}.",
+  "simplelang.available": "Verfügbar Sproochen: {0}",
+  "simplelang.available.hint": "SimpleLang ënnerstëtzt all Minecraft-Sprooche. Klickt hei oder benotzt /lang list fir se all ze gesinn.",
+  "simplelang.usage": "Benotzt /lang <Sprooch> (z. B. english, portugues, pt_br) fir se ze änneren, oder /lang auto fir Äre Spill-Estellunge ze follegen.",
+  "simplelang.set.ok": "Sprooch gesat op {0}.",
+  "simplelang.set.untranslated": "SimpleLang huet nach keng Iwwersetzungen fir {0}, dat Änglescht gëtt doerfir benotzt, wann eng Toesueke fuelt.",
+  "simplelang.set.unknown": "Onbekannt Sprooch „{0}\". Klickt hei oder benotzt /lang list fir all ënnerstëtzt Sprooche ze gesinn.",
+  "simplelang.set.players_only": "Nëmme Spiller kënnen eng Sprooch wielen.",
+  "simplelang.auto.ok": "Är Sprooch follegt elo Äre Spill-Estellunge ({0}).",
+  "simplelang.reload.ok": "{0} Sproochdatef(iller) nei geluede.",
+  "simplelang.reload.denied": "Dir hutt keng Erlaabnes, Sproochen nei ze lueden."
+}

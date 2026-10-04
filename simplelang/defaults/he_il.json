@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "עברית",
+  "simplelang.current.auto": "השפה שלך: {0} (זוהתה מהגדרות המשחק).",
+  "simplelang.current.set": "השפה שלך: {0}.",
+  "simplelang.available": "שפות זמינות: {0}",
+  "simplelang.available.hint": "SimpleLang תומך בכל שפות Minecraft. לחצו כאן או השתמשו ב-/lang list כדי לראות את כולן.",
+  "simplelang.usage": "השתמשו ב-/lang <שפה> (למשל english, portugues, pt_br) כדי לשנות, או ב-/lang auto כדי לעקוב אחר הגדרות המשחק.",
+  "simplelang.set.ok": "השפה הוגדרה ל-{0}.",
+  "simplelang.set.untranslated": "ל-SimpleLang עדיין אין תרגומים ל-{0}, ולכן משתמשים באנגלית בכל מקום שבו חסרה הודעה.",
+  "simplelang.set.unknown": "שפה לא מוכרת “{0}”. לחצו כאן או השתמשו ב-/lang list כדי לראות את כל השפות הנתמכות.",
+  "simplelang.set.players_only": "רק שחקנים יכולים לבחור שפה.",
+  "simplelang.auto.ok": "השפה שלך עוקבת עכשיו אחר הגדרות המשחק ({0}).",
+  "simplelang.reload.ok": "נטענו מחדש {0} קבצי שפה.",
+  "simplelang.reload.denied": "אין לך הרשאה לטעון שפות מחדש."
+}

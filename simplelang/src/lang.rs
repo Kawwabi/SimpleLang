@@ -43,6 +43,21 @@ pub fn fold(s: &str) -> String {
             'ú' | 'ù' | 'û' | 'ü' => 'u',
             'ç' => 'c',
             'ñ' => 'n',
+            'ă' | 'ā' | 'ą' | 'å' | 'æ' => 'a',
+            'ć' | 'č' | 'ĉ' => 'c',
+            'ď' | 'đ' | 'ð' => 'd',
+            'ě' | 'ē' | 'ę' | 'ė' => 'e',
+            'ğ' => 'g',
+            'ī' | 'ı' | 'į' => 'i',
+            'ł' | 'ľ' => 'l',
+            'ń' | 'ň' => 'n',
+            'ō' | 'ő' | 'ø' | 'œ' => 'o',
+            'ř' => 'r',
+            'ś' | 'š' | 'ş' => 's',
+            'ť' | 'ț' | 'ţ' => 't',
+            'ū' | 'ů' | 'ű' | 'ų' => 'u',
+            'ý' | 'ÿ' => 'y',
+            'ź' | 'ż' | 'ž' => 'z',
             other => other,
         })
         .collect()
@@ -91,6 +106,37 @@ pub fn fill(template: &str, args: &[String]) -> String {
     out
 }
 
+/// `Spanish (Mexico)` -> `spanish-mexico`, `Français` -> `francais`.
+/// Lowercases, strips accents, and joins words with single hyphens.
+pub fn slug(s: &str) -> String {
+    let folded = fold(&s.to_lowercase());
+    let mut out = String::with_capacity(folded.len());
+    let mut pending_dash = false;
+    for c in folded.chars() {
+        if c.is_alphanumeric() {
+            if pending_dash && !out.is_empty() {
+                out.push('-');
+            }
+            pending_dash = false;
+            out.push(c);
+        } else {
+            pending_dash = true;
+        }
+    }
+    out
+}
+
+/// One language from Minecraft's language list (`defaults/minecraft_languages.json`).
+#[derive(Clone, Debug)]
+pub struct CatalogueEntry {
+    /// `pt_br`
+    pub code: String,
+    /// `Portuguese (Brazil)`
+    pub name: String,
+    /// `Português (Brasil)`, or empty if unknown
+    pub native: String,
+}
+
 pub struct Store {
     /// Loaded from `<data>/lang/*.json`. Admins edit these; they win.
     files: Table,
@@ -100,6 +146,11 @@ pub struct Store {
     prefs: HashMap<String, String>,
     /// Admin-defined nicknames from `aliases.json` (keys are folded).
     aliases: HashMap<String, String>,
+    /// Every Minecraft language, in priority order. Lets players pick a language
+    /// that nobody has translated yet; their messages then fall back to English.
+    catalogue: Vec<CatalogueEntry>,
+    /// slug of an English/native name -> code. The first entry listed wins.
+    catalogue_aliases: HashMap<String, String>,
     default_lang: String,
 }
 
@@ -110,6 +161,8 @@ impl Store {
             registered: Table::new(),
             prefs: HashMap::new(),
             aliases: HashMap::new(),
+            catalogue: Vec::new(),
+            catalogue_aliases: HashMap::new(),
             default_lang: DEFAULT_LANG.to_string(),
         }
     }
@@ -142,6 +195,34 @@ impl Store {
             .into_iter()
             .map(|(k, v)| (fold(&normalize(&k)), normalize(&v)))
             .collect();
+    }
+
+    /// Load the list of Minecraft languages. Order matters: for a short name shared
+    /// by several languages ("spanish", "chinese"), the one listed first wins.
+    pub fn set_catalogue(&mut self, entries: Vec<CatalogueEntry>) {
+        let mut aliases: HashMap<String, String> = HashMap::new();
+        for e in &entries {
+            let code = normalize(&e.code);
+            for text in [&e.name, &e.native] {
+                let full = slug(text);
+                if full.is_empty() {
+                    continue;
+                }
+                let first = full.split('-').next().unwrap_or("").to_string();
+                aliases.entry(full).or_insert_with(|| code.clone());
+                if !first.is_empty() {
+                    aliases.entry(first).or_insert_with(|| code.clone());
+                }
+            }
+        }
+        self.catalogue = entries
+            .into_iter()
+            .map(|mut e| {
+                e.code = normalize(&e.code);
+                e
+            })
+            .collect();
+        self.catalogue_aliases = aliases;
     }
 
     pub fn set_prefs(&mut self, prefs: HashMap<String, String>) {
@@ -231,12 +312,62 @@ impl Store {
                 return Some(c);
             }
         }
+        self.resolve_from_catalogue(&n)
+    }
+
+    /// Last resort: Minecraft's own list. Installed languages are always tried
+    /// first, so this never overrides a real translation.
+    fn resolve_from_catalogue(&self, n: &str) -> Option<String> {
+        if self.catalogue.iter().any(|e| e.code == n) {
+            return Some(n.to_string());
+        }
+        if let Some(code) = self.catalogue_aliases.get(&slug(n)) {
+            return Some(code.clone());
+        }
+        if !n.contains('_') {
+            let same = format!("{n}_{n}");
+            if let Some(e) = self.catalogue.iter().find(|e| e.code == same) {
+                return Some(e.code.clone());
+            }
+            let prefix = format!("{n}_");
+            if let Some(e) = self.catalogue.iter().find(|e| e.code.starts_with(&prefix)) {
+                return Some(e.code.clone());
+            }
+        }
         None
+    }
+
+    /// Will this language show real translations? True if it has strings itself, or a
+    /// language of the same family does (`en_gb` is served by `en_us`, `de_at` by `de_de`).
+    pub fn is_translated(&self, code: &str) -> bool {
+        let c = normalize(code);
+        if self.has_lang(&c) {
+            return true;
+        }
+        let base = c.split('_').next().unwrap_or("");
+        if base.is_empty() {
+            return false;
+        }
+        let prefix = format!("{base}_");
+        self.available().iter().any(|a| a.starts_with(&prefix))
+    }
+
+    /// English name of a Minecraft language, if it's in the list.
+    pub fn catalogue_name(&self, code: &str) -> Option<&str> {
+        let c = normalize(code);
+        self.catalogue
+            .iter()
+            .find(|e| e.code == c)
+            .map(|e| e.name.as_str())
     }
 
     /// `pt_br (Português (Brasil))`
     pub fn label(&self, code: &str) -> String {
-        match self.lookup(code, "simplelang.lang.name") {
+        // The language's own name first, then Minecraft's English name for it.
+        let name = self
+            .lookup(code, "simplelang.lang.name")
+            .or_else(|| self.catalogue_name(code));
+        match name {
             Some(name) => format!("{code} ({name})"),
             None => code.to_string(),
         }
@@ -433,5 +564,96 @@ mod tests {
         s.register("shop", "de_de", map(&[("buy", "Kaufen")]));
         assert_eq!(s.translate("de_de", "shop.buy", &[]), "Kaufen");
         assert_eq!(s.translate("en_us", "shop.buy", &[]), "shop.buy");
+    }
+
+    fn catalogue() -> Vec<CatalogueEntry> {
+        let e = |c: &str, n: &str, nat: &str| CatalogueEntry {
+            code: c.to_string(),
+            name: n.to_string(),
+            native: nat.to_string(),
+        };
+        vec![
+            e("fr_fr", "French", "Français"),
+            e("fr_ca", "French (Canada)", "Français (Canada)"),
+            e("pt_pt", "Portuguese (Portugal)", "Português (Portugal)"),
+            e("tlh_aa", "Klingon", "tlhIngan Hol"),
+            e("cs_cz", "Czech", "Čeština"),
+            e("en_us", "English (US)", "English (US)"),
+            e("en_gb", "English (UK)", "English (UK)"),
+        ]
+    }
+
+    #[test]
+    fn slug_strips_accents_and_joins_words() {
+        assert_eq!(slug("Spanish (Mexico)"), "spanish-mexico");
+        assert_eq!(slug("  Français "), "francais");
+        assert_eq!(slug("Čeština"), "cestina");
+        assert_eq!(slug("Chinese (Traditional, Hong Kong)"), "chinese-traditional-hong-kong");
+    }
+
+    #[test]
+    fn catalogue_languages_are_selectable() {
+        let mut s = Store::new();
+        s.set_catalogue(catalogue());
+        assert_eq!(s.resolve_code("fr_fr").as_deref(), Some("fr_fr"));
+        assert_eq!(s.resolve_code("FR-fr").as_deref(), Some("fr_fr"));
+        assert_eq!(s.resolve_code("french").as_deref(), Some("fr_fr"));
+        assert_eq!(s.resolve_code("Français").as_deref(), Some("fr_fr"));
+        assert_eq!(s.resolve_code("francais").as_deref(), Some("fr_fr"));
+        assert_eq!(s.resolve_code("french-canada").as_deref(), Some("fr_ca"));
+        assert_eq!(s.resolve_code("klingon").as_deref(), Some("tlh_aa"));
+        assert_eq!(s.resolve_code("čeština").as_deref(), Some("cs_cz"));
+        assert_eq!(s.resolve_code("cestina").as_deref(), Some("cs_cz"));
+        // bare language: "xx_xx" if listed, otherwise the first "xx_*"
+        assert_eq!(s.resolve_code("fr").as_deref(), Some("fr_fr"));
+        assert_eq!(s.resolve_code("en").as_deref(), Some("en_us"));
+        assert_eq!(s.resolve_code("pt").as_deref(), Some("pt_pt"));
+        // first listed wins for a shared short name
+        assert_eq!(s.resolve_code("english").as_deref(), Some("en_us"));
+        assert_eq!(s.resolve_code("elvish"), None);
+        assert_eq!(s.resolve_code("fr_xx"), None);
+    }
+
+    #[test]
+    fn selectable_is_not_the_same_as_translated() {
+        let mut s = store_with_names();
+        s.set_catalogue(catalogue());
+        assert!(!s.has_lang("fr_fr"));
+        assert!(!s.available().contains(&"fr_fr".to_string()));
+        assert!(s.has_lang("de_de"));
+        // an untranslated language still falls back to English
+        s.register_raw("en_us", map(&[("hi", "Hello")]));
+        assert_eq!(s.translate("fr_fr", "hi", &[]), "Hello");
+    }
+
+    #[test]
+    fn installed_languages_win_over_catalogue() {
+        let mut s = store_with_names(); // installed: en_us, de_de, pt_br
+        s.set_catalogue(catalogue()); // catalogue only knows pt_pt for Portuguese
+        assert_eq!(s.resolve_code("portugues").as_deref(), Some("pt_br"));
+        assert_eq!(s.resolve_code("pt").as_deref(), Some("pt_br"));
+        assert_eq!(s.resolve_code("english").as_deref(), Some("en_us"));
+        assert_eq!(s.resolve_code("en").as_deref(), Some("en_us"));
+    }
+
+    #[test]
+    fn family_counts_as_translated() {
+        let mut s = store_with_names(); // installed: en_us, de_de, pt_br
+        s.set_catalogue(catalogue());
+        assert!(s.is_translated("en_us")); // itself
+        assert!(s.is_translated("en_gb")); // served by en_us
+        assert!(s.is_translated("pt_pt")); // served by pt_br
+        assert!(!s.is_translated("fr_fr"));
+        assert!(!s.is_translated("tlh_aa"));
+        assert!(!s.is_translated(""));
+    }
+
+    #[test]
+    fn labels_use_catalogue_names_as_a_fallback() {
+        let mut s = store_with_names();
+        s.set_catalogue(catalogue());
+        assert_eq!(s.label("fr_fr"), "fr_fr (French)");
+        assert_eq!(s.label("xx_yy"), "xx_yy");
+        assert_eq!(s.label("pt_br"), "pt_br (Português (Brasil))");
     }
 }

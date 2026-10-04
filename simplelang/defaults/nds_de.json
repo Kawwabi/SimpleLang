@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Plattdüütsch",
+  "simplelang.current.auto": "Di Spraak: {0} (ut di Speln-Instelltungen utfunnen).",
+  "simplelang.current.set": "Di Spraak: {0}.",
+  "simplelang.available": "Verlööpibbiere Spraken: {0}",
+  "simplelang.available.hint": "SimpleLang stött elke Minecraft-Spraak an. Klick hier or brük /lang list, för se all to sehn.",
+  "simplelang.usage": "Brük /lang <Spraak> (t.B. english, portugues, pt_br) to sie to ändern, or /lang auto, to di Speln-Instelltungen naffen.",
+  "simplelang.set.ok": "Spraak stann up {0}.",
+  "simplelang.set.untranslated": "SimpleLang hett noch keen Översetten för {0},, dorüm warrt Engelsch brökt, dort ein Woor dorbi is.",
+  "simplelang.set.unknown": "Onbekannt Spraak „{0}\". Klick hier or brük /lang list, för all anstöttnde Spraken to sehn.",
+  "simplelang.set.players_only": "Blots Spelners köönt en Spraak wähln.",
+  "simplelang.auto.ok": "Di Spraak fölt nu di Speln-Instelltungen an ({0}).",
+  "simplelang.reload.ok": "{0} Spraakdateer(e) an neu laaden.",
+  "simplelang.reload.denied": "Du hest nich de Rechten, Spraken an nee to laaden."
+}

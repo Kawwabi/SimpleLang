@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ייִדיש",
+  "simplelang.current.auto": "דײַנ שפּראַך: {0} (געפֿונען פֿון די נעמען פֿונעם שפּיל).",
+  "simplelang.current.set": "דײַנ שפּראַך: {0}.",
+  "simplelang.available": "צוגענגלעך שפּראַכען: {0}",
+  "simplelang.available.hint": "SimpleLang שטעלט זיך אויף אויסן אַלע שפּראַכען פֿון מײַנקראַפֿט. קליקלעט היר אָדער ברוקט /lang list צו זען אַלע.",
+  "simplelang.usage": "ברוקט /lang <שפּראַך> (צ.ב.שׁ english, portugues, pt_br) צו ענדערן, אָדער /lang auto צו פֿאָלגן די נעמען פֿונעם שפּיל.",
+  "simplelang.set.ok": "דער שפּראַך איז געזעצט אויף {0}.",
+  "simplelang.set.untranslated": "SimpleLang האָט נאָך קיין איבערזעצונגען פֿאַר {0},, דערפּלען ווערט דײַטיש געברויּכט דאָרט, וווּ אַ מידעלע וועגט.",
+  "simplelang.set.unknown": "אַ שפּראַך וועמען מיר נישט קענען \"{0}\". קליקלעט היר אָדער ברוקט /lang list צו זען אַלע אַנדערע שפּראַכען.",
+  "simplelang.set.players_only": "נאָר שפּילער קענען טהאַנען אַ שפּראַך.",
+  "simplelang.auto.ok": "דײַן שפּראַך פֿאָלגט נון די נעמען פֿונעם שפּיל ({0}).",
+  "simplelang.reload.ok": "{0} שפּראַך־פֿאַйлען זענען בלעצ־פֿאַרגלײַכט געוואָרן.",
+  "simplelang.reload.denied": "דו האָסט קיין פּערמיסיע נישט צו בלעצ־פֿאַרגלײַכן שפּראַכען."
+}

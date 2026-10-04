@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Lombard",
+  "simplelang.current.auto": "La toa lengua: {0} (gavada foej ai toai parametri di gioch).",
+  "simplelang.current.set": "La toa lengua: {0}.",
+  "simplelang.available": "Lengue disponìbile: {0}",
+  "simplelang.available.hint": "SimpleLang la ghiv apòust a tute le lengue de Minecraft. Fa clic i ghinc o mét in opiñiù /lang list per vedelle tute.",
+  "simplelang.usage": "Fa 'l /lang <lengua> (per esempiu english, portugues, pt_br) per cangiala, o /lang auto per seghì i toai parametri di gioch.",
+  "simplelang.set.ok": "Lengua metuda su {0}.",
+  "simplelang.set.untranslated": "SimpleLang gh'ha minga ancora tradutziun per {0}, donca l'ingleis el seghiraa doprà dov'el manca un messagg.",
+  "simplelang.set.unknown": "Lengua de savèss \"{0}\". Fa clic i ghinc o mét in opiñiù /lang list per vedè tucc le lengue che gh'han apòust.",
+  "simplelang.set.players_only": "Sgio i giochadori che hann de ghe s-ciaghi la lengua.",
+  "simplelang.auto.ok": "La toa lengua la seghiraa ora i toai parametri di gioch ({0}).",
+  "simplelang.reload.ok": "Gavada {0} file de lengua.",
+  "simplelang.reload.denied": "Ti gh'hai minga la autorizzaziun de ri-gavà le lengue."
+}

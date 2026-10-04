@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ქართული",
+  "simplelang.current.auto": "თქვენი ენა: {0} (ამოცნებული თამაშის პარამეტრებიდან).",
+  "simplelang.current.set": "თქვენი ენა: {0}.",
+  "simplelang.available": "ხელმისაწვდომი ენები: {0}",
+  "simplelang.available.hint": "SimpleLang მხარს უჭერს ყველა Minecraft ენას. იხილეთ ყველა ენა ამ ადგილზე დაჭერით ან /lang list-ის გამოყენებით.",
+  "simplelang.usage": "გამოიყენეთ /lang <ენა> (მაგ. english, portugues, pt_br) ცვლილებისთვის ან /lang auto, რომ თამაშის პარამეტრებს მოჰყვნათ.",
+  "simplelang.set.ok": "ენა დაყობილია {0}.",
+  "simplelang.set.untranslated": "SimpleLang-ს {0}-ისთვის თარგმანი ჯერ არ აქვს, ამიტომ ყველა იმ ადგილას, სადაც შეტყობინება რჩება, გამოიყენება ინგლისური.",
+  "simplelang.set.unknown": "უცნობი ენა „{0}\". ყველა მხარდაჭერილი ენის ხედვისთვის დააჭირეთ აქ ან გამოიყენეთ /lang list.",
+  "simplelang.set.players_only": "ენის არჩევა მხოლოდ მოთამაშეებს შეუძლიათ.",
+  "simplelang.auto.ok": "თქვენი ენა ახლა თამაშის პარამეტრებს მოჰყვება ({0}).",
+  "simplelang.reload.ok": "{0} ენის ფაილი(ები) ხელახლა ჩატვირთულაა.",
+  "simplelang.reload.denied": "თქვენ არ გაქვთ უფლება ენების ხელახლა ჩატვირთვისთვის."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Bahasa Indonesia",
+  "simplelang.current.auto": "Bahasa Anda: {0} (terdeteksi dari pengaturan game Anda).",
+  "simplelang.current.set": "Bahasa Anda: {0}.",
+  "simplelang.available": "Bahasa yang tersedia: {0}",
+  "simplelang.available.hint": "SimpleLang mendukung setiap bahasa Minecraft. Klik di sini atau gunakan /lang list untuk melihat semuanya.",
+  "simplelang.usage": "Gunakan /lang <bahasa> (mis. english, portugues, pt_br) untuk mengubahnya, atau /lang auto untuk mengikuti pengaturan game Anda.",
+  "simplelang.set.ok": "Bahasa diatur ke {0}.",
+  "simplelang.set.untranslated": "SimpleLang belum memiliki terjemahan untuk {0}, jadi bahasa Inggris digunakan jika pesan tidak ada.",
+  "simplelang.set.unknown": "Bahasa tidak dikenal “{0}”. Klik di sini atau gunakan /lang list untuk melihat semua bahasa yang didukung.",
+  "simplelang.set.players_only": "Hanya pemain yang dapat memilih bahasa.",
+  "simplelang.auto.ok": "Bahasa Anda sekarang mengikuti pengaturan game Anda ({0}).",
+  "simplelang.reload.ok": "{0} berkas bahasa dimuat ulang.",
+  "simplelang.reload.denied": "Anda tidak memiliki izin untuk memuat ulang bahasa."
+}

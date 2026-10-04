@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Қазақша",
+  "simplelang.current.auto": "Сіздің тіліңіз: {0} (ойын баптауларынан анықталды).",
+  "simplelang.current.set": "Сіздің тіліңіз: {0}.",
+  "simplelang.available": "Қолжетімді тілдер: {0}",
+  "simplelang.available.hint": "SimpleLang барлық Minecraft тілдерін қолдайды. Барлығын көру үшін осында басыңыз немесе /lang list қолданыңыз.",
+  "simplelang.usage": "Өзгерту үшін /lang <тіл> (мысалы, english, portugues, pt_br) немесе ойын баптауларына бағыну үшін /lang auto қолданыңыз.",
+  "simplelang.set.ok": "Тіл {0} ретінде орнатылды.",
+  "simplelang.set.untranslated": "SimpleLang-те {0} үшін аудармалар әлі жоқ, сондықтан хабарлама жетіспейтін жерлерде ағылшын тілі қолданылады.",
+  "simplelang.set.unknown": "Белгісіз тіл «{0}». Қолдау көрсетілген барлық тілдерді көру үшін осында басыңыз немесе /lang list қолданыңыз.",
+  "simplelang.set.players_only": "Тілді тек ойыншылар ғана таңдай алады.",
+  "simplelang.auto.ok": "Сіздің тіліңіз қазір ойын баптауларына бағынады ({0}).",
+  "simplelang.reload.ok": "{0} тіл файл(дары) қайта жүктелді.",
+  "simplelang.reload.denied": "Тілдерді қайта жүктеуге рұқсатыңыз жоқ."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ไทย",
+  "simplelang.current.auto": "ภาษาของคุณ: {0} (ตรวจจับจากการตั้งค่าเกมของคุณ)",
+  "simplelang.current.set": "ภาษาของคุณ: {0}",
+  "simplelang.available": "ภาษาที่พร้อมใช้งาน: {0}",
+  "simplelang.available.hint": "SimpleLang รองรับทุกภาษาของ Minecraft คลิกที่นี่หรือใช้ /lang list เพื่อดูทั้งหมด",
+  "simplelang.usage": "ใช้ /lang <ภาษา> (เช่น english, portugues, pt_br) เพื่อเปลี่ยน หรือ /lang auto เพื่อยึดตามการตั้งค่าเกมของคุณ",
+  "simplelang.set.ok": "ตั้งภาษาเป็น {0} แล้ว",
+  "simplelang.set.untranslated": "SimpleLang ยังไม่มีคำแปลสำหรับ {0}, ดังนั้นจึงใช้ภาษาอังกฤษเมื่อขาดข้อความ",
+  "simplelang.set.unknown": "ภาษาที่ไม่รู้จัก \"{0}\" คลิกที่นี่หรือใช้ /lang list เพื่อดูทุกภาษาที่รองรับ",
+  "simplelang.set.players_only": "เฉพาะผู้เล่นเท่านั้นที่เลือกภาษาได้",
+  "simplelang.auto.ok": "ภาษาของคุณยึดตามการตั้งค่าเกมของคุณแล้ว ({0})",
+  "simplelang.reload.ok": "โหลดภาษาไฟล์ {0} ใหม่แล้ว",
+  "simplelang.reload.denied": "คุณไม่มีสิทธิ์โหลดภาษาใหม่"
+}

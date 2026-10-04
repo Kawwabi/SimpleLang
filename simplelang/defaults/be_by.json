@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Беларуская",
+  "simplelang.current.auto": "Ваша мова: {0} (вызначана па наладах гульні).",
+  "simplelang.current.set": "Ваша мова: {0}.",
+  "simplelang.available": "Даступныя мовы: {0}",
+  "simplelang.available.hint": "SimpleLang падтрымлівае ўсе мовы Minecraft. Націсніце тут або выкарыстайце /lang list, каб убачыць іх усе.",
+  "simplelang.usage": "Выкарыстайце /lang <мова> (напр., english, portugues, pt_br), каб змяніць яе, або /lang auto, каб ісці за наладамі гульні.",
+  "simplelang.set.ok": "Мова зменена на {0}.",
+  "simplelang.set.untranslated": "У SimpleLang пакуль няма перакладаў для {0}, таму там, дзе паведамленне адсутнічае, выкарыстоўваецца англійская.",
+  "simplelang.set.unknown": "Невядомая мова “{0}”. Націсніце тут або выкарыстайце /lang list, каб убачыць усе падтрымліваемыя мовы.",
+  "simplelang.set.players_only": "Выбіраць мову могуць толькі гульцы.",
+  "simplelang.auto.ok": "Цяпер ваша мова вызначаецца наладамі гульні ({0}).",
+  "simplelang.reload.ok": "Перазагружана файлаў мовы: {0}.",
+  "simplelang.reload.denied": "У вас няма дазволу перазагружаць мовы."
+}

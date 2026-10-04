@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "بهاس ملايو",
+  "simplelang.current.auto": "بهاساء اند: {0} (ديكيتر داريد تيتمبن ريميسين اند).",
+  "simplelang.current.set": "بهاساء اند: {0}.",
+  "simplelang.available": "بهاساء ديسياماس: {0}",
+  "simplelang.available.hint": "سيمبللانق منچوكونغ سما‌تيه بهاساء ماينكرافت. كليك ديميني اتاو قونا /lang list لإو مليمبو كانتونن.",
+  "simplelang.usage": "قونا /lang <بهاساء> (مثله: english, portugues, pt_br) ليه بورو ممبروكان, اتاو /lang auto ليه نلوتوڤ تيتمبن ريميسين اند.",
+  "simplelang.set.ok": "بهاساء ديتنگكاڤ كن {0}.",
+  "simplelang.set.untranslated": "سيمبللانق بلوم منومبوكي ترجمات ليه {0},, ماقيتا اينݢريس ديقونا ديماني برساني اينده ڤرسيان.",
+  "simplelang.set.unknown": "بهاساء تيدق ديناله \"{0}\". كليك ديميني اتاو قونا /lang list ليه مليمبو سموا بهاساء نيقواي.",
+  "simplelang.set.players_only": "ههڠڤا سجيڤا پليمي بنيوما بهاساء.",
+  "simplelang.auto.ok": "بهاساء اند سكارڠ نلوتوڤ تيتمبن ريميسين اند ({0}).",
+  "simplelang.reload.ok": "ديمويت منوهمولا لابيك {0} فريل بهاساء.",
+  "simplelang.reload.denied": "اند تيدق منومبوكي ايرزين ليه منوهمولا لابيك بهاساء."
+}

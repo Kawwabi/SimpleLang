@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Afrikaans",
+  "simplelang.current.auto": "Jou taal: {0} (bespeur uit jou speletjie-instellings).",
+  "simplelang.current.set": "Jou taal: {0}.",
+  "simplelang.available": "Beskikbare tale: {0}",
+  "simplelang.available.hint": "SimpleLang ondersteun elke Minecraft-taal. Klik hier of gebruik /lang list om almal te sien.",
+  "simplelang.usage": "Gebruik /lang <taal> (bv. english, portugues, pt_br) om dit te verander, of /lang auto om jou speletjie-instellings te volg.",
+  "simplelang.set.ok": "Taal gestel op {0}.",
+  "simplelang.set.untranslated": "SimpleLang het nog geen vertalings vir {0} nie, so Engels word gebruik waar 'n boodskap ontbreek.",
+  "simplelang.set.unknown": "Onbekende taal “{0}”. Klik hier of gebruik /lang list om elke ondersteunde taal te sien.",
+  "simplelang.set.players_only": "Net spelers kan 'n taal kies.",
+  "simplelang.auto.ok": "Jou taal volg nou jou speletjie-instellings ({0}).",
+  "simplelang.reload.ok": "{0} taallêer(s) herlaai.",
+  "simplelang.reload.denied": "Jy het nie toestemming om tale te herlaai nie."
+}

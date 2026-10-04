@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Malti",
+  "simplelang.current.auto": "L-lingwa tiegħek: {0} (skoperta mis-settings tal-logħba tiegħek).",
+  "simplelang.current.set": "L-lingwa tiegħek: {0}.",
+  "simplelang.available": "Lingwi disponibbli: {0}",
+  "simplelang.available.hint": "SimpleLang appoġġja kull lingwa ta' Minecraft. Ikklikkja hawn jew uża /lang list biex tara lil kulatt.",
+  "simplelang.usage": "Uża /lang <lingwa> (eż. english, portugues, pt_br) biex tibdelha, jew /lang auto biex issegwi s-settings tal-logħba tiegħek.",
+  "simplelang.set.ok": "Il-lingwa ssettjata għal {0}.",
+  "simplelang.set.untranslated": "SimpleLang għadu ma għandux traduzzjonijiet għal {0},, għalhekk l-Ingliż jiġi użat fejn jirqaq messaggio.",
+  "simplelang.set.unknown": "Lingwa mhux magħrufa \"{0}\". Ikklikkja hawn jew uża /lang list biex tara kull lingwa appoġġjata.",
+  "simplelang.set.players_only": "Isshobtu l-plejers biss jistgħu jagħżlu lingwa.",
+  "simplelang.auto.ok": "Il-lingwa tiegħek issa tsegwi s-settings tal-logħba tiegħek ({0}).",
+  "simplelang.reload.ok": "Ġew imla mill-ġdid {0} fajl(i) tal-lingwa.",
+  "simplelang.reload.denied": "M'għandekx permessi biex timla lura l-lingwi."
+}

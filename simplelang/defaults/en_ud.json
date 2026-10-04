@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ɥsᴉlƃuƎ uʍoᗡ ǝpᴉsd∩",
+  "simplelang.current.auto": "˙(sƃuᴉʇʇǝs ǝɯɐƃ ɹnoʎ ɯoɹɟ pǝʇɔǝʇǝp) {0} :ǝƃɐnƃuɐl ɹno⅄",
+  "simplelang.current.set": "˙{0} :ǝƃɐnƃuɐl ɹno⅄",
+  "simplelang.available": "{0} :sǝƃɐnƃuɐl ǝlqɐlᴉɐʌ∀",
+  "simplelang.available.hint": "˙llɐ ɯǝɥʇ ǝǝs oʇ /lang list ǝsn ɹo ǝɹǝɥ ʞɔᴉlƆ ˙ǝƃɐnƃuɐl ʇɟɐɹɔǝuᴉW ʎɹǝʌǝ sʇɹoddns ƃuɐ˥ǝldɯᴉS",
+  "simplelang.usage": "˙sƃuᴉʇʇǝs ǝɯɐƃ ɹnoʎ ʍolloɟ oʇ /lang auto ɹo 'ʇᴉ ǝƃuɐɥɔ oʇ (english, portugues, pt_br ˙ƃ˙ǝ) <ǝƃɐnƃuɐl> /lang ǝs∩",
+  "simplelang.set.ok": "˙{0} oʇ ʇǝs ǝƃɐnƃuɐ˥",
+  "simplelang.set.untranslated": "˙ƃuᴉssᴉɯ sᴉ ǝƃɐssǝɯ ɐ ɹǝʌǝɹǝɥʍ pǝsn sᴉ ɥsᴉlƃuƎ os 'ʇǝʎ {0} ɹoɟ suoᴉʇɐlsuɐɹʇ ou sɐɥ ƃuɐ˥ǝldɯᴉS",
+  "simplelang.set.unknown": "˙ǝƃɐnƃuɐl pǝʇɹoddns ʎɹǝʌǝ ǝǝs oʇ /lang list ǝsn ɹo ǝɹǝɥ ʞɔᴉlƆ ˙„{0}„ ǝƃɐnƃuɐl uʍouʞu∩",
+  "simplelang.set.players_only": "˙ǝƃɐnƃuɐl ɐ ǝsooɥɔ uɐɔ sɹǝʎɐld ʎluO",
+  "simplelang.auto.ok": "˙({0}) sƃuᴉʇʇǝs ǝɯɐƃ ɹnoʎ sʍolloɟ ʍou ǝƃɐnƃuɐl ɹno⅄",
+  "simplelang.reload.ok": "˙(s)ǝlᴉɟ ǝƃɐnƃuɐl {0} pǝpɐolǝᴚ",
+  "simplelang.reload.denied": "˙sǝƃɐnƃuɐl pɐolǝɹ oʇ uoᴉssᴉɯɹǝd ǝʌɐɥ ʇ,uop no⅄"
+}

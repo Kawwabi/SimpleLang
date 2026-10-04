@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Ido",
+  "simplelang.current.auto": "Voa linguo: {0} (detectata di vora ludo-parametri).",
+  "simplelang.current.set": "Voa linguo: {0}.",
+  "simplelang.available": "Disponibla lingui: {0}",
+  "simplelang.available.hint": "SimpleLang suportas omna Minecraft-lingui. Kliku cique o uza /lang list por vidar les omnul.",
+  "simplelang.usage": "Uza /lang <linguo> (ex. english, portugues, pt_br) por chanjar lo, o /lang auto por sequar vora ludo-parametri.",
+  "simplelang.set.ok": "Linguo sitisita ad {0}.",
+  "simplelang.set.untranslated": "SimpleLang ne havas tradukadi por {0},, segune anglesa uzesis pos luge ligro mankas.",
+  "simplelang.set.unknown": "Nunkonata linguo \"{0}\". Kliku cique o uza /lang list por vidar omna suportata lingui.",
+  "simplelang.set.players_only": "Nur luderi povesz elektar linguo.",
+  "simplelang.auto.ok": "Voa linguo sequas ora vora ludo-parametri ({0}).",
+  "simplelang.reload.ok": "Reinstaltesis {0} linguo-faji.",
+  "simplelang.reload.denied": "Voi ne havas permissiono por reinstalatar lingui."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Pfälzisch",
+  "simplelang.current.auto": "De Schprooch: {0} (ut de Spiel-Einstellunga gmåld).",
+  "simplelang.current.set": "De Schprooch: {0}.",
+  "simplelang.available": "Veraegbar Schprooch: {0}",
+  "simplelang.available.hint": "SimpleLong understützt jeda Minecraft-Schprooch. Klick her ob schreib /lang list, do dr al seesch.",
+  "simplelang.usage": "Schreib /lang <Schprooch> (z.B. english, portugues, pt_br), do dr wanderschesch, ob /lang auto, do dr de Spiel-Einstellunga folgsch.",
+  "simplelang.set.ok": "Schprooch is gsetzt uf {0}.",
+  "simplelang.set.untranslated": "SimpleLong hat no kei Übersetzunga fur {0},, doher wörd Englisch benutzd, do an Text fehld.",
+  "simplelang.set.unknown": "Unbekann Schprooch „{0}\". Klick her ob schreib /lang list, do dr al unterschützt Schprooch seesch.",
+  "simplelang.set.players_only": "No Spuiare kunnen Schprooch uswielen.",
+  "simplelang.auto.ok": "De Schprooch foljt do de Spiel-Einstellunga ({0}).",
+  "simplelang.reload.ok": "{0} Schproochdateie sin widda gelaad.",
+  "simplelang.reload.denied": "Du hosch no keni Vollmacht, Schprooch widda z laad."
+}

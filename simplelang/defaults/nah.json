@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Nāhuatl",
+  "simplelang.current.auto": "Tlen amohecanica: {0} (ti mapatiuh ter in tlei amepohpalih).",
+  "simplelang.current.set": "Tlen amohecanica: {0}.",
+  "simplelang.available": "Sesōka tlen amohecanica: {0}",
+  "simplelang.available.hint": "SimpleLang tlahtōkimopiqi mo tlen amohecanica tlen Minecraft. Teoctli me tlahtōpāque cauh tequiya /lang list.",
+  "simplelang.usage": "Tlahtōpāque /lang <amohecanica> (maquek english, portugues, pt_br) no spaitoqui, no cihuia /lang auto.",
+  "simplelang.set.ok": "Tlen amohecanica ohtla mahecama {0}.",
+  "simplelang.set.untranslated": "SimpleLang amomani tlen amohecanica a {0},, me in inglish no tlahtōc tlen asopan.",
+  "simplelang.set.unknown": "Tlanononqui amohecanica \"{0}\". Teoctli me tlahtōpāque cauh tequiya /lang list.",
+  "simplelang.set.players_only": "In achiuhque nomanchi nimanqui amohecanica.",
+  "simplelang.auto.ok": "Tlen amohecanica nochan tlamatia cahuac in tequiya ({0}).",
+  "simplelang.reload.ok": "Amo tlahtōpāhuiti {0} amohecanica pappaitl.",
+  "simplelang.reload.denied": "Mal nictlahtōpāque amohecanica."
+}

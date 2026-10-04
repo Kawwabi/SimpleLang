@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Azərbaycanca",
+  "simplelang.current.auto": "Dilin: {0} (oyun ayarlarından müəyyən edildi).",
+  "simplelang.current.set": "Dilin: {0}.",
+  "simplelang.available": "Mövcud dillər: {0}",
+  "simplelang.available.hint": "SimpleLang bütün Minecraft dillərini dəstəkləyir. Hamısını görmək üçün bura klikləyin və ya /lang list istifadə edin.",
+  "simplelang.usage": "Dəyişmək üçün /lang <dil> (məs. english, portugues, pt_br), oyun ayarlarını izləmək üçün /lang auto yazın.",
+  "simplelang.set.ok": "Dil {0} olaraq təyin edildi.",
+  "simplelang.set.untranslated": "SimpleLang-də {0} üçün hələ tərcümə yoxdur, ona görə mesaj çatışmayanda ingilis dili istifadə olunur.",
+  "simplelang.set.unknown": "Naməlum dil “{0}”. Bütün dəstəklənən dilləri görmək üçün bura klikləyin və ya /lang list istifadə edin.",
+  "simplelang.set.players_only": "Yalnız oyunçular dil seçə bilər.",
+  "simplelang.auto.ok": "Dilin indi oyun ayarlarını izləyir ({0}).",
+  "simplelang.reload.ok": "{0} dil faylı yenidən yükləndi.",
+  "simplelang.reload.denied": "Dilləri yenidən yükləmək üçün icazən yoxdur."
+}

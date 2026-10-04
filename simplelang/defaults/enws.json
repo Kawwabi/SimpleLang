@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Shakespearean English",
+  "simplelang.current.auto": "Hither language: {0} (found from thy game's settings).",
+  "simplelang.current.set": "Hither language: {0}.",
+  "simplelang.available": "Languages at thy disposal: {0}",
+  "simplelang.available.hint": "SimpleLang doth embrace every Minecraft tongue. Click hither, or use /lang list to behold them all.",
+  "simplelang.usage": "Use /lang <language> (e.g. english, portugues, pt_br) to change it, or /lang auto to follow thy game's settings.",
+  "simplelang.set.ok": "Language set to {0}.",
+  "simplelang.set.untranslated": "SimpleLang hath no translations for {0} yet, so English is used where a message doth lack.",
+  "simplelang.set.unknown": "Unknown language \"{0}\". Click hither or use /lang list to see every supported language.",
+  "simplelang.set.players_only": "Only players may choose a language.",
+  "simplelang.auto.ok": "Thy language doth now follow thy game's settings ({0}).",
+  "simplelang.reload.ok": "Reloaded {0} language file(s).",
+  "simplelang.reload.denied": "Thou hast no warrant to reload languages."
+}

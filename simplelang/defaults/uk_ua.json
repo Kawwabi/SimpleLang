@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Українська",
+  "simplelang.current.auto": "Ваша мова: {0} (виявлено з налаштувань гри).",
+  "simplelang.current.set": "Ваша мова: {0}.",
+  "simplelang.available": "Доступні мови: {0}",
+  "simplelang.available.hint": "SimpleLang підтримує кожен язык Minecraft. Натисніть тут або скористайтесь /lang list, щоб побачити всі.",
+  "simplelang.usage": "Використовуйте /lang <мова> (наприклад, english, portugues, pt_br), щоб змінити, або /lang auto, щоб слідувати налаштуванням гри.",
+  "simplelang.set.ok": "Мову встановлено: {0}.",
+  "simplelang.set.untranslated": "Для {0} ще немає перекладів, тому скрізь, де відсутнє повідомлення, використовується англійська.",
+  "simplelang.set.unknown": "Невідома мова «{0}». Натисніть тут або скористайтесь /lang list, щоб побачити всі підтримувані мови.",
+  "simplelang.set.players_only": "Тільки гравці можуть вибрати мову.",
+  "simplelang.auto.ok": "Ваша мова тепер слідує налаштуванням гри ({0}).",
+  "simplelang.reload.ok": "Перезавантажено {0} файлів мови.",
+  "simplelang.reload.denied": "У вас немає дозволу для перезавантаження мов."
+}

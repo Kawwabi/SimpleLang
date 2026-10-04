@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Limburgs",
+  "simplelang.current.auto": "Dijn taol: {0} (opgemaak oet jeuw spelinstellings).",
+  "simplelang.current.set": "Dijn taol: {0}.",
+  "simplelang.available": "Besjikbaar taole: {0}",
+  "simplelang.available.hint": "SimpleLang óngersteunt al Minecraft-taole. Klikk hjieë of geboeik /lang list um ze alle te zeen.",
+  "simplelang.usage": "Geboeik /lang <taol> (bv. english, portugues, pt_br) um te veranjere, of /lang auto um jeuw spelinstellings te volgje.",
+  "simplelang.set.ok": "Taol gestaldj op {0}.",
+  "simplelang.set.untranslated": "SimpleLang haet nog geen vertalinge veur {0}, daomèt wuurt Ingelsj gebroek woor 'n boodsjap klos opkes.",
+  "simplelang.set.unknown": "Onbekinde taol \"{0}\". Klikk hjieë of geboeik /lang list um alle óngersteunde taole te zeen.",
+  "simplelang.set.players_only": "Det ander kin nen taol kiesse.",
+  "simplelang.auto.ok": "Dijn taol volg nu jeuw spelinstellings ({0}).",
+  "simplelang.reload.ok": "{0} taolbestandje opnuuj gelaadjen.",
+  "simplelang.reload.denied": "Dij habs kèk veurtaol om taole opnuuj te laode."
+}

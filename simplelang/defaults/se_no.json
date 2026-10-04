@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Davvisámegiella",
+  "simplelang.current.auto": "Duh gieldda: {0} (gáhtet dahkat spievllamehtttuid sajis).",
+  "simplelang.current.set": "Duh gieldda: {0}.",
+  "simplelang.available": "Gárvvisat gielddat: {0}",
+  "simplelang.available.hint": "SimpleLang sihkkarastá buot Minecraft-gielddaid. Váldde gitta anis ođđasit geaváhttal /lang list boahtá buot.",
+  "simplelang.usage": "Geavahis /lang <gieldda> (dcss. english, portugues, pt_br) vuoit gii se muittit, valla /lang auto vuoit gii dahkat spievllamehtttuid.",
+  "simplelang.set.ok": "Gieldda lea sáddon {0}.",
+  "simplelang.set.untranslated": "SimpleLang ii háliidat gullohumis {0},, dappen nuovvulastá ávvalmása gielddain.",
+  "simplelang.set.unknown": "Álgoearrus gieldda \"{0}\". Váldde gitta anis ođđasit geaváhttal /lang list boahtá buot.",
+  "simplelang.set.players_only": "Dušše spievllimat vuođđut gii gielddav.",
+  "simplelang.auto.ok": "Duh gieldda vuordá dál spievllamehtttuid ({0}).",
+  "simplelang.reload.ok": "Ođđasit lahkan {0} gielddafuolahat.",
+  "simplelang.reload.denied": "Don ii vuit ođđasit dahkat gielddaid."
+}

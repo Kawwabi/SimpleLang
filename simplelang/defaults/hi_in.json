@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "हिन्दी",
+  "simplelang.current.auto": "आपकी भाषा: {0} (आपके गेम सेटिंग्स से पहचानी गई)।",
+  "simplelang.current.set": "आपकी भाषा: {0}।",
+  "simplelang.available": "उपलब्ध भाषाएँ: {0}",
+  "simplelang.available.hint": "SimpleLang Minecraft की हर भाषा का समर्थन करता है। सभी देखने के लिए यहाँ क्लिक करें या /lang list इस्तेमाल करें।",
+  "simplelang.usage": "बदलने के लिए /lang <भाषा> (जैसे english, portugues, pt_br) इस्तेमाल करें, या अपने गेम सेटिंग्स का पालन करने के लिए /lang auto।",
+  "simplelang.set.ok": "भाषा {0} पर सेट की गई।",
+  "simplelang.set.untranslated": "SimpleLang में {0} के लिए अभी अनुवाद नहीं हैं, इसलिए जहाँ कोई संदेश नहीं है वहाँ अंग्रेज़ी इस्तेमाल होती है।",
+  "simplelang.set.unknown": "अज्ञात भाषा “{0}”। सभी समर्थित भाषाएँ देखने के लिए यहाँ क्लिक करें या /lang list इस्तेमाल करें।",
+  "simplelang.set.players_only": "केवल खिलाड़ी ही भाषा चुन सकते हैं।",
+  "simplelang.auto.ok": "आपकी भाषा अब आपके गेम सेटिंग्स का पालन करती है ({0})।",
+  "simplelang.reload.ok": "{0} भाषा फ़ाइल(ें) फिर से लोड की गईं।",
+  "simplelang.reload.denied": "आपके पास भाषाएँ फिर से लोड करने की अनुमति नहीं है।"
+}

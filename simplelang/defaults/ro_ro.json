@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Română",
+  "simplelang.current.auto": "Limba dvs.: {0} (detectată din setările jocului).",
+  "simplelang.current.set": "Limba dvs.: {0}.",
+  "simplelang.available": "Limbii disponibile: {0}",
+  "simplelang.available.hint": "SimpleLang suportă fiecare limbă Minecraft. Faceți clic aici sau folosiți /lang list pentru a vedea toate.",
+  "simplelang.usage": "Folosiți /lang <limbă> (ex. english, portugues, pt_br) pentru a o schimba, sau /lang auto pentru a urma setările jocului.",
+  "simplelang.set.ok": "Limbă setată pe {0}.",
+  "simplelang.set.untranslated": "SimpleLang nu are încă traduceri pentru {0},, deci engleza este folosită oriunde lipsește un mesaj.",
+  "simplelang.set.unknown": "Limbă necunoscută „{0}\". Faceți clic aici sau folosiți /lang list pentru a vedea toate limbile suportate.",
+  "simplelang.set.players_only": "Doar jucătorii pot alege o limbă.",
+  "simplelang.auto.ok": "Limba dvs. urmează acum setările jocului ({0}).",
+  "simplelang.reload.ok": "S-au reîncărcat {0} fișier(e) de limbă.",
+  "simplelang.reload.denied": "Nu aveți permisiunea de a reîncărca limbile."
+}

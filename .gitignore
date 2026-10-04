@@ -6,3 +6,6 @@ target/
 .idea/
 .vscode/
 .DS_Store
+
+# Scratch space for tools/translations.py (prompts and model answers)
+tools/work/

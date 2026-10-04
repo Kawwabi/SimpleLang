@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Lietuvių",
+  "simplelang.current.auto": "Jūsų kalba: {0} (aptikta iš žaidimo nustatymų).",
+  "simplelang.current.set": "Jūsų kalba: {0}.",
+  "simplelang.available": "Prieinamos kalbos: {0}",
+  "simplelang.available.hint": "SimpleLang palaiko visas Minecraft kalbas. Spauskite čia arba naudokite /lang list, kad matytumėte visas.",
+  "simplelang.usage": "Naudokite /lang <kalba> (pvz., english, portugues, pt_br), kad pakeistumėte, arba /lang auto, kad sektumėte žaidimo nustatymais.",
+  "simplelang.set.ok": "Kalba nustatyta: {0}.",
+  "simplelang.set.untranslated": "SimpleLang dar neturi {0} vertimų, todėl ten, kur trūksta žinutės, naudojama anglų kalba.",
+  "simplelang.set.unknown": "Nežinoma kalba „{0}\". Spauskite čia arba naudokite /lang list, kad matytumėte visas palaikomas kalbas.",
+  "simplelang.set.players_only": "Kalbą gali pasirinkti tik žaidėjai.",
+  "simplelang.auto.ok": "Jūsų kalba dabar seka žaidimo nustatymus ({0}).",
+  "simplelang.reload.ok": "Įkelta {0} kalbos failas(-ai).",
+  "simplelang.reload.denied": "Neturite leidimo iš naujo įkelti kalbų."
+}

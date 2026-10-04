@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Talossan",
+  "simplelang.current.auto": "Vostre lengva es {0} (detectade del vostre settings de juego).",
+  "simplelang.current.set": "Vostre lengva es {0}.",
+  "simplelang.available": "Lengves disponible: {0}",
+  "simplelang.available.hint": "SimpleLang supporta omni lengves de Minecraft. Clica qui o usa /lang list per vider omni.",
+  "simplelang.usage": "Usa /lang <lengva> (per exemple, english, portugues, pt_br) per cambiarla, o /lang auto per secuer vostre settings de juego.",
+  "simplelang.set.ok": "Lengva fide sur {0}.",
+  "simplelang.set.untranslated": "SimpleLang anca non ha traductions per {0},, sicu anglés es usate qua un message manca.",
+  "simplelang.set.unknown": "Lengva desconoscite \"{0}\". Clica qui o usa /lang list per vider omni lengves supportate.",
+  "simplelang.set.players_only": "Solo los jocatores punde eleguer un lengva.",
+  "simplelang.auto.ok": "Vostre lengva adora seca vostre settings de juego ({0}).",
+  "simplelang.reload.ok": "{0} files de lengva rechargate.",
+  "simplelang.reload.denied": "Vostre non ha permission de recharger lengves."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Саха тыла",
+  "simplelang.current.auto": "Эһиги тылыгытын: {0} (оонньуу фермоһууттара터ан табыллан).",
+  "simplelang.current.set": "Эһиги тылыгытын: {0}.",
+  "simplelang.available": "Кыахтаах тыллар: {0}",
+  "simplelang.available.hint": "SimpleLang Minecraft бары тылларын көмүлүктүүр. Баардарын көрөрҥҥү күүт, /lang list ылаарын көрдүүг.",
+  "simplelang.usage": "Сүрүннүүн /lang <тыл> (маннык: english, portugues, pt_br) ылан кубулуйан кэтиг, /lang auto ылан оонньуу фермоһууттаргар сөбүлүүс кэтиг.",
+  "simplelang.set.ok": "Тыл {0} диэн уруоланан турар.",
+  "simplelang.set.untranslated": "SimpleLang-ка {0} буолбут аартыга икки, онон сүрүннүүннүүннээх аартыга аҥгыл тыл ылыллар.",
+  "simplelang.set.unknown": "Быһаарыллыбат тыл «{0}». Көмүлүктээх бары тыллары көрөрҥҥү күүт, /lang list ылаарын көрдүүг.",
+  "simplelang.set.players_only": "Оонньуур эрэ тылы ылары кыаһаллар.",
+  "simplelang.auto.ok": "Эһиги тылыгытын ол сытыы оонньуу фермоһууттаргар сөбүлүүс ({0}).",
+  "simplelang.reload.ok": "{0} тыл талба(тара) табыллан биллэн кэтилиннэ.",
+  "simplelang.reload.denied": "Эһиги тыллары табыллан биллэриигитин дириэмэйдээхпит."
+}

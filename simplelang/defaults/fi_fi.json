@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Suomi",
+  "simplelang.current.auto": "Kielesi: {0} (tunnistettu pelin asetuksista).",
+  "simplelang.current.set": "Kielesi: {0}.",
+  "simplelang.available": "Käytettävissä olevat kielet: {0}",
+  "simplelang.available.hint": "SimpleLang tukee kaikkia Minecraftin kieliä. Napsauta tästä tai käytä komentoa /lang list nähdäksesi ne kaikki.",
+  "simplelang.usage": "Vaihda kieli komennolla /lang <kieli> (esim. english, portugues, pt_br) tai seuraa pelin asetuksia komennolla /lang auto.",
+  "simplelang.set.ok": "Kieleksi asetettu {0}.",
+  "simplelang.set.untranslated": "SimpleLangilla ei vielä ole käännöksiä kielelle {0}, joten englantia käytetään, kun viesti puuttuu.",
+  "simplelang.set.unknown": "Tuntematon kieli ”{0}”. Napsauta tästä tai käytä komentoa /lang list nähdäksesi kaikki tuetut kielet.",
+  "simplelang.set.players_only": "Vain pelaajat voivat valita kielen.",
+  "simplelang.auto.ok": "Kielesi seuraa nyt pelin asetuksia ({0}).",
+  "simplelang.reload.ok": "Ladattiin uudelleen {0} kielitiedostoa.",
+  "simplelang.reload.denied": "Sinulla ei ole lupaa ladata kieliä uudelleen."
+}

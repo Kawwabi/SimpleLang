@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Kölsch",
+  "simplelang.current.auto": "Der Sprakch: {0} (ut den Späll-Instellonge deteext).",
+  "simplelang.current.set": "Der Sprakch: {0}.",
+  "simplelang.available": "Verfiengbar Sprakch: {0}",
+  "simplelang.available.hint": "SimpleLang steet efahrheets aggene Minecraft-Sprakch. Klickd aan e Kè, e bruchd /lang list, wu do ger zeht.",
+  "simplelang.usage": "Bruch /lang <Sprakch> (z.B. english, portugues, pt_br), wu do o zer Änderest, e /lang auto, wu do den Späll-Instellonge nachgeet.",
+  "simplelang.set.ok": "Sprakch stonn op {0}.",
+  "simplelang.set.untranslated": "SimpleLang haat noch kein Übersetzonge vur {0}, doher wud Enchelsch benutzd, wu ene Booschong em Stelleng jumm.",
+  "simplelang.set.unknown": "Onbekand Sprakch „{0}\". Klickd aan e Kè, e bruchd /lang list, wu do all e ungeschtückte Sprakch zeht.",
+  "simplelang.set.players_only": "Nur Spällere kënn je Sprakch uswielen.",
+  "simplelang.auto.ok": "Der Sprakch geet jetzt den Späll-Instellonge nach ({0}).",
+  "simplelang.reload.ok": "{0} Sprakch-Dateie sin wiider gelade.",
+  "simplelang.reload.denied": "Do häst kein Rechd, Sprakch wiider loaze."
+}

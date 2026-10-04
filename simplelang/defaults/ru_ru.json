@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Русский",
+  "simplelang.current.auto": "Ваш язык: {0} (определён из настроек игры).",
+  "simplelang.current.set": "Ваш язык: {0}.",
+  "simplelang.available": "Доступные языки: {0}",
+  "simplelang.available.hint": "SimpleLang поддерживает каждый язык Minecraft. Нажмите здесь или используйте /lang list, чтобы увидеть все.",
+  "simplelang.usage": "Используйте /lang <язык> (например, english, portugues, pt_br), чтобы изменить, или /lang auto, чтобы следовать настройкам игры.",
+  "simplelang.set.ok": "Язык установлен: {0}.",
+  "simplelang.set.untranslated": "Для {0} ещё нет переводов, поэтому везде, где нет сообщения, используется английский.",
+  "simplelang.set.unknown": "Неизвестный язык «{0}». Нажмите здесь или используйте /lang list, чтобы увидеть все поддерживаемые языки.",
+  "simplelang.set.players_only": "Только игроки могут выбрать язык.",
+  "simplelang.auto.ok": "Ваш язык теперь следует настройкам игры ({0}).",
+  "simplelang.reload.ok": "Перезагружено файлов языка: {0}.",
+  "simplelang.reload.denied": "У вас нет прав для перезагрузки языков."
+}

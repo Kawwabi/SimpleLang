@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Føroyskt",
+  "simplelang.current.auto": "Tín mál: {0} (gjørt út frá spælisettingunum tínum).",
+  "simplelang.current.set": "Tín mál: {0}.",
+  "simplelang.available": "Tilfarlig mál: {0}",
+  "simplelang.available.hint": "SimpleLang stuðlar øllum Minecraft málum. Trýst her ella brúkt /lang list fyri at síggja tey øll.",
+  "simplelang.usage": "Brúkt /lang <mál> (t.d. english, portugues, pt_br) fyri at skifta tað, ella /lang auto fyri at fylgja spælisettingunum tínum.",
+  "simplelang.set.ok": "Málið er sett til {0}.",
+  "simplelang.set.untranslated": "SimpleLang hevur framvegis ikki umtúsklan til {0}, so enskt verður brúkt har ein boðskapur manglar.",
+  "simplelang.set.unknown": "Ókend mál \"{0}\". Trýst her ella brúkt /lang list fyri at síggja øll stuðlaðu mál.",
+  "simplelang.set.players_only": "Einans leikarar kunnu velja mál.",
+  "simplelang.auto.ok": "Tín mál fylgja nú spælisettingunum tínum ({0}).",
+  "simplelang.reload.ok": "{0} málaskjøl endanýggjast.",
+  "simplelang.reload.denied": "Tú hevur ikki loyvi at endanýggja mál."
+}

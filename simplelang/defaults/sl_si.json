@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Slovenščina",
+  "simplelang.current.auto": "Váš jezik: {0} (prepoznano iz nastavitev igre).",
+  "simplelang.current.set": "Váš jezik: {0}.",
+  "simplelang.available": "Na voljo jeziki: {0}",
+  "simplelang.available.hint": "SimpleLang podpira vsak jezik Minecraft. Kliknite sem ali uporabite /lang list, da jih vse vidite.",
+  "simplelang.usage": "Uporabite /lang <jezik> (npr. english, portugues, pt_br) za spremembo ali /lang auto, da sledite nastavitvam igre.",
+  "simplelang.set.ok": "Jezik nastavljen na {0}.",
+  "simplelang.set.untranslated": "SimpleLang še nima prevodov za {0},, zato se povsod, kjer manjka sporočilo, uporablja angleščina.",
+  "simplelang.set.unknown": "Neznan jezik „{0}\". Kliknite sem ali uporabite /lang list, da vidite vse podprte jezike.",
+  "simplelang.set.players_only": "Jezik lahko izberejo samo igralci.",
+  "simplelang.auto.ok": "Vaš jezik zdaj sledi nastavitvam igre ({0}).",
+  "simplelang.reload.ok": "Ponovno naloženo {0} datotek(e) jezika.",
+  "simplelang.reload.denied": "Nimate dovoljenja za ponovno nalaganje jezikov."
+}

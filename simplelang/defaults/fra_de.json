@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Fränggisch",
+  "simplelang.current.auto": "De schprechi: {0} (us de Spuł-Einstellung gmoldt).",
+  "simplelang.current.set": "De schprechi: {0}.",
+  "simplelang.available": "Vagraebe Schprechi: {0}",
+  "simplelang.available.hint": "SimpleLang untastützt jede Minecraft-Schprechi. Klick her od schreib /lang list, wo di all seh.",
+  "simplelang.usage": "Schreib /lang <Schprechi> (z. B. english, portugues, pt_br), wo di wnderrscht, od /lang auto, wo du de Spuł-Einstellung folgst.",
+  "simplelang.set.ok": "Schprechi is gsetzt uf {0}.",
+  "simplelang.set.untranslated": "SimpleLang hod nu ken Übersetzung fur {0}, drum wörd Inglisch brucht, wo an Text febld.",
+  "simplelang.set.unknown": "Unbekannte Schprechi „{0}\". Klick her od schreib /lang list, wo di all untagstizt Schprechi seh.",
+  "simplelang.set.players_only": "Nu de Spułärer ken Schprechi uswählen.",
+  "simplelang.auto.ok": "Di Schprechi folgt nu de Spuł-Einstellung ({0}).",
+  "simplelang.reload.ok": "{0} Schprechi-Dadie gundelaad.",
+  "simplelang.reload.denied": "Du hob nu kene Vollmacht, Schprechi z gundelaad."
+}

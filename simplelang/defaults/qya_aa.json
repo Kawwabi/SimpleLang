@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Quenya",
+  "simplelang.current.auto": "Melmëa ná {0} (amoita immí suba línë ancaliménna).",
+  "simplelang.current.set": "Melmëa ná {0}.",
+  "simplelang.available": "Elwalma amillí: {0}",
+  "simplelang.available.hint": "SimpleLang lunya Vanyaquenta in lalmí. Lúmo ná ina ata ñáti /lang list iqu iquávantalya.",
+  "simplelang.usage": "Ñáti /lang <melmë> (ardanyar: english, portugues, pt_br) ancauríma, ata ñáti /lang auto línë limëra istalya.",
+  "simplelang.set.ok": "Melmë caryanwa {0}.",
+  "simplelang.set.untranslated": "SimpleLang amas amellyat Quentaimo {0} valmá, umumë ná nelya hárin ya unsanótima.",
+  "simplelang.set.unknown": "Amorombë melmë \"{0}\". Lúmo ná ina ata ñáti /lang list iqu iquávantalya.",
+  "simplelang.set.players_only": "Laimi cendí amma melmë isilyat.",
+  "simplelang.auto.ok": "Melmëa nú lindala línë limëra ({0}).",
+  "simplelang.reload.ok": "Alya-lyanya {0} pelimwarwi melma.",
+  "simplelang.reload.denied": "Alca minalya alya-lyanya lmëli."
+}

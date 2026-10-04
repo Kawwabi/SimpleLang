@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Magyar",
+  "simplelang.current.auto": "A te nyelved: {0} (a játékbeállításaidból felismerve).",
+  "simplelang.current.set": "A te nyelved: {0}.",
+  "simplelang.available": "Elérhető nyelvek: {0}",
+  "simplelang.available.hint": "A SimpleLang a Minecraft minden nyelvét támogatja. Kattints ide, vagy használd a /lang list parancsot az összes megtekintéséhez.",
+  "simplelang.usage": "A váltáshoz használd a /lang <nyelv> parancsot (pl. english, portugues, pt_br), vagy a /lang auto parancsot a játékbeállítások követéséhez.",
+  "simplelang.set.ok": "A nyelv beállítva: {0}.",
+  "simplelang.set.untranslated": "A SimpleLangnak még nincs fordítása ehhez: {0}, ezért ahol hiányzik egy üzenet, angolt használ.",
+  "simplelang.set.unknown": "Ismeretlen nyelv: „{0}”. Kattints ide, vagy használd a /lang list parancsot az összes támogatott nyelv megtekintéséhez.",
+  "simplelang.set.players_only": "Csak a játékosok választhatnak nyelvet.",
+  "simplelang.auto.ok": "A nyelved mostantól a játékbeállításaidat követi ({0}).",
+  "simplelang.reload.ok": "{0} nyelvi fájl újratöltve.",
+  "simplelang.reload.denied": "Nincs jogosultságod a nyelvek újratöltéséhez."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Boarisch",
+  "simplelang.current.auto": "Diasprach: {0} (aus da Spui-Einstellunga gmooda).",
+  "simplelang.current.set": "Diasprach: {0}.",
+  "simplelang.available": "Vafüegbare Sprachn: {0}",
+  "simplelang.available.hint": "SimpleLang supportiat jeda Minecraft-Sprach. Kiak hier oba schreib /lang list, wo oba gsehest.",
+  "simplelang.usage": "Schreib /lang <Sprach> (z. B. english, portugues, pt_br), wia zu schweigst, oba /lang auto, wia auf da Spui-Einstellunga aufgpasst.",
+  "simplelang.set.ok": "Sprach gsetzt auf {0}.",
+  "simplelang.set.untranslated": "SimpleLang hod no koana Ubersetzunga fia {0}, dahoer wiad on da Stöw, wo an Text feit, Eaidschbisch gnutzt.",
+  "simplelang.set.unknown": "Unbekannte Sprach „{0}\". Kiak hier oba schreib /lang list, wo oba gsehest, welche Sprachn neakund is.",
+  "simplelang.set.players_only": "Nur Spuiare koana Sprach uswaun.",
+  "simplelang.auto.ok": "Dia Sprach foigt jetzt da Spui-Einstellunga ({0}).",
+  "simplelang.reload.ok": "{0} Sprachdatein san neich egloda.",
+  "simplelang.reload.denied": "Du hasch koa Vollmacht, Sprachdatein neich z egloda."
+}

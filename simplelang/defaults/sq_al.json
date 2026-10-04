@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Shqip",
+  "simplelang.current.auto": "Gjuha juaj: {0} (e zbuluar nga cilësimet e lojës suaj).",
+  "simplelang.current.set": "Gjuha juaj: {0}.",
+  "simplelang.available": "Gjuhët e disponueshme: {0}",
+  "simplelang.available.hint": "SimpleLang mbështet çdo gjuhë Minecraft. Kliko këtu ose përdor /lang list për t'i parë të gjitha.",
+  "simplelang.usage": "Përdor /lang <gjuhë> (p.sh. english, portugues, pt_br) për ta ndryshuar, ose /lang auto për të ndjekur cilësimet e lojës suaj.",
+  "simplelang.set.ok": "Gjuha u vendos në {0}.",
+  "simplelang.set.untranslated": "SimpleLang ende nuk ka përkthime për {0},, prandaj përdoret anglisht kur mungon një mesazh.",
+  "simplelang.set.unknown": "Gjuhë e panjohur \"{0}\". Kliko këtu ose përdor /lang list për të parë të gjitha gjuhët e mbështetura.",
+  "simplelang.set.players_only": "Vetëm lojtarët mund të zgjedhin gjuhë.",
+  "simplelang.auto.ok": "Gjuha juaj tani ndjek cilësimet e lojës suaj ({0}).",
+  "simplelang.reload.ok": "U riboaduan {0} skedarë gjuhe.",
+  "simplelang.reload.denied": "Nuk keni leje për të riboadur gjuhët."
+}

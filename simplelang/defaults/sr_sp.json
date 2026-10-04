@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Српски",
+  "simplelang.current.auto": "Ваш језик: {0} (откривен из подешавања игре).",
+  "simplelang.current.set": "Ваш језик: {0}.",
+  "simplelang.available": "Доступни језици: {0}",
+  "simplelang.available.hint": "SimpleLang подржава сваки језик Minecraft. Кликните овде или користите /lang list да бисте видели све.",
+  "simplelang.usage": "Користите /lang <језик> (нпр. english, portugues, pt_br) да га промените, или /lang auto да пратите подешавања игре.",
+  "simplelang.set.ok": "Језик постављен на {0}.",
+  "simplelang.set.untranslated": "SimpleLang још нема превод за {0},, тако да се свуда где недостаје порука користи енглески.",
+  "simplelang.set.unknown": "Непознат језик „{0}\". Кликните овде или користите /lang list да бисте видели све подржане језике.",
+  "simplelang.set.players_only": "Само играчи могу да изаберу језик.",
+  "simplelang.auto.ok": "Ваш језик сада прати подешавања игре ({0}).",
+  "simplelang.reload.ok": "Поново учитао {0} датотека(и) језика.",
+  "simplelang.reload.denied": "Немате дозволе да поново учитате језике."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "فارسی",
+  "simplelang.current.auto": "زبان شما: {0} (از تنظیمات بازی تشخیص داده شد).",
+  "simplelang.current.set": "زبان شما: {0}.",
+  "simplelang.available": "زبان‌های موجود: {0}",
+  "simplelang.available.hint": "SimpleLang از همهٔ زبان‌های ماین‌کرفت پشتیبانی می‌کند. برای دیدن همه اینجا کلیک کنید یا از /lang list استفاده کنید.",
+  "simplelang.usage": "برای تغییر از /lang <زبان> (مثلاً english، portugues، pt_br) و برای پیروی از تنظیمات بازی از /lang auto استفاده کنید.",
+  "simplelang.set.ok": "زبان روی {0} تنظیم شد.",
+  "simplelang.set.untranslated": "SimpleLang هنوز ترجمه‌ای برای {0} ندارد، پس هر جا پیامی نباشد از انگلیسی استفاده می‌شود.",
+  "simplelang.set.unknown": "زبان ناشناخته «{0}». برای دیدن همهٔ زبان‌های پشتیبانی‌شده اینجا کلیک کنید یا از /lang list استفاده کنید.",
+  "simplelang.set.players_only": "فقط بازیکنان می‌توانند زبان انتخاب کنند.",
+  "simplelang.auto.ok": "زبان شما اکنون از تنظیمات بازی پیروی می‌کند ({0}).",
+  "simplelang.reload.ok": "{0} فایل زبان دوباره بارگذاری شد.",
+  "simplelang.reload.denied": "شما اجازهٔ بارگذاری مجدد زبان‌ها را ندارید."
+}

@@ -1,4 +1,5 @@
 mod bridge;
+mod catalogue;
 mod host;
 mod ipc;
 mod lang;
@@ -44,6 +45,11 @@ impl Plugin for SimpleLang {
                     Ok(entries) => st.store.register_raw(code, entries),
                     Err(e) => warn!("bundled {code}.json is invalid: {e}"),
                 }
+            }
+            // Minecraft's language list: makes every language selectable with /lang
+            match catalogue::load() {
+                Ok(entries) => st.store.set_catalogue(entries),
+                Err(e) => warn!("bundled minecraft_languages.json is invalid: {e}"),
             }
             // 2) admin-editable files: these win
             st.store.set_files(storage::load_files(&dir));

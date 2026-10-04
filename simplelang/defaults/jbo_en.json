@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Lojban",
+  "simplelang.current.auto": "lo nu do djene lo {0} .i lo nu casnu fe'i do ciste",
+  "simplelang.current.set": "lo nu do djene lo {0}",
+  "simplelang.available": "lo nu se snada lo {0}",
+  "simplelang.available.hint": "le SimpleLang cu gcini le nu snada le Minecraft .i lo nu do tcidu .a'e /lang list",
+  "simplelang.usage": "lo nu do tcidu /lang <ciksi> .i sumaxi: english, portugues, pt_br .i ka na'e du'i .a'e /lang auto fe'i do ciste",
+  "simplelang.set.ok": "lo {0} cu se snada",
+  "simplelang.set.untranslated": "le SimpleLang cu na'e smuni pe do lo {0} .i le .ui cu se no'i lo nu na'e krici",
+  "simplelang.set.unknown": "lo nu se znaide'i lo {0} .i lo nu do tcidu .a'e /lang list .i lo nu se snada le gismu",
+  "simplelang.set.players_only": "lo nu ifri'u .i lo nu se ce'u lo gismu",
+  "simplelang.auto.ok": "lo nu do ciste zo'o do ciksi ({0})",
+  "simplelang.reload.ok": "lo nu se no'i lo {0} lo gismu datci",
+  "simplelang.reload.denied": "do na'e smuni fe'i lo nu se no'i le gismu"
+}

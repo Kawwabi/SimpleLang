@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Ελληνικά",
+  "simplelang.current.auto": "Η γλώσσα σας: {0} (εντοπίστηκε από τις ρυθμίσεις του παιχνιδιού).",
+  "simplelang.current.set": "Η γλώσσα σας: {0}.",
+  "simplelang.available": "Διαθέσιμες γλώσσες: {0}",
+  "simplelang.available.hint": "Το SimpleLang υποστηρίζει κάθε γλώσσα του Minecraft. Κάντε κλικ εδώ ή χρησιμοποιήστε /lang list για να τις δείτε όλες.",
+  "simplelang.usage": "Χρησιμοποιήστε /lang <γλώσσα> (π.χ. english, portugues, pt_br) για αλλαγή ή /lang auto για να ακολουθεί τις ρυθμίσεις του παιχνιδιού.",
+  "simplelang.set.ok": "Η γλώσσα ορίστηκε σε {0}.",
+  "simplelang.set.untranslated": "Το SimpleLang δεν έχει ακόμη μεταφράσεις για {0}, οπότε χρησιμοποιούνται τα αγγλικά όπου λείπει ένα μήνυμα.",
+  "simplelang.set.unknown": "Άγνωστη γλώσσα «{0}». Κάντε κλικ εδώ ή χρησιμοποιήστε /lang list για να δείτε όλες τις υποστηριζόμενες γλώσσες.",
+  "simplelang.set.players_only": "Μόνο οι παίκτες μπορούν να επιλέξουν γλώσσα.",
+  "simplelang.auto.ok": "Η γλώσσα σας ακολουθεί πλέον τις ρυθμίσεις του παιχνιδιού ({0}).",
+  "simplelang.reload.ok": "Φορτώθηκαν ξανά {0} αρχεία γλώσσας.",
+  "simplelang.reload.denied": "Δεν έχετε άδεια να φορτώσετε ξανά τις γλώσσες."
+}

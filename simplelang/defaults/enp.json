@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Anglish",
+  "simplelang.current.auto": "Þin spræc is {0} (gemenced fram þinum spel-setlum).",
+  "simplelang.current.set": "Þin spræc is {0}.",
+  "simplelang.available": "Gifene speca: {0}",
+  "simplelang.available.hint": "SimpleLang triggiað ælcer Minecraft-spræc. Riceþ hēr oððe sele /lang list tō him allum gienne.",
+  "simplelang.usage": "Urb /lang <spræc> (oþþe english, portugues, pt_br) tō þæm bedyran, oððe /lang auto tō þinum spel-setlum gefolgen.",
+  "simplelang.set.ok": "Spræc geþyred to {0}.",
+  "simplelang.set.untranslated": "SimpleLang nist ānnōn spreac-geefa for {0}, so English is scipod þeare mæcþ mistan.",
+  "simplelang.set.unknown": "Gemet spræc \"{0}\". Riceþ hēr oððe sele /lang list tō ellen forþne gemæcied speca gienne.",
+  "simplelang.set.players_only": "Nisht bicgu scipon þæt spaeca cysan.",
+  "simplelang.auto.ok": "Þin spræc gecyþð nu þin spel-setl ({0}).",
+  "simplelang.reload.ok": "{0} spræc-bōcas geondnimen.",
+  "simplelang.reload.denied": "Þu nisht geceaht speca onniman."
+}

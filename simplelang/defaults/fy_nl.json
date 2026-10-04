@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Frysk",
+  "simplelang.current.auto": "Dyn taal: {0} (fêststeld út dyn spylinstellingen).",
+  "simplelang.current.set": "Dyn taal: {0}.",
+  "simplelang.available": "Beskikbare talen: {0}",
+  "simplelang.available.hint": "SimpleLang styppt alle Minecraft-talen. Klik hjir of brûk /lang list om se alle te sjen.",
+  "simplelang.usage": "Brûk /lang <taal> (bv. english, portugues, pt_br) om it te feroarjen, of /lang auto om dyn spylinstellingen te folgjen.",
+  "simplelang.set.ok": "Taal ynsteld op {0}.",
+  "simplelang.set.untranslated": "SimpleLang hat noch gjirns translaasjes foar {0},, dus wurdt Ingelsk brûkt wêr in stelling ûntbrekt.",
+  "simplelang.set.unknown": "Unbekende taal \"{0}\". Klik hjir of brûk /lang list om alle stipte talen te sjen.",
+  "simplelang.set.players_only": "Allin spilers kinne in taal kieze.",
+  "simplelang.auto.ok": "Dyn taal folget no dyn spylinstellingen ({0}).",
+  "simplelang.reload.ok": "{0} taalfyls werladen.",
+  "simplelang.reload.denied": "Dyn hat gjin tastimming om talen wer te laden."
+}

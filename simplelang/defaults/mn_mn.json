@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Монгол",
+  "simplelang.current.auto": "Таны хэл: {0} (тоглоомын тохиргоогоос илрүүлэв).",
+  "simplelang.current.set": "Таны хэл: {0}.",
+  "simplelang.available": "Өгөгдөж буй хэлүүд: {0}",
+  "simplelang.available.hint": "SimpleLang Minecraft-ийн бүх хэлийг дэмждэг. Бүгдийг харахын тулд энд дарна уу эсвэл /lang list ашиглана уу.",
+  "simplelang.usage": "Өөрчлөхийн тулд /lang <хэл> (жишээ нь english, portugues, pt_br) ашиглана уу эсвэл тоглоомын тохиргоог дагахын тулд /lang auto ашиглана уу.",
+  "simplelang.set.ok": "Хэл {0} болж тохируулав.",
+  "simplelang.set.untranslated": "SimpleLang-д {0}-ын орчуулга одоогоор байхгүй тул заавар байхгүй газар англи хэл хэрэглэгдэнэ.",
+  "simplelang.set.unknown": "Тодорхойгүй хэл «{0}». Дэмжигдэж буй бүх хэлийг харахын тулд энд дарна уу эсвэл /lang list ашиглана уу.",
+  "simplelang.set.players_only": "Зөвхөн тоглогчид л хэл сонгох боломжтой.",
+  "simplelang.auto.ok": "Таны хэл одоо тоглоомын тохиргоог дагаж байна ({0}).",
+  "simplelang.reload.ok": "{0} хэлийн файл(нууд) дахин ачааллаа.",
+  "simplelang.reload.denied": "Хэлүүдийг дахин ачаалах эрх танд байхгүй."
+}

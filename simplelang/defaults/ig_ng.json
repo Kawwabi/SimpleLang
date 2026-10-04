@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Igbo",
+  "simplelang.current.auto": "Asụrụ gị: {0} (achọpụtara site n'ihicha egwuregwu gị).",
+  "simplelang.current.set": "Asụrụ gị: {0}.",
+  "simplelang.available": "Asụsụ dị: {0}",
+  "simplelang.available.hint": "SimpleLang na-akwado asụsụ Minecraft niile. Pịa ebe a ma ọ bụ jiri /lang list hụ ha niile.",
+  "simplelang.usage": "Jiri /lang <asụsụ> (dịka english, portugues, pt_br) gbanwee ya, ma ọ bụ /lang auto iji jide n'ajụ aghụghụ ihicha egwuregwu gị.",
+  "simplelang.set.ok": "E debere asụsụ na {0}.",
+  "simplelang.set.untranslated": "SimpleLang enweghị atụghari maka {0} taa, ya mere a na-eji Bekee ebe o nweghị ozi.",
+  "simplelang.set.unknown": "Asụsụ amabeghị \"{0}\". Pịa ebe a ma ọ bụ jiri /lang list hụ asụsụ a na-akwado niile.",
+  "simplelang.set.players_only": "Naanị ndị na-ama egwuregwu nwere ike ịhọrọ asụsụ.",
+  "simplelang.auto.ok": "Asụsụ gị ugbu a na-ejide n'ajụ aghụghụ ihicha egwuregwu gị ({0}).",
+  "simplelang.reload.ok": "E wedara {0} faịlụ asụsụ ọzọ.",
+  "simplelang.reload.denied": "Ị nweghị ikike ịweta asụsụ ọzọ."
+}

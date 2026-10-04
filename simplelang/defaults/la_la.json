@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Latina",
+  "simplelang.current.auto": "Tua lingua: {0} (detecta ex tuis optionibus ludendi).",
+  "simplelang.current.set": "Tua lingua: {0}.",
+  "simplelang.available": "Linguae quae sunt: {0}",
+  "simplelang.available.hint": "SimpleLang omnes linguas Minecraft iuvat. Hic preme aut /lang list utroque ut omnes videas.",
+  "simplelang.usage": "Ute /lang <lingua> (ut english, portugues, pt_br) ut eam mutares, aut /lang auto ut tuis optionibus ludendi subeas.",
+  "simplelang.set.ok": "Lingua posita ad {0}.",
+  "simplelang.set.untranslated": "SimpleLang nondum habet translationes pro {0}, ideoque ubi deest sermo, lingua Anglica adhibetur.",
+  "simplelang.set.unknown": "Lingua ignota \"{0}\". Hic preme aut /lang list utroque ut omnes linguas iuvatas videas.",
+  "simplelang.set.players_only": "Solum ludentes linguam eligere possunt.",
+  "simplelang.auto.ok": "Tua lingua nunc tuis optionibus ludendi subicitur ({0}).",
+  "simplelang.reload.ok": "{0} tabulae linguarum denovo conlatae sunt.",
+  "simplelang.reload.denied": "Non habes potestatem linguas denovo conlerere."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Andalûh",
+  "simplelang.current.auto": "Tu lengua: {0} (detchada de tus tuendencias del xuego).",
+  "simplelang.current.set": "Tu lengua: {0}.",
+  "simplelang.available": "Lenguas disponibles: {0}",
+  "simplelang.available.hint": "SimpleLang aguanta toas las lenguas de Minecraft. Presiona aquí o usa /lang list para verlas toás.",
+  "simplelang.usage": "Usa /lang <lengua> (p. ej. english, portugues, pt_br) para cambiarla, o /lang auto para seguir tus tuendencias del xuego.",
+  "simplelang.set.ok": "Lengua metía en {0}.",
+  "simplelang.set.untranslated": "SimpleLang noch no tien traducciones pa {0}, asique el inglés s'usa onde falte un mensaje.",
+  "simplelang.set.unknown": "Lengua desconoía «{0}». Presiona aquí o usa /lang list para ver toás las lenguas aguantás.",
+  "simplelang.set.players_only": "Solo los xuexos pueden escuexer lengua.",
+  "simplelang.auto.ok": "Tu lengua agor sigue las tuendencias de tu xuego ({0}).",
+  "simplelang.reload.ok": "Se atriolgaron {0} archibu(s) de lengua.",
+  "simplelang.reload.denied": "Tú no tien permiso pa atriolgar lenguas."
+}

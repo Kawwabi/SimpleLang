@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "繁體中文（台灣）",
+  "simplelang.current.auto": "你的語言：{0}（依遊戲設定偵測）。",
+  "simplelang.current.set": "你的語言：{0}。",
+  "simplelang.available": "可用的語言：{0}",
+  "simplelang.available.hint": "SimpleLang 支援所有 Minecraft 語言。點選這裡或使用 /lang list 查看全部。",
+  "simplelang.usage": "使用 /lang <語言>（例如 english、portugues、pt_br）變更，或使用 /lang auto 跟隨你的遊戲設定。",
+  "simplelang.set.ok": "語言已設定為 {0}。",
+  "simplelang.set.untranslated": "SimpleLang 尚沒有 {0} 的翻譯，因此缺少訊息之處將使用英文。",
+  "simplelang.set.unknown": "未知語言「{0}」。點選這裡或使用 /lang list 查看所有受支援的語言。",
+  "simplelang.set.players_only": "只有玩家可以選擇語言。",
+  "simplelang.auto.ok": "你的語言現在跟隨你的遊戲設定（{0}）。",
+  "simplelang.reload.ok": "已重新載入 {0} 個語言檔案。",
+  "simplelang.reload.denied": "你沒有權限重新載入語言。"
+}

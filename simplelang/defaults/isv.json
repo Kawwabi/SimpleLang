@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Interslavic",
+  "simplelang.current.auto": "Vaše jeziċe: {0} (otkryto iz nastavitelja igrvi).",
+  "simplelang.current.set": "Vaše jeziċe: {0}.",
+  "simplelang.available": "Dostupna jeziċa: {0}",
+  "simplelang.available.hint": "SimpleLang poddržuje svako Minecraft jeziċe. Klikni ovdo ali uporabi /lang list da vidiš sva.",
+  "simplelang.usage": "Uporabi /lang <jeziċe> (npr. english, portugues, pt_br) da ga promeniš, ali /lang auto da pratiš nastavitelja igrvi.",
+  "simplelang.set.ok": "Jeziċe postavljeno na {0}.",
+  "simplelang.set.untranslated": "SimpleLang jos ne ima prevoda za {0},, zato se koristi engleski kjer je pòstavka manke.",
+  "simplelang.set.unknown": "Neznano jeziċe \"{0}\". Klikni ovdo ali uporabi /lang list da vidiš sva poddržana jeziċa.",
+  "simplelang.set.players_only": "Samo igraji mogu izabrati jeziċe.",
+  "simplelang.auto.ok": "Vaše jeziċe sada prati nastavitelja igrvi ({0}).",
+  "simplelang.reload.ok": "Ponovno očitan {0} datoteka jeziċa.",
+  "simplelang.reload.denied": "Nemaš prava da ponovno očitaš jeziċa."
+}

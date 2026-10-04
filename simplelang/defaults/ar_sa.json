@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "العربية",
+  "simplelang.current.auto": "لغتك: {0} (تم اكتشافها من إعدادات لعبتك).",
+  "simplelang.current.set": "لغتك: {0}.",
+  "simplelang.available": "اللغات المتاحة: {0}",
+  "simplelang.available.hint": "يدعم SimpleLang كل لغات ماينكرافت. انقر هنا أو استخدم /lang list لعرضها جميعًا.",
+  "simplelang.usage": "استخدم /lang <اللغة> (مثل english وportugues وpt_br) لتغييرها، أو /lang auto لاتباع إعدادات لعبتك.",
+  "simplelang.set.ok": "تم تعيين اللغة إلى {0}.",
+  "simplelang.set.untranslated": "لا توجد ترجمات لـ {0} في SimpleLang بعد، لذا تُستخدم الإنجليزية عند غياب أي رسالة.",
+  "simplelang.set.unknown": "لغة غير معروفة “{0}”. انقر هنا أو استخدم /lang list لعرض كل اللغات المدعومة.",
+  "simplelang.set.players_only": "يمكن للاعبين فقط اختيار لغة.",
+  "simplelang.auto.ok": "أصبحت لغتك تتبع إعدادات لعبتك ({0}).",
+  "simplelang.reload.ok": "تمت إعادة تحميل {0} من ملفات اللغة.",
+  "simplelang.reload.denied": "ليس لديك إذن لإعادة تحميل اللغات."
+}

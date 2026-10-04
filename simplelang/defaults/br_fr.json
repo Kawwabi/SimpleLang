@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Brezhoneg",
+  "simplelang.current.auto": "Ho yezh: {0} (heñvet diwar ho lemmelioù c'hoari).",
+  "simplelang.current.set": "Ho yezh: {0}.",
+  "simplelang.available": "Yezhoù diavaot: {0}",
+  "simplelang.available.hint": "SimpleLang a erc'haller pep yezh eus Minecraft. Rec'hit amañ pe implijit /lang list evit o welet an holl.",
+  "simplelang.usage": "Implijit /lang <yezh> (d. sk. english, portugues, pt_br) evit he adderañ, pe /lang auto evit heuliañ ho lemmelioù c'hoari.",
+  "simplelang.set.ok": "Lakaet eo al yezh e {0}.",
+  "simplelang.set.untranslated": "SimpleLang n'en deus ket adkemennoù evit {0} c'hoazh, kemeret e vo saozñeg avat.",
+  "simplelang.set.unknown": "Yezh anaouet « {0} ». Rec'hit amañ pe implijit /lang list evit gwelet pep yezh erc'hallet.",
+  "simplelang.set.players_only": "Ne c'hall ket ar c'hoarierien nemetken dibab ur yezh.",
+  "simplelang.auto.ok": "Hoc'h yezh heuilh ho lemmelioù c'hoari bremañ ({0}).",
+  "simplelang.reload.ok": "Adlennet {0} restr yezh.",
+  "simplelang.reload.denied": "N'oc'h ket aotreet adlenn yezhoù."
+}

@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Cymraeg",
+  "simplelang.current.auto": "Eich iaith: {0} (canfodwyd o'ch gosodiadau gêm).",
+  "simplelang.current.set": "Eich iaith: {0}.",
+  "simplelang.available": "Ieithoedd ar gael: {0}",
+  "simplelang.available.hint": "Mae SimpleLang yn cefnogi pob iaith Minecraft. Cliciwch yma neu ddefnoch /lang list i'w gweld pob un.",
+  "simplelang.usage": "Defnoch /lang <iaith> (e.e. english, portugues, pt_br) i'w newid, neu /lang auto i ddilyn eich gosodiadau gêm.",
+  "simplelang.set.ok": "Gosodwyd yr iaith at {0}.",
+  "simplelang.set.untranslated": "Nid yw SimpleLang yn cynnwys cyfieithiadau ar gyfer {0} eto, felly defnoch Saesneg lle nad oes neges.",
+  "simplelang.set.unknown": "Iaith anhysbys \"{0}\". Cliciwch yma neu ddefnoch /lang list i weld pob iaith a gefnogir.",
+  "simplelang.set.players_only": "Dim ond chwaraewyr sy'n gallu dewis iaith.",
+  "simplelang.auto.ok": "Mae eich iaith nawr yn dilyn eich gosodiadau gêm ({0}).",
+  "simplelang.reload.ok": "Ail-lwythwyd {0} ffeil iaith.",
+  "simplelang.reload.denied": "Nay gennych ganiatâd i ail-lwytho ieithoedd."
+}

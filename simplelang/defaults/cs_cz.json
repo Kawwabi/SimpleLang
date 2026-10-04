@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Čeština",
+  "simplelang.current.auto": "Tvůj jazyk: {0} (zjištěn z nastavení hry).",
+  "simplelang.current.set": "Tvůj jazyk: {0}.",
+  "simplelang.available": "Dostupné jazyky: {0}",
+  "simplelang.available.hint": "SimpleLang podporuje všechny jazyky Minecraftu. Klikni sem nebo použij /lang list pro zobrazení všech.",
+  "simplelang.usage": "Použij /lang <jazyk> (např. english, portugues, pt_br) pro změnu, nebo /lang auto pro sledování nastavení hry.",
+  "simplelang.set.ok": "Jazyk nastaven na {0}.",
+  "simplelang.set.untranslated": "SimpleLang zatím nemá překlady pro {0}, proto se tam, kde zpráva chybí, používá angličtina.",
+  "simplelang.set.unknown": "Neznámý jazyk „{0}“. Klikni sem nebo použij /lang list pro zobrazení všech podporovaných jazyků.",
+  "simplelang.set.players_only": "Jazyk mohou vybírat pouze hráči.",
+  "simplelang.auto.ok": "Tvůj jazyk nyní sleduje nastavení hry ({0}).",
+  "simplelang.reload.ok": "Znovu načteno jazykových souborů: {0}.",
+  "simplelang.reload.denied": "Nemáš oprávnění znovu načítat jazyky."
+}

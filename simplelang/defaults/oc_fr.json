@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Occitan",
+  "simplelang.current.auto": "Vòstra lenga : {0} (detectat a partir de vòstres paramètres de jòc).",
+  "simplelang.current.set": "Vòstra lenga : {0}.",
+  "simplelang.available": "Lengas disponiblas : {0}",
+  "simplelang.available.hint": "SimpleLang austa cada lenga de Minecraft. Clicatz aquí o utilizatz /lang list per las veser tomas.",
+  "simplelang.usage": "Utilizatz /lang <lenga> (p. ex. english, portugues, pt_br) per la modificar, o /lang auto per seguir vòstres paramètres de jòc.",
+  "simplelang.set.ok": "Lenga ajustada sus {0}.",
+  "simplelang.set.untranslated": "SimpleLang a pas enca de traduccions per {0},, alavetz l'anglès es utilizat ont manca un messatge.",
+  "simplelang.set.unknown": "Lenga desconeguda «{0}». Clicatz aquí o utilizatz /lang list per veser tomas las lengas adataas.",
+  "simplelang.set.players_only": "Sonque los jògadors pòdon causir una lenga.",
+  "simplelang.auto.ok": "Vòstra lenga seguisiara ara vòstres paramètres de jòc ({0}).",
+  "simplelang.reload.ok": "Recargat {0} fichièr(s) de lenga.",
+  "simplelang.reload.denied": "Avètz pas lo drech de recargar las lengas."
+}

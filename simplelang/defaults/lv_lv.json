@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Latviešu",
+  "simplelang.current.auto": "Jūsu valoda: {0} (atklāta no jūsu spēles iestatījumiem).",
+  "simplelang.current.set": "Jūsu valoda: {0}.",
+  "simplelang.available": "Piemērotas valodas: {0}",
+  "simplelang.available.hint": "SimpleLang atbalsta visas Minecraft valodas. Noklikšķiniet šeit vai izmantojiet /lang list, lai visas redzētu.",
+  "simplelang.usage": "Lietojiet /lang <valoda> (piem., english, portugues, pt_br), lai to mainītu, vai /lang auto, lai sekotu jūsu spēles iestatījumiem.",
+  "simplelang.set.ok": "Valoda iestatīta uz {0}.",
+  "simplelang.set.untranslated": "SimpleLang vēl nav {0} tulkojumi, tāpēc tur, kur trūkst ziņojuma, tiek izmantota angļu valoda.",
+  "simplelang.set.unknown": "Nezināma valoda „{0}\". Noklikšķiniet šeit vai izmantojiet /lang list, lai redzētu visas atbalstītās valodas.",
+  "simplelang.set.players_only": "Valodu var izvēlēties tikai spēlētāji.",
+  "simplelang.auto.ok": "Jūsu valoda tagad seko jūsu spēles iestatījumiem ({0}).",
+  "simplelang.reload.ok": "Ielādēti {0} valodas faili.",
+  "simplelang.reload.denied": "Jums nav atļaujas pārlādēt valodas."
+}

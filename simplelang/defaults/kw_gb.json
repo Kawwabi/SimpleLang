@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Kernewek",
+  "simplelang.current.auto": "Dy yeth: {0} (hoskons ortheth dhy goshogans gwelyow).",
+  "simplelang.current.set": "Dy yeth: {0}.",
+  "simplelang.available": "Yethow dh'embrav: {0}",
+  "simplelang.available.hint": "Ydhel SimpleLang ythow kowethel Minecraft. Pskit yma marth yma a /lang list hag o gweles a oll.",
+  "simplelang.usage": "Gwely /lang <yeth> (ys: english, portugues, pt_br) dhe-chal raba gans, marth /lang auto dhe dhys dh'agsyow gwelyow.",
+  "simplelang.set.ok": "Gosodhwys an yeth war {0}.",
+  "simplelang.set.untranslated": "Nyns us yn SimpleLang aysterow rag {0} es, dhedhonn Breheleg eus usy a berth dhe rydh all.",
+  "simplelang.set.unknown": "Yeth eskorjyth \"{0}\". Pskit yma a prad /lang list hag a gweles a oll ythow a-gowethytha.",
+  "simplelang.set.players_only": "Kowolyssow dewys yth bo.",
+  "simplelang.auto.ok": "Ydhel dy yeth dh'agsyow gwelyow hydhel ({0}).",
+  "simplelang.reload.ok": "Kerludhyow {0} myskok yeth.",
+  "simplelang.reload.denied": "Nag os permyssyon rag kerludhy ythow."
+}

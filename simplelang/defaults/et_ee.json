@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Eesti",
+  "simplelang.current.auto": "Sinu keel: {0} (tuvastatud mängu seadetest).",
+  "simplelang.current.set": "Sinu keel: {0}.",
+  "simplelang.available": "Saadaolevad keeled: {0}",
+  "simplelang.available.hint": "SimpleLang toetab kõiki Minecrafti keeli. Kliki siin või kasuta käsku /lang list, et näha neid kõiki.",
+  "simplelang.usage": "Kasuta /lang <keel> (nt english, portugues, pt_br) muutmiseks või /lang auto mängu seadete järgimiseks.",
+  "simplelang.set.ok": "Keeleks määrati {0}.",
+  "simplelang.set.untranslated": "SimpleLangil pole veel tõlkeid keelele {0}, seega kasutatakse puuduva sõnumi korral inglise keelt.",
+  "simplelang.set.unknown": "Tundmatu keel „{0}“. Kliki siin või kasuta käsku /lang list, et näha kõiki toetatud keeli.",
+  "simplelang.set.players_only": "Keelt saavad valida ainult mängijad.",
+  "simplelang.auto.ok": "Sinu keel järgib nüüd mängu seadeid ({0}).",
+  "simplelang.reload.ok": "Laaditi uuesti {0} keelefaili.",
+  "simplelang.reload.denied": "Sul pole luba keeli uuesti laadida."
+}

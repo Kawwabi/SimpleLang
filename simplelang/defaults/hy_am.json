@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Հայերեն",
+  "simplelang.current.auto": "Ձեր լեզուն՝ {0} (որոշվել է խաղի կարգավորումներից)։",
+  "simplelang.current.set": "Ձեր լեզուն՝ {0}։",
+  "simplelang.available": "Հասանելի լեզուներ՝ {0}",
+  "simplelang.available.hint": "SimpleLang-ը աջակցում է Minecraft-ի բոլոր լեզուներին։ Սեղմեք այստեղ կամ օգտագործեք /lang list՝ բոլորը տեսնելու համար։",
+  "simplelang.usage": "Օգտագործեք /lang <լեզու> (օր.՝ english, portugues, pt_br)՝ փոխելու համար, կամ /lang auto՝ խաղի կարգավորումներին հետևելու համար։",
+  "simplelang.set.ok": "Լեզուն սահմանվեց՝ {0}։",
+  "simplelang.set.untranslated": "SimpleLang-ը դեռ {0}-ի թարգմանություններ չունի, ուստի բացակայող հաղորդագրությունների համար օգտագործվում է անգլերենը։",
+  "simplelang.set.unknown": "Անհայտ լեզու «{0}»։ Սեղմեք այստեղ կամ օգտագործեք /lang list՝ բոլոր աջակցվող լեզուները տեսնելու համար։",
+  "simplelang.set.players_only": "Լեզու կարող են ընտրել միայն խաղացողները։",
+  "simplelang.auto.ok": "Ձեր լեզուն այժմ հետևում է խաղի կարգավորումներին ({0})։",
+  "simplelang.reload.ok": "Վերաբեռնվեց {0} լեզվի ֆայլ։",
+  "simplelang.reload.denied": "Դուք թույլտվություն չունեք լեզուները վերաբեռնելու համար։"
+}

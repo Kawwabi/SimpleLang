@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "ಕನ್ನಡ",
+  "simplelang.current.auto": "ನಿಮ್ಮ ಭಾಷೆ: {0} (ಆಟದ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಪತ್ತೆಹಚ್ಚಲಾಗಿದೆ).",
+  "simplelang.current.set": "ನಿಮ್ಮ ಭಾಷೆ: {0}.",
+  "simplelang.available": "ಲಭ್ಯವಿರುವ ಭಾಷೆಗಳು: {0}",
+  "simplelang.available.hint": "SimpleLang ಎಲ್ಲಾ Minecraft ಭಾಷೆಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಎಲ್ಲವನ್ನೂ ನೋಡಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ /lang list ಬಳಸಿ.",
+  "simplelang.usage": "ಬದಲಾಯಿಸಲು /lang <ಭಾಷೆ> (ಉದಾ. english, portugues, pt_br) ಬಳಸಿ, ಅಥವಾ ನಿಮ್ಮ ಆಟದ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಅನುಸರಿಸಲು /lang auto ಬಳಸಿ.",
+  "simplelang.set.ok": "ಭಾಷೆ {0} ಗೆ ಹೊಂದಿಸಲಾಗಿದೆ.",
+  "simplelang.set.untranslated": "SimpleLang‌ಗೆ {0} ಗಾಗಿ ಇನ್ನೂ ಭಾಷಾಂತರಗಳಿಲ್ಲ, ಆದ್ದರಿಂದ ಸಂದೇಶ ಕೊರತೆಯ ಇರುವೆಡೆ ಅಂಗ್ರೆಜಿಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ.",
+  "simplelang.set.unknown": "ಅಗುಲಿ ಭಾಷೆ \"{0}\". ಬೆಂಬಲಿತ ಎಲ್ಲಾ ಭಾಷೆಗಳನ್ನು ನೋಡಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ /lang list ಬಳಸಿ.",
+  "simplelang.set.players_only": "ಖೇಲಗಾರರು ಮಾತ್ರ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.",
+  "simplelang.auto.ok": "ನಿಮ್ಮ ಭಾಷೆ ಈಗ ನಿಮ್ಮ ಆಟದ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಅನುಸರಿಸುತ್ತದೆ ({0}).",
+  "simplelang.reload.ok": "{0} ಭಾಷೆ ಫೈಲ್(ಗಳು) ಮರುಲೋಡ್ ಆಯಿತು.",
+  "simplelang.reload.denied": "ಭಾಷೆಗಳನ್ನು ಮರುಲೋಡ್ ಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿ ಇಲ್ಲ."
+}

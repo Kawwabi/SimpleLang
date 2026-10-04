@@ -1,0 +1,15 @@
+{
+  "simplelang.lang.name": "Norsk nynorsk",
+  "simplelang.current.auto": "Ditt språk: {0} (oppdag i spelinnstillingane dine).",
+  "simplelang.current.set": "Ditt språk: {0}.",
+  "simplelang.available": "Tilgjengelege språk: {0}",
+  "simplelang.available.hint": "SimpleLang støttar alle Minecraft-språk. Klikk her eller bruk /lang list for å sjå dei alle.",
+  "simplelang.usage": "Bruk /lang <språk> (t.d. english, portugues, pt_br) for å endre det, eller /lang auto for å følgje spelinnstillingane dine.",
+  "simplelang.set.ok": "Språket er sett til {0}.",
+  "simplelang.set.untranslated": "SimpleLang har ikkje omsetjingar for {0}, enno, så engelsk blir brukt der det mangelar ein melding.",
+  "simplelang.set.unknown": "Ukjent språk «{0}». Klikk her eller bruk /lang list for å sjå alle støtta språk.",
+  "simplelang.set.players_only": "Berre spelarar kan velje språk.",
+  "simplelang.auto.ok": "Språket ditt følgjer no spelinnstillingane dine ({0}).",
+  "simplelang.reload.ok": "Lasta på nytt {0} språkfil(ar).",
+  "simplelang.reload.denied": "Du har ikkje løyve til å laste på nytt språk."
+}
