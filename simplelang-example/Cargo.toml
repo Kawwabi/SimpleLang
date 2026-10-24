@@ -1,6 +1,6 @@
 [package]
 name = "simplelang-example"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2024"
 license = "MIT"
 readme = "README.md"
@@ -11,7 +11,7 @@ description = "Example of using SimpleLang as an optional dependency"
 crate-type = ["cdylib"]
 
 [dependencies]
-pumpkin-plugin-api = "0.2.0"
+pumpkin-plugin-api = { git = "https://github.com/Pumpkin-MC/Pumpkin", tag = "0.2.1+26.3-26.51", package = "pumpkin-plugin-api" }
 serde_json = "1"
 tracing = "0.1"
 

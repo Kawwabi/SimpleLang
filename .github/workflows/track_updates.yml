@@ -1,0 +1,124 @@
+name: Track Pumpkin releases
+
+# Pumpkin plugins are built against one specific Pumpkin release, so every new Pumpkin
+# release means rebuilding. This workflow does the boring part:
+#
+#   1. every few hours it asks GitHub for Pumpkin's latest (non-nightly) release
+#   2. if it's newer than the tag in Cargo.toml, it points both plugins at it and builds them
+#   3. it opens (or updates) one pull request: ready to merge if both build, a draft if not
+#
+# I review the PR, merge it, then tag a release (see release.yml).
+#
+# One-time setup: Settings > Actions > General > Workflow permissions >
+# tick "Allow GitHub Actions to create and approve pull requests".
+# (Pull requests opened by a workflow don't trigger ci.yml, which is why this builds itself.)
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch: # the "Run workflow" button, to check right now
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pumpkin-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRANCH: bot/pumpkin-update
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare with Pumpkin's latest release
+        id: check
+        run: |
+          set -euo pipefail
+          LATEST=$(gh release view --repo Pumpkin-MC/Pumpkin --json tagName --jq .tagName)
+          if ! [[ "$LATEST" =~ ^[0-9A-Za-z._+-]+$ ]]; then
+            echo "::error::Unexpected release tag: $LATEST"
+            exit 1
+          fi
+          CURRENT=$(grep -m1 'pumpkin-plugin-api' simplelang/Cargo.toml | grep -o 'tag = "[^"]*"' | cut -d'"' -f2 || true)
+          if [ -z "$CURRENT" ]; then
+            echo "::error::The pumpkin-plugin-api line in simplelang/Cargo.toml needs tag = \"...\" (not rev or a version)."
+            exit 1
+          fi
+          echo "pinned: $CURRENT   latest: $LATEST"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" = "$LATEST" ]; then
+            echo "update=false" >> "$GITHUB_OUTPUT"
+            echo "Already up to date."
+          else
+            echo "update=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install Rust
+        if: steps.check.outputs.update == 'true'
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip2
+
+      - name: Point both plugins at the new release and build
+        if: steps.check.outputs.update == 'true'
+        id: build
+        env:
+          LATEST: ${{ steps.check.outputs.latest }}
+        run: |
+          set -uo pipefail   # no -e on purpose: a failed build is a result to report, not a crash
+          sed -i "/pumpkin-plugin-api/ s|tag = \"[^\"]*\"|tag = \"$LATEST\"|" simplelang/Cargo.toml simplelang-example/Cargo.toml
+          ok=true
+          for crate in simplelang simplelang-example; do
+            echo "::group::Build $crate"
+            ( cd "$crate" && cargo update -p pumpkin-plugin-api && cargo build --release ) || ok=false
+            echo "::endgroup::"
+          done
+          echo "ok=$ok" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the pull request
+        if: steps.check.outputs.update == 'true'
+        env:
+          LATEST: ${{ steps.check.outputs.latest }}
+          CURRENT: ${{ steps.check.outputs.current }}
+          BUILD_OK: ${{ steps.build.outputs.ok }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add -u   # only files that are already tracked: both Cargo.toml files, and Cargo.lock if you commit it
+          git commit -m "Update Pumpkin API to $LATEST"
+          git push --force origin "$BRANCH"
+
+          URL="https://github.com/Pumpkin-MC/Pumpkin/releases/tag/${LATEST//+/%2B}"
+          if [ "$BUILD_OK" = "true" ]; then
+            STATUS="✅ Both plugins build against this release."
+          else
+            STATUS="❌ A build failed, so this is a draft. Pumpkin's API changed in a way the code doesn't handle yet. See the log of the workflow run, fix the errors on this branch, then mark the PR ready."
+          fi
+          BODY="Pumpkin published [$LATEST]($URL) (the plugins were pinned to \`$CURRENT\`).
+
+          $STATUS
+
+          This updates \`pumpkin-plugin-api\` in both \`Cargo.toml\` files. After merging:
+          - bump \`version\` in both \`Cargo.toml\` files and tag a release (\`release.yml\` builds it)
+          - update the supported Pumpkin version in the README and on the Market listing
+
+          _Opened by the \`Track Pumpkin releases\` workflow._"
+
+          BASE=$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh pr edit "$EXISTING" --title "Update Pumpkin API to $LATEST" --body "$BODY"
+            if [ "$BUILD_OK" = "true" ]; then gh pr ready "$EXISTING" || true; else gh pr ready "$EXISTING" --undo || true; fi
+          elif [ "$BUILD_OK" = "true" ]; then
+            gh pr create --base "$BASE" --head "$BRANCH" --title "Update Pumpkin API to $LATEST" --body "$BODY"
+          else
+            gh pr create --draft --base "$BASE" --head "$BRANCH" --title "Update Pumpkin API to $LATEST" --body "$BODY"
+          fi
