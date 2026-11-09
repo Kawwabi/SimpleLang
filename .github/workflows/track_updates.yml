@@ -4,7 +4,8 @@ name: Track Pumpkin releases
 # release means rebuilding. This workflow does the boring part:
 #
 #   1. every few hours it asks GitHub for Pumpkin's latest (non-nightly) release
-#   2. if it's newer than the tag in Cargo.toml, it points both plugins at it and builds them
+#   2. if it's newer than the tag in Cargo.toml, it points both plugins at it, bumps each
+#      plugin's patch version (0.1.3 -> 0.1.4) and builds them
 #   3. it opens (or updates) one pull request: ready to merge if both build, a draft if not
 #
 # I review the PR, merge it, then tag a release (see release.yml).
@@ -65,7 +66,7 @@ jobs:
         with:
           targets: wasm32-wasip2
 
-      - name: Point both plugins at the new release and build
+      - name: Point both plugins at the new release, bump versions and build
         if: steps.check.outputs.update == 'true'
         id: build
         env:
@@ -74,6 +75,21 @@ jobs:
           set -uo pipefail   # no -e on purpose: a failed build is a result to report, not a crash
           sed -i "/pumpkin-plugin-api/ s|tag = \"[^\"]*\"|tag = \"$LATEST\"|" simplelang/Cargo.toml simplelang-example/Cargo.toml
           ok=true
+          versions=""
+          for crate in simplelang simplelang-example; do
+            f="$crate/Cargo.toml"
+            # the first top-level `version = "..."` line is the package version
+            OLD_V=$(grep -m1 -E '^version[[:space:]]*=' "$f" | cut -d'"' -f2)
+            if ! [[ "$OLD_V" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+              echo "::error::Could not read a x.y.z package version from $f (got: '$OLD_V')"
+              exit 1
+            fi
+            NEW_V="${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.$((BASH_REMATCH[3] + 1))"
+            sed -i -E "0,/^version[[:space:]]*=[[:space:]]*\"[^\"]*\"/s//version = \"$NEW_V\"/" "$f"
+            echo "$crate: $OLD_V -> $NEW_V"
+            versions="$versions\`$crate\` $OLD_V → $NEW_V, "
+          done
+          echo "versions=${versions%, }" >> "$GITHUB_OUTPUT"
           for crate in simplelang simplelang-example; do
             echo "::group::Build $crate"
             ( cd "$crate" && cargo update -p pumpkin-plugin-api && cargo build --release ) || ok=false
@@ -87,13 +103,14 @@ jobs:
           LATEST: ${{ steps.check.outputs.latest }}
           CURRENT: ${{ steps.check.outputs.current }}
           BUILD_OK: ${{ steps.build.outputs.ok }}
+          VERSIONS: ${{ steps.build.outputs.versions }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
           git add -u   # only files that are already tracked: both Cargo.toml files, and Cargo.lock if you commit it
-          git commit -m "Update Pumpkin API to $LATEST"
+          git commit -m "Update Pumpkin API to $LATEST and bump plugin versions"
           git push --force origin "$BRANCH"
 
           URL="https://github.com/Pumpkin-MC/Pumpkin/releases/tag/${LATEST//+/%2B}"
@@ -106,8 +123,10 @@ jobs:
 
           $STATUS
 
-          This updates \`pumpkin-plugin-api\` in both \`Cargo.toml\` files. After merging:
-          - bump \`version\` in both \`Cargo.toml\` files and tag a release (\`release.yml\` builds it)
+          This updates \`pumpkin-plugin-api\` in both \`Cargo.toml\` files and bumps the plugin versions: $VERSIONS.
+
+          After merging:
+          - tag a release (\`release.yml\` builds it)
           - update the supported Pumpkin version in the README and on the Market listing
 
           _Opened by the \`Track Pumpkin releases\` workflow._"
